@@ -229,6 +229,52 @@ def generate_next_image_id():
         return f'img_{image_counter:06d}'
 
 
+def build_workflow(model_name, prompt, negative, steps, cfg, width, height, filename, base_quality):
+    models_config = {
+        'juggernaut-xl': {
+            'checkpoint': 'Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors',
+            'prompt_template': '{base_quality}, {prompt}',
+            'anime_tags': '',
+        },
+        'anima': {
+            'unet': 'anima-base-v1.0.safetensors',
+            'clip': 'qwen_3_06b_base.safetensors',
+            'clip_type': 'qwen_image',
+            'vae': 'qwen_image_vae.safetensors',
+            'prompt_template': 'masterpiece, best quality, score_7, safe, {prompt}',
+            'anime_tags': ', year 2025, newest, highres, anime screenshot, official art',
+        },
+    }
+    model_key = 'anima' if model_name.lower() == 'anima' else 'juggernaut-xl'
+    mcfg = models_config[model_key]
+
+    full_prompt = mcfg['prompt_template'].format(base_quality=base_quality, prompt=prompt) + mcfg.get('anime_tags', '')
+
+    if model_key == 'anima':
+        return {
+            "1": {"class_type": "CLIPLoader", "inputs": {"clip_name": mcfg['clip'], "type": mcfg['clip_type']}},
+            "2": {"class_type": "CLIPTextEncode", "inputs": {"text": full_prompt[:1500], "clip": ["1", 0]}},
+            "3": {"class_type": "CLIPTextEncode", "inputs": {"text": negative[:1500], "clip": ["1", 0]}},
+            "4": {"class_type": "UNETLoader", "inputs": {"unet_name": mcfg['unet'], "weight_dtype": "default"}},
+            "5": {"class_type": "ModelSamplingAuraFlow", "inputs": {"model": ["4", 0], "shift": 4.0}},
+            "6": {"class_type": "VAELoader", "inputs": {"vae_name": mcfg['vae']}},
+            "7": {"class_type": "EmptyLatentImage", "inputs": {"width": width, "height": height, "batch_size": 1}},
+            "8": {"class_type": "KSampler", "inputs": {"seed": int(time.time() * 1000) % 2**32, "steps": steps, "cfg": cfg, "sampler_name": "euler", "scheduler": "normal", "denoise": 1, "model": ["5", 0], "positive": ["2", 0], "negative": ["3", 0], "latent_image": ["7", 0]}},
+            "9": {"class_type": "VAEDecode", "inputs": {"samples": ["8", 0], "vae": ["6", 0]}},
+            "10": {"class_type": "SaveImage", "inputs": {"filename_prefix": f'reverend_insanity/{filename.replace(".png","")}', "images": ["9", 0]}},
+        }
+    else:
+        return {
+            "3": {"class_type": "KSampler", "inputs": {"seed": int(time.time() * 1000) % 2**32, "steps": steps, "cfg": cfg, "sampler_name": "dpmpp_2m", "scheduler": "karras", "denoise": 1, "model": ["4", 0], "positive": ["6", 0], "negative": ["7", 0], "latent_image": ["5", 0]}},
+            "4": {"class_type": "CheckpointLoaderSimple", "inputs": {"ckpt_name": mcfg['checkpoint']}},
+            "5": {"class_type": "EmptyLatentImage", "inputs": {"width": width, "height": height, "batch_size": 1}},
+            "6": {"class_type": "CLIPTextEncode", "inputs": {"text": full_prompt[:1500], "clip": ["4", 1]}},
+            "7": {"class_type": "CLIPTextEncode", "inputs": {"text": negative[:1500], "clip": ["4", 1]}},
+            "8": {"class_type": "VAEDecode", "inputs": {"samples": ["3", 0], "vae": ["4", 2]}},
+            "9": {"class_type": "SaveImage", "inputs": {"filename_prefix": f'reverend_insanity/{filename.replace(".png","")}', "images": ["8", 0]}},
+        }
+
+
 @app.route('/api/generate', methods=['POST'])
 def api_generate():
     prompt = request.json.get('prompt', '').strip()
@@ -239,33 +285,23 @@ def api_generate():
     height = request.json.get('height', 832)
     chapter = request.json.get('chapter', 1)
     scene = request.json.get('scene', 1)
+    model = request.json.get('model', 'juggernaut-xl')
 
     if not prompt:
         return jsonify({'error': 'Prompt is required'}), 400
 
     config = load_config()
     comfyui_url = config.get('comfyui', {}).get('url', 'http://127.0.0.1:8188')
-    checkpoint = config.get('models', {}).get('checkpoint', 'Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors')
     neg_prompt = config.get('prompts', {}).get('negative_prompt',
         'blurry, low quality, bad anatomy, distorted face, extra limbs, watermark, text, signature, deformed, ugly, poorly drawn, out of frame')
-
     base_quality = config.get('prompts', {}).get('base_quality',
         'masterpiece, best quality, highly detailed, cinematic lighting, 8k')
-    full_prompt = f'{base_quality}, {prompt}'
-    negative = negative or neg_prompt
 
+    negative = negative or neg_prompt
     img_id = generate_next_image_id()
     filename = f'ch{chapter:04d}_sc{scene:04d}_{img_id}.png'
 
-    workflow = {
-        "3": {"class_type": "KSampler", "inputs": {"seed": int(time.time() * 1000) % 2**32, "steps": steps, "cfg": cfg, "sampler_name": "dpmpp_2m", "scheduler": "karras", "denoise": 1, "model": ["4", 0], "positive": ["6", 0], "negative": ["7", 0], "latent_image": ["5", 0]}},
-        "4": {"class_type": "CheckpointLoaderSimple", "inputs": {"ckpt_name": checkpoint}},
-        "5": {"class_type": "EmptyLatentImage", "inputs": {"width": width, "height": height, "batch_size": 1}},
-        "6": {"class_type": "CLIPTextEncode", "inputs": {"text": full_prompt[:1500], "clip": ["4", 1]}},
-        "7": {"class_type": "CLIPTextEncode", "inputs": {"text": negative[:1500], "clip": ["4", 1]}},
-        "8": {"class_type": "VAEDecode", "inputs": {"samples": ["3", 0], "vae": ["4", 2]}},
-        "9": {"class_type": "SaveImage", "inputs": {"filename_prefix": f'reverend_insanity/{filename.replace(".png","")}', "images": ["8", 0]}},
-    }
+    workflow = build_workflow(model, prompt, negative, steps, cfg, width, height, filename, base_quality)
 
     task_id = uuid.uuid4().hex[:8]
     tasks[task_id] = {'status': 'queued', 'result': None, 'error': None}
@@ -292,6 +328,12 @@ def api_generate():
                         for node_id, node_out in outputs.items():
                             for img_data in node_out.get('images', []):
                                 img_path = f'/output/{img_data.get("subfolder", "")}/{img_data.get("filename", "")}'
+                                src_path = COMFYUI_OUTPUT / img_data.get("subfolder", "") / img_data.get("filename", "")
+                                dst_name = f'{img_data.get("subfolder", "")}/{filename}'
+                                dst_path = COMFYUI_OUTPUT / dst_name
+                                if src_path.exists() and not dst_path.exists():
+                                    src_path.rename(dst_path)
+                                    img_path = f'/output/{dst_name}'
                                 images.append(img_path)
                         if images:
                             tasks[task_id]['status'] = 'completed'
@@ -324,6 +366,12 @@ def api_task(task_id):
     })
 
 
+AVAILABLE_MODELS = [
+    {'id': 'juggernaut-xl', 'name': 'Juggernaut XL v9 (Photorealistic)', 'type': 'sdxl'},
+    {'id': 'anima', 'name': 'Anima 2B (Anime/Illustration)', 'type': 'diffusion'},
+]
+
+
 @app.route('/api/config', methods=['GET', 'POST'])
 def api_config():
     config = load_config()
@@ -343,12 +391,15 @@ def api_config():
             config['prompts']['base_quality'] = data['base_quality']
         if 'negative_prompt' in data:
             config['prompts']['negative_prompt'] = data['negative_prompt']
+        if 'model' in data:
+            config['models']['active'] = data['model']
         save_config(config)
         return jsonify({'status': 'saved'})
 
     ollama_cfg = config.get('ollama', {})
     gen = config.get('generation', {})
     prompts = config.get('prompts', {})
+    models_config = config.get('models', {})
     return jsonify({
         'comfyui_url': config.get('comfyui', {}).get('url', ''),
         'ollama_enabled': ollama_cfg.get('enabled', False),
@@ -359,6 +410,8 @@ def api_config():
         'base_quality': prompts.get('base_quality', 'masterpiece, best quality, highly detailed, cinematic lighting, 8k'),
         'negative_prompt': prompts.get('negative_prompt',
             'blurry, low quality, bad anatomy, distorted face, extra limbs, watermark, text'),
+        'model': models_config.get('active', 'juggernaut-xl'),
+        'available_models': AVAILABLE_MODELS,
     })
 
 
@@ -375,22 +428,42 @@ def api_list_models():
     return jsonify({'models': []})
 
 
+COMFYUI_OUTPUT = PROJECT_ROOT / 'ComfyUI' / 'output'
+
+
 @app.route('/output/<path:filename>')
 def serve_output(filename):
-    return send_from_directory(str(OUTPUT_DIR), filename)
+    path = OUTPUT_DIR / filename
+    if path.exists():
+        return send_from_directory(str(OUTPUT_DIR), filename)
+    fallback = COMFYUI_OUTPUT / filename
+    if fallback.exists():
+        return send_from_directory(str(COMFYUI_OUTPUT), filename)
+    return '', 404
 
 
 @app.route('/api/gallery')
 def api_gallery():
-    ri_dir = OUTPUT_DIR / 'reverend_insanity'
     images = []
+
+    ri_dir = OUTPUT_DIR / 'reverend_insanity'
     if ri_dir.exists():
         for png in sorted(ri_dir.glob('*.png')):
             images.append(f'/output/reverend_insanity/{png.name}')
-    else:
-        for png in sorted(OUTPUT_DIR.glob('**/*.png')):
-            rel = png.relative_to(OUTPUT_DIR)
-            images.append(f'/output/{rel}')
+
+    comfy_ri = COMFYUI_OUTPUT / 'reverend_insanity'
+    if comfy_ri.exists():
+        for png in sorted(comfy_ri.glob('*.png')):
+            rel = f'/output/reverend_insanity/{png.name}'
+            if rel not in images:
+                images.append(rel)
+
+    for png in sorted(OUTPUT_DIR.glob('**/*.png')):
+        rel = str(png.relative_to(OUTPUT_DIR))
+        url = f'/output/{rel}'
+        if url not in images:
+            images.append(url)
+
     return jsonify({'images': images})
 
 

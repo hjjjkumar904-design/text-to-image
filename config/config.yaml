@@ -10,6 +10,7 @@ comfyui:
   startup_flags: "--listen --port 8188"
 
 models:
+  active: "juggernaut-xl"
   checkpoint: "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
   checkpoint_path: "ComfyUI/models/checkpoints/Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
   ipadapter: "ip-adapter-faceid-plusv2_sdxl.bin"

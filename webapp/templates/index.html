@@ -471,6 +471,10 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 <option value="ink wash">Ink Wash Painting</option>
 </select>
 </div>
+<div>
+<label>Model</label>
+<select id="modelSetting"></select>
+</div>
 </div>
 <button class="mt-16" onclick="saveSettings()">Save Settings</button>
 </div>
@@ -748,15 +752,16 @@ const cfg = parseFloat(document.getElementById('genCfg').value) || 7.0;
 const container = document.getElementById(`sceneResult_${index}`);
 container.innerHTML = '<div class="task-status queued">Queued...</div>';
 try {
-const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
-prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
-chapter: s.chapterNum || 1, scene: index + 1
-})});
-const data = await r.json();
-if (data.task_id) {
-container.innerHTML = `<div class="task-status running" id="taskStatus_${data.task_id}">Generating...</div>`;
-pollTask(data.task_id, index, container);
-}
+	const model = document.getElementById('modelSetting').value || 'juggernaut-xl';
+	const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
+		prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
+		chapter: s.chapterNum || 1, scene: index + 1, model
+	})});
+	const data = await r.json();
+	if (data.task_id) {
+		container.innerHTML = `<div class="task-status running" id="taskStatus_${data.task_id}">Generating...</div>`;
+		pollTask(data.task_id, index, container);
+	}
 } catch(e) {
 container.innerHTML = `<div class="task-status failed">${e.message}</div>`;
 }
@@ -801,10 +806,11 @@ div.className = 'task-status queued';
 div.textContent = `Scene ${i + 1}: Queued...`;
 statusContainer.appendChild(div);
 try {
-const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
-prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
-chapter: s.chapterNum || 1, scene: i + 1
-})});
+		const model = document.getElementById('modelSetting').value || 'juggernaut-xl';
+		const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
+			prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
+			chapter: s.chapterNum || 1, scene: i + 1, model
+		})});
 const d = await r.json();
 if (d.task_id) {
 div.textContent = `Scene ${i + 1}: Generating...`;
@@ -878,41 +884,46 @@ return `<div class="gallery-item"><a href="${url}" target="_blank"><img src="${u
 }
 
 async function loadSettings() {
-try {
-const r = await fetch('/api/config');
-const d = await r.json();
-document.getElementById('genSteps').value = d.steps || 25;
-document.getElementById('genCfg').value = d.cfg || 7.0;
-document.getElementById('ollamaEnabled').value = d.ollama_enabled ? 'true' : 'false';
-document.getElementById('baseQuality').value = d.base_quality || '';
-document.getElementById('genNegative').value = d.negative_prompt || '';
-document.getElementById('styleSetting').value = d.style || 'cinematic fantasy';
-loadModels();
-} catch(e) {}
+	try {
+		const r = await fetch('/api/config');
+		const d = await r.json();
+		document.getElementById('genSteps').value = d.steps || 25;
+		document.getElementById('genCfg').value = d.cfg || 7.0;
+		document.getElementById('ollamaEnabled').value = d.ollama_enabled ? 'true' : 'false';
+		document.getElementById('baseQuality').value = d.base_quality || '';
+		document.getElementById('genNegative').value = d.negative_prompt || '';
+		document.getElementById('styleSetting').value = d.style || 'cinematic fantasy';
+		const modelSel = document.getElementById('modelSetting');
+		if (d.available_models) {
+			modelSel.innerHTML = d.available_models.map(m => `<option value="${m.id}" ${m.id === d.model ? 'selected' : ''}>${m.name}</option>`).join('');
+		}
+		loadModels();
+	} catch(e) {}
 }
 
 async function loadModels() {
-try {
-const r = await fetch('/api/list-models');
-const d = await r.json();
-const sel = document.getElementById('ollamaModel');
-sel.innerHTML = d.models.map(m => `<option value="${m}">${m}</option>`).join('');
-} catch(e) {}
+	try {
+		const r = await fetch('/api/list-models');
+		const d = await r.json();
+		const sel = document.getElementById('ollamaModel');
+		sel.innerHTML = d.models.map(m => `<option value="${m}">${m}</option>`).join('');
+	} catch(e) {}
 }
 
 async function saveSettings() {
-try {
-await fetch('/api/config', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
-ollama_enabled: document.getElementById('ollamaEnabled').value === 'true',
-ollama_model: document.getElementById('ollamaModel').value,
-steps: parseInt(document.getElementById('genSteps').value),
-cfg: parseFloat(document.getElementById('genCfg').value),
-style: document.getElementById('styleSetting').value,
-base_quality: document.getElementById('baseQuality').value,
-negative_prompt: document.getElementById('genNegative').value,
-})});
-alert('Settings saved');
-} catch(e) { alert('Error: '+e.message); }
+	try {
+		await fetch('/api/config', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
+			ollama_enabled: document.getElementById('ollamaEnabled').value === 'true',
+			ollama_model: document.getElementById('ollamaModel').value,
+			steps: parseInt(document.getElementById('genSteps').value),
+			cfg: parseFloat(document.getElementById('genCfg').value),
+			style: document.getElementById('styleSetting').value,
+			base_quality: document.getElementById('baseQuality').value,
+			negative_prompt: document.getElementById('genNegative').value,
+			model: document.getElementById('modelSetting').value,
+		})});
+		alert('Settings saved');
+	} catch(e) { alert('Error: '+e.message); }
 }
 
 setInterval(checkSetup, 5000);
