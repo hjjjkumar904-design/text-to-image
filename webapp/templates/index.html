@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Story-to-Image Pipeline</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f1a; color: #e0e0e0; min-height: 100vh; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+header { background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 20px; border-radius: 12px; margin-bottom: 24px; text-align: center; }
+header h1 { font-size: 28px; color: #e94560; margin-bottom: 4px; }
+header p { color: #888; font-size: 14px; }
+.setup-bar { display: flex; gap: 16px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+.setup-item { padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+.setup-item.ok { background: #1a4a2e; color: #4ade80; }
+.setup-item.pending { background: #3a3a1a; color: #facc15; }
+.setup-item.fail { background: #4a1a1a; color: #f87171; }
+.card { background: #1a1a2e; border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid #2a2a4a; }
+.card h2 { font-size: 18px; margin-bottom: 16px; color: #e94560; }
+label { display: block; font-size: 14px; color: #aaa; margin-bottom: 6px; }
+input, select, textarea { width: 100%; padding: 10px 14px; background: #16213e; border: 1px solid #2a2a4a; border-radius: 8px; color: #e0e0e0; font-size: 14px; transition: border 0.2s; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: #e94560; }
+textarea { font-family: inherit; resize: vertical; min-height: 100px; }
+button { padding: 10px 24px; background: #e94560; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+button:hover { background: #d63851; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-secondary { background: #2a2a4a; }
+.btn-secondary:hover { background: #3a3a5a; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.chapter-list { max-height: 300px; overflow-y: auto; border: 1px solid #2a2a4a; border-radius: 8px; }
+.chapter-item { padding: 10px 14px; border-bottom: 1px solid #2a2a4a; cursor: pointer; transition: background 0.2s; font-size: 14px; }
+.chapter-item:hover { background: #2a2a4a; }
+.chapter-item.selected { background: #e94560; color: #fff; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.gallery img { width: 100%; border-radius: 8px; border: 1px solid #2a2a4a; }
+.task-status { padding: 12px; border-radius: 8px; margin: 8px 0; font-size: 14px; }
+.task-status.queued { background: #3a3a1a; color: #facc15; }
+.task-status.running { background: #1a3a4a; color: #60a5fa; }
+.task-status.completed { background: #1a4a2e; color: #4ade80; }
+.task-status.failed { background: #4a1a1a; color: #f87171; }
+.hidden { display: none; }
+.flex { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.gap-8 { gap: 8px; }
+.tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+.tab { padding: 8px 20px; border-radius: 8px 8px 0 0; background: #2a2a4a; cursor: pointer; font-size: 14px; color: #888; }
+.tab.active { background: #e94560; color: #fff; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+@media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+.param-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>Story to Image Generator</h1>
+<p>Scrape webnovels, enhance prompts with AI, generate cinematic images</p>
+<div class="setup-bar" id="setupBar">
+<div class="setup-item pending" id="setupComfyUI">ComfyUI</div>
+<div class="setup-item pending" id="setupOllama">Ollama</div>
+</div>
+</header>
+
+<div class="tabs">
+<div class="tab active" onclick="switchTab('source')">Source</div>
+<div class="tab" onclick="switchTab('prompts')">Prompts</div>
+<div class="tab" onclick="switchTab('gallery')">Gallery</div>
+<div class="tab" onclick="switchTab('settings')">Settings</div>
+</div>
+
+<div id="tab-source" class="tab-content active">
+<div class="card">
+<h2>Import from Webnovel</h2>
+<label>Story URL</label>
+<div class="flex">
+<input type="url" id="storyUrl" placeholder="https://royalroad.com/story/... or https://scribblehub.com/series/...">
+<button onclick="scrapeStory()" id="scrapeBtn">Fetch</button>
+</div>
+<div id="storyResult" class="hidden mt-16">
+<h3 id="storyTitle" style="margin-bottom:8px;color:#e94560;"></h3>
+<label>Select Chapters</label>
+<div class="chapter-list" id="chapterList"></div>
+<div class="flex mt-8">
+<button onclick="loadSelectedChapters()" id="loadChaptersBtn">Load Selected</button>
+<button class="btn-secondary" onclick="document.getElementById('chapterList').querySelectorAll('.chapter-item').forEach(c=>c.classList.add('selected'))">Select All</button>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Or Paste Text</h2>
+<textarea id="manualText" placeholder="Paste story text directly here... Each scene can be separated by --- or Scene headers"></textarea>
+<button class="mt-8" onclick="useManualText()">Use This Text</button>
+</div>
+</div>
+
+<div id="tab-prompts" class="tab-content">
+<div class="card">
+<div class="flex" style="justify-content:space-between">
+<h2>Scene Editor</h2>
+<button onclick="enrichWithOllama()" id="enrichBtn">Enhance with AI</button>
+</div>
+<p style="color:#888;font-size:13px;margin-bottom:12px">Edit each scene's prompt before generating</p>
+<div id="sceneList"></div>
+</div>
+
+<div class="card">
+<div class="flex" style="justify-content:space-between;align-items:center">
+<h2>Generation Settings</h2>
+<button onclick="generateAll()" id="genBtn">Generate All Scenes</button>
+</div>
+<div class="param-row" style="margin-top:12px">
+<div>
+<label>Steps</label>
+<input type="number" id="genSteps" value="30" min="1" max="100">
+</div>
+<div>
+<label>CFG Scale</label>
+<input type="number" id="genCfg" value="7.5" min="1" max="30" step="0.5">
+</div>
+<div>
+<label>Resolution</label>
+<select id="genResolution">
+<option value="1216x832">Landscape (1216x832)</option>
+<option value="832x1216">Portrait (832x1216)</option>
+<option value="1024x1024">Square (1024x1024)</option>
+<option value="1344x768">Wide (1344x768)</option>
+</select>
+</div>
+</div>
+</div>
+
+<div id="generationStatus"></div>
+</div>
+
+<div id="tab-gallery" class="tab-content">
+<div class="card">
+<h2>Generated Images</h2>
+<div class="gallery" id="imageGallery">
+<p style="color:#666;grid-column:1/-1;text-align:center;padding:40px">No images generated yet</p>
+</div>
+</div>
+</div>
+
+<div id="tab-settings" class="tab-content">
+<div class="card">
+<h2>Configuration</h2>
+<div class="grid-2">
+<div>
+<label>Ollama Model</label>
+<select id="ollamaModel"></select>
+</div>
+<div>
+<label>Ollama Enabled</label>
+<select id="ollamaEnabled">
+<option value="true">Enabled</option>
+<option value="false">Disabled</option>
+</select>
+</div>
+</div>
+<button class="mt-16" onclick="saveSettings()">Save Settings</button>
+</div>
+</div>
+</div>
+
+<script>
+let currentScenes = [];
+let tasks = {};
+
+function switchTab(name) {
+document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
+document.getElementById(`tab-${name}`).classList.add('active');
+}
+
+async function checkSetup() {
+try {
+const r = await fetch('/api/status');
+const data = await r.json();
+const comfy = document.getElementById('setupComfyUI');
+const ollama = document.getElementById('setupOllama');
+comfy.textContent = 'ComfyUI: ' + (data.comfyui ? 'OK' : 'Pending');
+comfy.className = 'setup-item ' + (data.comfyui ? 'ok' : 'pending');
+ollama.textContent = 'Ollama: ' + (data.ollama ? 'OK' : 'Pending');
+ollama.className = 'setup-item ' + (data.ollama ? 'ok' : 'pending');
+} catch(e) {}
+}
+
+async function scrapeStory() {
+const url = document.getElementById('storyUrl').value.trim();
+if (!url) return alert('Enter a URL');
+const btn = document.getElementById('scrapeBtn');
+btn.disabled = true;
+btn.textContent = 'Fetching...';
+try {
+const r = await fetch('/api/scrape', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url})});
+const data = await r.json();
+if (data.error) return alert(data.error);
+document.getElementById('storyTitle').textContent = data.title || 'Unknown';
+const list = document.getElementById('chapterList');
+list.innerHTML = data.chapters.map((c,i) => `<div class="chapter-item" onclick="this.classList.toggle('selected')">${c.title}</div>`).join('');
+document.getElementById('storyResult').classList.remove('hidden');
+window._chapters = data.chapters;
+} catch(e) { alert('Error: '+e.message); }
+btn.disabled = false;
+btn.textContent = 'Fetch';
+}
+
+async function loadSelectedChapters() {
+const chapters = window._chapters || [];
+const items = document.querySelectorAll('#chapterList .chapter-item');
+const selected = [];
+items.forEach((item, i) => { if (item.classList.contains('selected')) selected.push(chapters[i]); });
+if (!selected.length) return alert('Select at least one chapter');
+const btn = document.getElementById('loadChaptersBtn');
+btn.disabled = true;
+btn.textContent = `Loading ${selected.length} chapters...`;
+const allText = [];
+for (let i = 0; i < selected.length; i++) {
+try {
+const r = await fetch('/api/fetch-chapter', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url: selected[i].url})});
+const data = await r.json();
+if (!data.error) {
+allText.push(`\n\nScene ${i+1}: ${selected[i].title}\n\n${data.text}`);
+}
+} catch(e) {}
+btn.textContent = `Loading ${i+1}/${selected.length}...`;
+}
+btn.disabled = false;
+btn.textContent = 'Load Selected';
+document.getElementById('manualText').value = allText.join('\n---\n');
+useManualText();
+}
+
+function useManualText() {
+const text = document.getElementById('manualText').value.trim();
+if (!text) return alert('Enter some text');
+const scenes = text.split(/^(?:Scene\s+\d+|Chapter\s+\d+)/mi).filter(s => s.trim());
+if (scenes.length < 2) {
+const parts = text.split(/\n\s*---+\s*\n|\n\s*\*+\s*\n/);
+if (parts.length > 1) scenes.length = 0, parts.forEach(p => { if(p.trim()) scenes.push(p.trim()); });
+}
+if (scenes.length < 2) scenes.length = 0, scenes.push(text);
+currentScenes = scenes.map((s, i) => ({
+id: i + 1,
+title: `Scene ${i + 1}`,
+text: s.trim().substring(0, 2000),
+prompt: '',
+negative: 'blurry, low quality, bad anatomy, distorted face, extra limbs, watermark, text, signature, deformed, ugly, poorly drawn, out of frame'
+}));
+buildSceneEditor();
+switchTab('prompts');
+}
+
+function buildSceneEditor() {
+const list = document.getElementById('sceneList');
+list.innerHTML = currentScenes.map((s, i) => `
+<div class="card" style="margin-bottom:12px;padding:16px">
+<div class="flex" style="justify-content:space-between">
+<h3 style="font-size:15px;color:#e94560">${s.title}</h3>
+<button class="btn-secondary" style="padding:4px 12px;font-size:12px" onclick="enrichScene(${i})">Enhance</button>
+</div>
+<p style="color:#888;font-size:12px;margin:8px 0">${s.text.substring(0, 200)}...</p>
+<label style="font-size:12px">SDXL Prompt</label>
+<textarea style="min-height:60px;font-size:13px" id="prompt_${i}">${s.prompt || s.text.substring(0, 500)}</textarea>
+<label style="font-size:12px;margin-top:8px">Negative Prompt</label>
+<input style="font-size:13px" id="neg_${i}" value="${s.negative}">
+</div>`).join('');
+}
+
+async function enrichScene(index) {
+const btn = event.target;
+btn.disabled = true;
+btn.textContent = 'Enhancing...';
+try {
+const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text: currentScenes[index].text})});
+const data = await r.json();
+if (!data.error) {
+document.getElementById(`prompt_${index}`).value = data.enriched;
+}
+} catch(e) {}
+btn.disabled = false;
+btn.textContent = 'Enhance';
+}
+
+async function enrichWithOllama() {
+const btn = document.getElementById('enrichBtn');
+btn.disabled = true;
+btn.textContent = 'Enhancing all...';
+for (let i = 0; i < currentScenes.length; i++) {
+try {
+const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text: currentScenes[i].text})});
+const data = await r.json();
+if (!data.error) document.getElementById(`prompt_${i}`).value = data.enriched;
+} catch(e) {}
+btn.textContent = `Enhancing ${i+1}/${currentScenes.length}...`;
+}
+btn.disabled = false;
+btn.textContent = 'Enhance with AI';
+}
+
+async function generateAll() {
+if (!currentScenes.length) return alert('No scenes to generate');
+const btn = document.getElementById('genBtn');
+btn.disabled = true;
+btn.textContent = 'Generating...';
+const steps = parseInt(document.getElementById('genSteps').value) || 30;
+const cfg = parseFloat(document.getElementById('genCfg').value) || 7.5;
+const res = document.getElementById('genResolution').value.split('x');
+const status = document.getElementById('generationStatus');
+status.innerHTML = '';
+for (let i = 0; i < currentScenes.length; i++) {
+const prompt = document.getElementById(`prompt_${i}`).value.trim();
+const negative = document.getElementById(`neg_${i}`).value.trim();
+const div = document.createElement('div');
+div.className = 'task-status queued';
+div.id = `task_${i}`;
+div.textContent = `${currentScenes[i].title}: Queued...`;
+status.appendChild(div);
+try {
+const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1])})});
+const data = await r.json();
+if (data.error) { div.className = 'task-status failed'; div.textContent = `${currentScenes[i].title}: ${data.error}`; continue; }
+div.textContent = `${currentScenes[i].title}: Queued (${data.task_id})`;
+pollTask(data.task_id, i, div);
+} catch(e) {
+div.className = 'task-status failed';
+div.textContent = `${currentScenes[i].title}: ${e.message}`;
+}
+}
+btn.disabled = false;
+btn.textContent = 'Generate All Scenes';
+}
+
+function pollTask(taskId, index, div) {
+const interval = setInterval(async () => {
+try {
+const r = await fetch(`/api/task/${taskId}`);
+const data = await r.json();
+if (data.status === 'completed') {
+div.className = 'task-status completed';
+const count = data.result ? data.result.length : 0;
+div.textContent = `${currentScenes[index].title}: Done (${count} image${count !== 1 ? 's' : ''})`;
+clearInterval(interval);
+refreshGallery();
+} else if (data.status === 'failed') {
+div.className = 'task-status failed';
+div.textContent = `${currentScenes[index].title}: Failed - ${data.error || 'unknown error'}`;
+clearInterval(interval);
+} else {
+div.textContent = `${currentScenes[index].title}: Generating...`;
+}
+} catch(e) {}
+}, 3000);
+}
+
+async function refreshGallery() {
+try {
+const r = await fetch('/api/config');
+const {output_dir} = await r.json();
+const gallery = document.getElementById('imageGallery');
+gallery.innerHTML = '<p style="color:#666;grid-column:1/-1;text-align:center;padding:20px">Refreshing...</p>';
+const taskIds = Object.keys(tasks);
+let allImages = [];
+for (const id of taskIds) {
+try {
+const tr = await fetch(`/api/task/${id}`);
+const td = await tr.json();
+if (td.result) allImages = allImages.concat(td.result);
+} catch(e) {}
+}
+gallery.innerHTML = allImages.length ? allImages.map(url => `<div><a href="${url}" target="_blank"><img src="${url}"></a></div>`).join('') : '<p style="color:#666;grid-column:1/-1;text-align:center;padding:40px">No images generated yet</p>';
+} catch(e) {}
+}
+
+async function loadModels() {
+try {
+const r = await fetch('/api/list-models');
+const data = await r.json();
+const sel = document.getElementById('ollamaModel');
+sel.innerHTML = data.models.map(m => `<option value="${m}">${m}</option>`).join('');
+} catch(e) {}
+}
+
+async function loadSettings() {
+try {
+const r = await fetch('/api/config');
+const data = await r.json();
+document.getElementById('genSteps').value = data.steps || 30;
+document.getElementById('genCfg').value = data.cfg || 7.5;
+document.getElementById('ollamaEnabled').value = data.ollama_enabled ? 'true' : 'false';
+loadModels();
+} catch(e) {}
+}
+
+async function saveSettings() {
+try {
+await fetch('/api/config', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
+ollama_enabled: document.getElementById('ollamaEnabled').value === 'true',
+ollama_model: document.getElementById('ollamaModel').value,
+})});
+alert('Settings saved');
+} catch(e) { alert('Error: '+e.message); }
+}
+
+setInterval(checkSetup, 5000);
+checkSetup();
+loadSettings();
+</script>
+</body>
+</html>

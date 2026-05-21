@@ -1,0 +1,8 @@
+{
+  "id": "john_doe",
+  "name": "John Doe",
+  "aliases": ["John", "Mr. Doe", "the tall man", "John's"],
+  "description": "tall man, scar on left cheek, leather armor, brown hair, stubble beard, muscular build",
+  "reference_images": [],
+  "tags": ["protagonist", "warrior"]
+}
