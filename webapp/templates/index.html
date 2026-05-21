@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Story-to-Image Pipeline</title>
+<title>Story to Image Generator</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -22,28 +22,15 @@ body::before {
   width: 200%;
   height: 200%;
   background: radial-gradient(ellipse at 20% 50%, rgba(233, 69, 96, 0.06) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 50%, rgba(96, 165, 250, 0.06) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 0%, rgba(233, 69, 96, 0.04) 0%, transparent 50%);
+              radial-gradient(ellipse at 80% 50%, rgba(96, 165, 250, 0.06) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
-.container { max-width: 1200px; margin: 0 auto; padding: 24px; position: relative; z-index: 1; }
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-.glass-hover:hover {
-  border-color: rgba(233, 69, 96, 0.25);
-  box-shadow: 0 8px 32px rgba(233, 69, 96, 0.08);
-}
+.container { max-width: 1400px; margin: 0 auto; padding: 24px; position: relative; z-index: 1; }
+
 header {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 20px;
   padding: 28px;
@@ -55,42 +42,45 @@ header {
 header::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.5), rgba(96, 165, 250, 0.5), transparent);
 }
 header h1 {
   font-size: 28px;
   background: linear-gradient(135deg, #e94560, #f59e0b, #e94560);
-  background-size: 200% 200%;
+  background-size: 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
   animation: shimmer 4s ease-in-out infinite;
-  margin-bottom: 4px;
   letter-spacing: -0.5px;
 }
 @keyframes shimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-header p { color: rgba(255,255,255,0.5); font-size: 14px; letter-spacing: 0.3px; }
+header p { color: rgba(255,255,255,0.5); font-size: 13px; }
 .setup-bar { display: flex; gap: 12px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
 .setup-item {
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.5px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
   border: 1px solid transparent;
 }
 .setup-item.ok { background: rgba(74, 222, 128, 0.1); color: #4ade80; border-color: rgba(74, 222, 128, 0.2); }
 .setup-item.pending { background: rgba(250, 204, 21, 0.1); color: #facc15; border-color: rgba(250, 204, 21, 0.2); }
 .setup-item.fail { background: rgba(248, 113, 113, 0.1); color: #f87171; border-color: rgba(248, 113, 113, 0.2); }
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
 .card {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   padding: 24px;
@@ -98,7 +88,7 @@ header p { color: rgba(255,255,255,0.5); font-size: 14px; letter-spacing: 0.3px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 .card h2 {
-  font-size: 16px;
+  font-size: 15px;
   color: #e94560;
   margin-bottom: 16px;
   letter-spacing: 0.3px;
@@ -106,7 +96,7 @@ header p { color: rgba(255,255,255,0.5); font-size: 14px; letter-spacing: 0.3px;
   align-items: center;
   gap: 8px;
 }
-label { display: block; font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 6px; letter-spacing: 0.3px; text-transform: uppercase; font-weight: 600; }
+label { display: block; font-size: 11px; color: rgba(255,255,255,0.5); margin-bottom: 6px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
 input, select, textarea {
   width: 100%;
   padding: 10px 14px;
@@ -123,7 +113,7 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
   background: rgba(255, 255, 255, 0.06);
 }
-textarea { font-family: inherit; resize: vertical; min-height: 100px; }
+textarea { font-family: inherit; resize: vertical; min-height: 80px; }
 button {
   padding: 10px 24px;
   background: linear-gradient(135deg, #e94560, #d63851);
@@ -135,25 +125,60 @@ button {
   cursor: pointer;
   transition: all 0.25s ease;
   letter-spacing: 0.3px;
-  position: relative;
-  overflow: hidden;
 }
 button:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 24px rgba(233, 69, 96, 0.25);
 }
-button:active { transform: translateY(0); }
 button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255,255,255,0.7);
-}
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 16px rgba(255,255,255,0.05);
-  color: #fff;
-}
+.btn-secondary { background: rgba(255, 255, 255, 0.06); color: rgba(255,255,255,0.7); }
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.1); color: #fff; box-shadow: none; }
+.btn-sm { padding: 6px 14px; font-size: 12px; }
+.btn-success { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.btn-success:hover { box-shadow: 0 8px 24px rgba(34, 197, 94, 0.25); }
+
+.flex { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.flex-1 { flex: 1; min-width: 0; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mb-8 { margin-bottom: 8px; }
+.hidden { display: none; }
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  overflow-x: auto;
+}
+.tab {
+  padding: 10px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.tab:hover { color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.03); }
+.tab.active {
+  background: rgba(233, 69, 96, 0.15);
+  color: #e94560;
+  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.1);
+}
+.tab-content { display: none; animation: fadeIn 0.3s ease; }
+.tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
 .chapter-list {
   max-height: 300px;
   overflow-y: auto;
@@ -165,81 +190,21 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 .chapter-list::-webkit-scrollbar-track { background: transparent; }
 .chapter-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
 .chapter-item {
-  padding: 10px 14px;
+  padding: 8px 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 14px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .chapter-item:last-child { border-bottom: none; }
-.chapter-item:hover { background: rgba(255, 255, 255, 0.05); }
-.chapter-item.selected { background: rgba(233, 69, 96, 0.15); color: #e94560; border-left: 3px solid #e94560; }
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-}
-.gallery > div {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.02);
-  transition: all 0.3s ease;
-}
-.gallery > div:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-  border-color: rgba(233, 69, 96, 0.2);
-}
-.gallery img { width: 100%; display: block; }
-.task-status {
-  padding: 12px 16px;
-  border-radius: 10px;
-  margin: 8px 0;
-  font-size: 13px;
-  font-weight: 500;
-  border: 1px solid transparent;
-}
-.task-status.queued { background: rgba(250, 204, 21, 0.08); color: #facc15; border-color: rgba(250, 204, 21, 0.1); }
-.task-status.running { background: rgba(96, 165, 250, 0.08); color: #60a5fa; border-color: rgba(96, 165, 250, 0.1); }
-.task-status.completed { background: rgba(74, 222, 128, 0.08); color: #4ade80; border-color: rgba(74, 222, 128, 0.1); }
-.task-status.failed { background: rgba(248, 113, 113, 0.08); color: #f87171; border-color: rgba(248, 113, 113, 0.1); }
-.hidden { display: none; }
-.flex { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-.mt-8 { margin-top: 8px; }
-.mt-16 { margin-top: 16px; }
-.gap-8 { gap: 8px; }
-.tabs {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  padding: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-}
-.tab {
-  padding: 10px 24px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.4);
-  transition: all 0.25s ease;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-}
-.tab:hover { color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.03); }
-.tab.active {
-  background: rgba(233, 69, 96, 0.15);
-  color: #e94560;
-  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.1);
-}
-.tab-content { display: none; animation: fadeIn 0.3s ease; }
-.tab-content.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-@media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
-.param-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.chapter-item .ch-num { color: #e94560; font-weight: 600; min-width: 28px; }
+.chapter-item .ch-title { color: rgba(255,255,255,0.7); }
+.chapter-item .ch-status { margin-left: auto; font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+.chapter-item .ch-status.done { background: rgba(74,222,128,0.1); color: #4ade80; }
+.chapter-item .ch-status.pending { background: rgba(250,204,21,0.1); color: #facc15; }
+.chapter-item .ch-status.generating { background: rgba(96,165,250,0.1); color: #60a5fa; }
+
 .scene-card {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -248,17 +213,100 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
   margin-bottom: 12px;
   transition: all 0.25s ease;
 }
-.scene-card:hover {
-  border-color: rgba(233, 69, 96, 0.15);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+.scene-card:hover { border-color: rgba(233, 69, 96, 0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+.scene-card .scene-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.scene-card .scene-title { font-size: 13px; color: #e94560; font-weight: 600; }
+.scene-card .scene-meta { font-size: 11px; color: rgba(255,255,255,0.3); }
+.scene-card .scene-text { font-size: 12px; color: rgba(255,255,255,0.4); margin: 8px 0; line-height: 1.5; max-height: 60px; overflow: hidden; }
+.scene-card .scene-image { margin-top: 12px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
+.scene-card .scene-image img { width: 100%; display: block; }
+.scene-card.has-image { border-color: rgba(74, 222, 128, 0.2); }
+
+.range-inputs { display: flex; gap: 8px; align-items: center; }
+.range-inputs input { width: 80px; text-align: center; }
+.range-inputs span { color: rgba(255,255,255,0.3); font-size: 14px; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
 }
+.gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+  position: relative;
+}
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  border-color: rgba(233, 69, 96, 0.2);
+}
+.gallery-item img { width: 100%; display: block; }
+.gallery-item .gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  font-size: 11px;
+  color: rgba(255,255,255,0.8);
+  pointer-events: none;
+}
+
+.task-status {
+  padding: 10px 16px;
+  border-radius: 10px;
+  margin: 6px 0;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+.task-status.queued { background: rgba(250, 204, 21, 0.08); color: #facc15; border-color: rgba(250, 204, 21, 0.1); }
+.task-status.running { background: rgba(96, 165, 250, 0.08); color: #60a5fa; border-color: rgba(96, 165, 250, 0.1); }
+.task-status.completed { background: rgba(74, 222, 128, 0.08); color: #4ade80; border-color: rgba(74, 222, 128, 0.1); }
+.task-status.failed { background: rgba(248, 113, 113, 0.08); color: #f87171; border-color: rgba(248, 113, 113, 0.1); }
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  cursor: pointer;
+}
+.toggle input { display: none; }
+.toggle .slider {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  transition: 0.3s;
+}
+.toggle .slider::before {
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.toggle input:checked + .slider { background: #e94560; }
+.toggle input:checked + .slider::before { transform: translateX(20px); }
+
+@media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <div class="container">
 <header>
 <h1>Story to Image Generator</h1>
-<p>Scrape webnovels, enhance prompts with AI, generate cinematic images</p>
+<p>Scrape webnovels, enhance prompts with AI, generate cinematic images scene by scene</p>
 <div class="setup-bar" id="setupBar">
 <div class="setup-item pending" id="setupComfyUI">ComfyUI</div>
 <div class="setup-item pending" id="setupOllama">Ollama</div>
@@ -267,71 +315,115 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 
 <div class="tabs">
 <div class="tab active" onclick="switchTab('source')">Source</div>
-<div class="tab" onclick="switchTab('prompts')">Prompts</div>
+<div class="tab" onclick="switchTab('editor')">Scenes</div>
+<div class="tab" onclick="switchTab('generation')">Generate</div>
 <div class="tab" onclick="switchTab('gallery')">Gallery</div>
 <div class="tab" onclick="switchTab('settings')">Settings</div>
 </div>
 
 <div id="tab-source" class="tab-content active">
 <div class="card">
-<h2>Import from Webnovel</h2>
+<h2>Import from WebNovel</h2>
+<div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end">
+<div>
 <label>Story URL</label>
-<div class="flex">
-<input type="url" id="storyUrl" placeholder="https://royalroad.com/story/... or https://scribblehub.com/series/...">
-<button onclick="scrapeStory()" id="scrapeBtn">Fetch</button>
+<input type="url" id="storyUrl" placeholder="https://www.webnovel.com/book/...">
+</div>
+<div style="display:flex;gap:8px;align-items:end">
+<div>
+<label>From Ch.</label>
+<input type="number" id="chStart" value="1" min="1" style="width:70px">
+</div>
+<div>
+<label>To Ch.</label>
+<input type="number" id="chEnd" value="10" min="1" style="width:70px">
+</div>
+<button onclick="scrapeStory()" id="scrapeBtn" style="white-space:nowrap">Fetch</button>
+</div>
 </div>
 <div id="storyResult" class="hidden mt-16">
-<h3 id="storyTitle" style="margin-bottom:8px;color:#e94560;"></h3>
-<label>Select Chapters</label>
-<div class="chapter-list" id="chapterList"></div>
+<div class="flex" style="justify-content:space-between">
+<h3 id="storyTitle" style="color:#e94560;font-size:16px"></h3>
+<span id="chapterCount" style="font-size:12px;color:rgba(255,255,255,0.3)"></span>
+</div>
+<div class="chapter-list mt-8" id="chapterList"></div>
 <div class="flex mt-8">
-<button onclick="loadSelectedChapters()" id="loadChaptersBtn">Load Selected</button>
-<button class="btn-secondary" onclick="document.getElementById('chapterList').querySelectorAll('.chapter-item').forEach(c=>c.classList.add('selected'))">Select All</button>
+<button onclick="loadAllChapters()" id="loadChaptersBtn" class="btn-success">Load All &amp; Start</button>
+<button class="btn-secondary" onclick="toggleAllChapters()">Toggle All</button>
 </div>
 </div>
 </div>
 
 <div class="card">
-<h2>Or Paste Text</h2>
-<textarea id="manualText" placeholder="Paste story text directly here... Each scene can be separated by --- or Scene headers"></textarea>
-<button class="mt-8" onclick="useManualText()">Use This Text</button>
+<h2>Or Paste Manually</h2>
+<textarea id="manualText" placeholder="Paste story text... Use --- to separate scenes, or type chapter text directly"></textarea>
+<button class="mt-8 btn-success" onclick="useManualText()">Use This Text</button>
 </div>
 </div>
 
-<div id="tab-prompts" class="tab-content">
+<div id="tab-editor" class="tab-content">
 <div class="card">
 <div class="flex" style="justify-content:space-between">
 <h2>Scene Editor</h2>
-<button onclick="enrichWithOllama()" id="enrichBtn">Enhance with AI</button>
+<div class="flex" style="gap:8px">
+<label style="margin:0;font-size:11px;display:flex;align-items:center;gap:6px;cursor:pointer">
+<input type="checkbox" id="contextToggle" checked>
+<span>Story Context</span>
+</label>
+<label style="margin:0;font-size:11px;display:flex;align-items:center;gap:6px">
+<span>Style:</span>
+<select id="artStyle" style="width:140px;padding:6px 10px;font-size:12px">
+<option value="cinematic fantasy">Cinematic Fantasy</option>
+<option value="dark fantasy">Dark Fantasy</option>
+<option value="wuxia">Wuxia / Chinese Fantasy</option>
+<option value="anime">Anime Style</option>
+<option value="realistic">Photorealistic</option>
+<option value="ink wash">Ink Wash Painting</option>
+</select>
+</label>
+<button onclick="enrichAllScenes()" id="enrichAllBtn" class="btn-sm">Enhance All</button>
 </div>
-<p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:16px">Edit each scene's prompt before generating</p>
-<div id="sceneList"></div>
+</div>
+<p style="color:rgba(255,255,255,0.3);font-size:12px;margin-bottom:16px">Each scene can be edited — prompts are auto-enhanced with story context when available</p>
+<div id="sceneEditorContainer"></div>
+</div>
 </div>
 
+<div id="tab-generation" class="tab-content">
 <div class="card">
-<div class="flex" style="justify-content:space-between;align-items:center">
-<h2>Generation Settings</h2>
-<button onclick="generateAll()" id="genBtn">Generate All Scenes</button>
+<div class="flex" style="justify-content:space-between">
+<h2>Generation Controls</h2>
+<button onclick="generateAllScenes()" id="genBtn" class="btn-success">Generate All Scenes</button>
 </div>
-<div class="param-row" style="margin-top:12px">
+<div class="grid-4" style="margin-top:16px">
 <div>
 <label>Steps</label>
-<input type="number" id="genSteps" value="30" min="1" max="100">
+<input type="number" id="genSteps" value="25" min="1" max="100">
 </div>
 <div>
 <label>CFG Scale</label>
-<input type="number" id="genCfg" value="7.5" min="1" max="30" step="0.5">
+<input type="number" id="genCfg" value="7.0" min="1" max="30" step="0.5">
 </div>
 <div>
-<label>Resolution</label>
+<label>Default Aspect</label>
 <select id="genResolution">
-<option value="1216x832">Landscape (1216x832)</option>
-<option value="832x1216">Portrait (832x1216)</option>
-<option value="1024x1024">Square (1024x1024)</option>
-<option value="1344x768">Wide (1344x768)</option>
+<option value="1216x832">Landscape 3:2</option>
+<option value="832x1216">Portrait 2:3</option>
+<option value="1024x1024">Square 1:1</option>
+<option value="1344x768">Wide 16:9</option>
+<option value="1536x640">Ultrawide 21:9</option>
 </select>
 </div>
+<div>
+<label>Negative Prompt</label>
+<input type="text" id="genNegative" placeholder="blurry, low quality...">
 </div>
+</div>
+</div>
+
+<div class="card">
+<h2>Story Timeline</h2>
+<div id="chapterTimeline"></div>
 </div>
 
 <div id="generationStatus"></div>
@@ -339,8 +431,11 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 
 <div id="tab-gallery" class="tab-content">
 <div class="card">
-<h2>Generated Images</h2>
-<div class="gallery" id="imageGallery">
+<div class="flex" style="justify-content:space-between">
+<h2>Generated Gallery</h2>
+<button class="btn-secondary btn-sm" onclick="refreshGallery()">Refresh</button>
+</div>
+<div class="gallery-grid" id="imageGallery">
 <p style="color:rgba(255,255,255,0.2);grid-column:1/-1;text-align:center;padding:60px;font-size:14px">No images generated yet</p>
 </div>
 </div>
@@ -361,6 +456,21 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 <option value="false">Disabled</option>
 </select>
 </div>
+<div>
+<label>Base Quality Prompt</label>
+<input type="text" id="baseQuality" placeholder="masterpiece, best quality...">
+</div>
+<div>
+<label>Art Style</label>
+<select id="styleSetting">
+<option value="cinematic fantasy">Cinematic Fantasy</option>
+<option value="dark fantasy">Dark Fantasy</option>
+<option value="wuxia">Wuxia / Chinese Fantasy</option>
+<option value="anime">Anime Style</option>
+<option value="realistic">Photorealistic</option>
+<option value="ink wash">Ink Wash Painting</option>
+</select>
+</div>
 </div>
 <button class="mt-16" onclick="saveSettings()">Save Settings</button>
 </div>
@@ -368,8 +478,10 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 </div>
 
 <script>
+let storyData = { title: '', chapters: [] };
 let currentScenes = [];
-let tasks = {};
+let chapterSceneMap = {};
+let totalScenesGenerated = 0;
 
 function switchTab(name) {
 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -381,220 +493,410 @@ document.getElementById(`tab-${name}`).classList.add('active');
 async function checkSetup() {
 try {
 const r = await fetch('/api/status');
-const data = await r.json();
+const d = await r.json();
 const comfy = document.getElementById('setupComfyUI');
 const ollama = document.getElementById('setupOllama');
-comfy.textContent = 'ComfyUI: ' + (data.comfyui ? 'OK' : 'Pending');
-comfy.className = 'setup-item ' + (data.comfyui ? 'ok' : 'pending');
-ollama.textContent = 'Ollama: ' + (data.ollama ? 'OK' : 'Pending');
-ollama.className = 'setup-item ' + (data.ollama ? 'ok' : 'pending');
+comfy.textContent = 'ComfyUI: ' + (d.comfyui ? 'OK' : 'Pending');
+comfy.className = 'setup-item ' + (d.comfyui ? 'ok' : 'pending');
+ollama.textContent = 'Ollama: ' + (d.ollama ? 'OK' : 'Pending');
+ollama.className = 'setup-item ' + (d.ollama ? 'ok' : 'pending');
 } catch(e) {}
 }
 
 async function scrapeStory() {
 const url = document.getElementById('storyUrl').value.trim();
+const chStart = parseInt(document.getElementById('chStart').value) || 1;
+const chEnd = parseInt(document.getElementById('chEnd').value) || 10;
 if (!url) return alert('Enter a URL');
 const btn = document.getElementById('scrapeBtn');
-btn.disabled = true;
-btn.textContent = 'Fetching...';
+btn.disabled = true; btn.textContent = 'Fetching...';
 try {
-const r = await fetch('/api/scrape', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url})});
+const r = await fetch('/api/scrape', {
+method:'POST', headers:{'Content-Type':'application/json'},
+body:JSON.stringify({url, chapter_start:chStart, chapter_end:chEnd})
+});
 const data = await r.json();
 if (data.error) return alert(data.error);
-document.getElementById('storyTitle').textContent = data.title || 'Unknown';
+document.getElementById('storyTitle').textContent = data.title || 'Reverend Insanity';
+document.getElementById('chapterCount').textContent = `Showing ${data.chapters.length} of ${data.total_chapters} chapters`;
 const list = document.getElementById('chapterList');
-list.innerHTML = data.chapters.map((c,i) => `<div class="chapter-item" onclick="this.classList.toggle('selected')">${c.title}</div>`).join('');
+list.innerHTML = data.chapters.map((c, i) =>
+`<div class="chapter-item" data-idx="${i}">
+<span class="ch-num">#${chStart + i}</span>
+<span class="ch-title">${c.title.replace(/^Reverend Insanity\s*/,'').substring(0, 60)}</span>
+<span class="ch-status pending">Pending</span>
+</div>`
+).join('');
+storyData = data;
 document.getElementById('storyResult').classList.remove('hidden');
-window._chapters = data.chapters;
 } catch(e) { alert('Error: '+e.message); }
-btn.disabled = false;
-btn.textContent = 'Fetch';
+btn.disabled = false; btn.textContent = 'Fetch';
 }
 
-async function loadSelectedChapters() {
-const chapters = window._chapters || [];
+function toggleAllChapters() {
 const items = document.querySelectorAll('#chapterList .chapter-item');
-const selected = [];
-items.forEach((item, i) => { if (item.classList.contains('selected')) selected.push(chapters[i]); });
-if (!selected.length) return alert('Select at least one chapter');
+items.forEach((item, i) => item.classList.toggle('selected'));
+}
+
+async function loadAllChapters() {
+const chapters = storyData.chapters || [];
+if (!chapters.length) return alert('No chapters to load');
 const btn = document.getElementById('loadChaptersBtn');
-btn.disabled = true;
-btn.textContent = `Loading ${selected.length} chapters...`;
-const allText = [];
-for (let i = 0; i < selected.length; i++) {
+btn.disabled = true; btn.textContent = 'Loading...';
+chapterSceneMap = {};
+currentScenes = [];
+document.querySelectorAll('#chapterList .ch-status').forEach(s => { s.textContent = 'Loading'; s.className = 'ch-status generating'; });
+for (let i = 0; i < chapters.length; i++) {
 try {
-const r = await fetch('/api/fetch-chapter', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url: selected[i].url})});
+const r = await fetch('/api/fetch-chapter', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url: chapters[i].url})});
 const data = await r.json();
-if (!data.error) {
-allText.push(`\n\nScene ${i+1}: ${selected[i].title}\n\n${data.text}`);
+if (data.text) {
+const scenes = splitText(data.text);
+const chapterScenes = scenes.map(s => ({
+chapter: i,
+chapterNum: storyData.range?.start + i || i + 1,
+title: chapters[i].title,
+text: s.trim().substring(0, 2000),
+prompt: '',
+negative: 'blurry, low quality',
+aspect: document.getElementById('genResolution')?.value || '1216x832',
+}));
+chapterSceneMap[i] = chapterScenes;
+currentScenes = currentScenes.concat(chapterScenes);
+const status = document.querySelectorAll('#chapterList .ch-status')[i];
+if (status) { status.textContent = `${scenes.length} scenes`; status.className = 'ch-status done'; }
 }
 } catch(e) {}
-btn.textContent = `Loading ${i+1}/${selected.length}...`;
+btn.textContent = `Loading ${i+1}/${chapters.length}...`;
 }
-btn.disabled = false;
-btn.textContent = 'Load Selected';
-document.getElementById('manualText').value = allText.join('\n---\n');
-useManualText();
+btn.disabled = false; btn.textContent = 'Load All & Start';
+buildSceneEditor();
+buildTimeline();
+switchTab('editor');
+}
+
+function splitText(text) {
+let scenes = text.split(/^(?:Scene\s+\d+|Chapter\s+\d+)/mi).filter(s => s.trim());
+if (scenes.length < 2) {
+const parts = text.split(/\n\s*---+\s*\n/);
+if (parts.length > 1) scenes = parts.filter(p => p.trim());
+}
+if (scenes.length < 2) {
+scenes = [];
+const paras = text.split('\n').filter(p => p.trim());
+let current = [];
+for (const p of paras) {
+current.push(p);
+if (current.length >= 4) {
+scenes.push(current.join('\n'));
+current = [];
+}
+}
+if (current.length) scenes.push(current.join('\n'));
+}
+if (!scenes.length) scenes = [text];
+return scenes;
 }
 
 function useManualText() {
 const text = document.getElementById('manualText').value.trim();
-if (!text) return alert('Enter some text');
-const scenes = text.split(/^(?:Scene\s+\d+|Chapter\s+\d+)/mi).filter(s => s.trim());
-if (scenes.length < 2) {
-const parts = text.split(/\n\s*---+\s*\n|\n\s*\*+\s*\n/);
-if (parts.length > 1) scenes.length = 0, parts.forEach(p => { if(p.trim()) scenes.push(p.trim()); });
-}
-if (scenes.length < 2) scenes.length = 0, scenes.push(text);
-currentScenes = scenes.map((s, i) => ({
-id: i + 1,
-title: `Scene ${i + 1}`,
-text: s.trim().substring(0, 2000),
-prompt: '',
-negative: 'blurry, low quality, bad anatomy, distorted face, extra limbs, watermark, text, signature, deformed, ugly, poorly drawn, out of frame'
+if (!text) return alert('Enter text');
+currentScenes = splitText(text).map((s, i) => ({
+chapter: 0, chapterNum: 1, title: `Manual Scene ${i+1}`,
+text: s.trim().substring(0, 2000), prompt: '',
+negative: 'blurry, low quality', aspect: '1216x832',
 }));
+chapterSceneMap = {0: currentScenes};
 buildSceneEditor();
-switchTab('prompts');
+buildTimeline();
+switchTab('editor');
 }
 
 function buildSceneEditor() {
-const list = document.getElementById('sceneList');
-list.innerHTML = currentScenes.map((s, i) => `
-<div class="scene-card">
-<div class="flex" style="justify-content:space-between">
-<h3 style="font-size:15px;color:#e94560">${s.title}</h3>
-<button class="btn-secondary" style="padding:4px 14px;font-size:12px" onclick="enrichScene(${i})">Enhance</button>
+const container = document.getElementById('sceneEditorContainer');
+container.innerHTML = '';
+let globalIdx = 0;
+for (const chIdx of Object.keys(chapterSceneMap).sort((a,b) => a-b)) {
+const scenes = chapterSceneMap[chIdx];
+if (!scenes.length) continue;
+const chDiv = document.createElement('div');
+chDiv.style.marginBottom = '16px';
+const chHeader = document.createElement('h3');
+chHeader.style.cssText = 'font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px';
+chHeader.textContent = `Chapter ${scenes[0].chapterNum}: ${scenes[0].title}`;
+chDiv.appendChild(chHeader);
+scenes.forEach((s, si) => {
+const card = document.createElement('div');
+card.className = 'scene-card';
+card.innerHTML = `
+<div class="scene-header">
+<span class="scene-title">Scene ${si + 1} <span class="scene-meta">(${s.text.length} chars)</span></span>
+<div class="flex" style="gap:6px">
+<select class="scene-aspect" style="width:120px;padding:4px 8px;font-size:11px" data-gi="${globalIdx}">
+<option value="1216x832" ${s.aspect === '1216x832' ? 'selected' : ''}>Landscape 3:2</option>
+<option value="832x1216" ${s.aspect === '832x1216' ? 'selected' : ''}>Portrait 2:3</option>
+<option value="1024x1024" ${s.aspect === '1024x1024' ? 'selected' : ''}>Square 1:1</option>
+<option value="1344x768" ${s.aspect === '1344x768' ? 'selected' : ''}>Wide 16:9</option>
+</select>
+<button class="btn-secondary btn-sm" onclick="enrichSingle(${globalIdx})">AI</button>
+<button class="btn-secondary btn-sm" onclick="generateSingle(${globalIdx})">Generate</button>
 </div>
-<p style="color:rgba(255,255,255,0.4);font-size:12px;margin:10px 0">${s.text.substring(0, 200)}...</p>
-<label style="font-size:11px">SDXL Prompt</label>
-<textarea style="min-height:60px;font-size:13px" id="prompt_${i}">${s.prompt || s.text.substring(0, 500)}</textarea>
-<label style="font-size:11px;margin-top:10px">Negative Prompt</label>
-<input style="font-size:13px" id="neg_${i}" value="${s.negative}">
-</div>`).join('');
+</div>
+<div class="scene-text">${s.text.substring(0, 300)}</div>
+<label style="font-size:10px">Prompt</label>
+<textarea style="min-height:50px;font-size:12px" id="prompt_${globalIdx}">${s.prompt || s.text.substring(0, 500)}</textarea>
+<label style="font-size:10px;margin-top:6px">Negative</label>
+<input style="font-size:12px" id="neg_${globalIdx}" value="${s.negative}">
+<div id="sceneResult_${globalIdx}"></div>
+`;
+chDiv.appendChild(card);
+globalIdx++;
+});
+container.appendChild(chDiv);
+}
 }
 
-async function enrichScene(index) {
-const btn = event.target;
-btn.disabled = true;
-btn.textContent = 'Enhancing...';
+function buildTimeline() {
+const container = document.getElementById('chapterTimeline');
+container.innerHTML = '';
+for (const chIdx of Object.keys(chapterSceneMap).sort((a,b) => a-b)) {
+const scenes = chapterSceneMap[chIdx];
+if (!scenes.length) continue;
+const item = document.createElement('div');
+item.style.cssText = 'display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.02);margin-bottom:4px';
+item.innerHTML = `
+<span style="color:#e94560;font-weight:600;font-size:13px;min-width:60px">Ch.${scenes[0].chapterNum}</span>
+<span style="flex:1;font-size:12px;color:rgba(255,255,255,0.6)">${scenes[0].title.substring(0, 40)}</span>
+<span style="font-size:11px;color:rgba(255,255,255,0.3)">${scenes.length} scenes</span>
+<span id="timelineStatus_${chIdx}" style="font-size:11px;padding:2px 10px;border-radius:10px;background:rgba(250,204,21,0.1);color:#facc15">Pending</span>
+`;
+container.appendChild(item);
+}
+}
+
+function getScenePrompt(index) {
+return document.getElementById(`prompt_${index}`)?.value || '';
+}
+
+function setScenePrompt(index, val) {
+const el = document.getElementById(`prompt_${index}`);
+if (el) el.value = val;
+}
+
+function getSceneNeg(index) {
+return document.getElementById(`neg_${index}`)?.value || '';
+}
+
+function getSceneAspect(index) {
+const sel = document.querySelector(`.scene-aspect[data-gi="${index}"]`);
+return sel ? sel.value : '1216x832';
+}
+
+function getContext(index) {
+if (!document.getElementById('contextToggle').checked) return '';
+const parts = [];
+for (let i = 0; i < index; i++) {
+const p = getScenePrompt(i).substring(0, 200);
+if (p) parts.push(`Scene ${i+1}: ${p}`);
+}
+return parts.join('\n');
+}
+
+async function enrichSingle(index) {
+const s = currentScenes[index];
+if (!s) return;
+const btn = event?.target;
+if (btn) { btn.disabled = true; btn.textContent = '...'; }
 try {
-const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text: currentScenes[index].text})});
+const context = getContext(index);
+const style = document.getElementById('artStyle')?.value || 'cinematic fantasy';
+const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text: s.text, context, style})});
 const data = await r.json();
-if (!data.error) {
-document.getElementById(`prompt_${index}`).value = data.enriched;
+if (data.enriched) {
+setScenePrompt(index, data.enriched);
+currentScenes[index].prompt = data.enriched;
 }
 } catch(e) {}
-btn.disabled = false;
-btn.textContent = 'Enhance';
+if (btn) { btn.disabled = false; btn.textContent = 'AI'; }
 }
 
-async function enrichWithOllama() {
-const btn = document.getElementById('enrichBtn');
-btn.disabled = true;
-btn.textContent = 'Enhancing all...';
+async function enrichAllScenes() {
+const btn = document.getElementById('enrichAllBtn');
+btn.disabled = true; btn.textContent = 'Enhancing...';
 for (let i = 0; i < currentScenes.length; i++) {
+const s = currentScenes[i];
 try {
-const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text: currentScenes[i].text})});
-const data = await r.json();
-if (!data.error) document.getElementById(`prompt_${i}`).value = data.enriched;
+const context = getContext(i);
+const style = document.getElementById('artStyle')?.value || 'cinematic fantasy';
+const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text: s.text, context, style})});
+const d = await r.json();
+if (d.enriched) { setScenePrompt(i, d.enriched); currentScenes[i].prompt = d.enriched; }
 } catch(e) {}
 btn.textContent = `Enhancing ${i+1}/${currentScenes.length}...`;
 }
-btn.disabled = false;
-btn.textContent = 'Enhance with AI';
+btn.disabled = false; btn.textContent = 'Enhance All';
 }
 
-async function generateAll() {
-if (!currentScenes.length) return alert('No scenes to generate');
-const btn = document.getElementById('genBtn');
-btn.disabled = true;
-btn.textContent = 'Generating...';
-const steps = parseInt(document.getElementById('genSteps').value) || 30;
-const cfg = parseFloat(document.getElementById('genCfg').value) || 7.5;
-const res = document.getElementById('genResolution').value.split('x');
-const status = document.getElementById('generationStatus');
-status.innerHTML = '';
-for (let i = 0; i < currentScenes.length; i++) {
-const prompt = document.getElementById(`prompt_${i}`).value.trim();
-const negative = document.getElementById(`neg_${i}`).value.trim();
-const div = document.createElement('div');
-div.className = 'task-status queued';
-div.id = `task_${i}`;
-div.textContent = `${currentScenes[i].title}: Queued...`;
-status.appendChild(div);
+async function generateSingle(index) {
+const s = currentScenes[index];
+if (!s) return;
+const prompt = getScenePrompt(index) || s.text;
+const negative = getSceneNeg(index) || document.getElementById('genNegative')?.value || 'blurry, low quality';
+const res = getSceneAspect(index).split('x');
+const steps = parseInt(document.getElementById('genSteps').value) || 25;
+const cfg = parseFloat(document.getElementById('genCfg').value) || 7.0;
+const container = document.getElementById(`sceneResult_${index}`);
+container.innerHTML = '<div class="task-status queued">Queued...</div>';
 try {
-const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1])})});
+const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
+prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
+chapter: s.chapterNum || 1, scene: index + 1
+})});
 const data = await r.json();
-if (data.error) { div.className = 'task-status failed'; div.textContent = `${currentScenes[i].title}: ${data.error}`; continue; }
-div.textContent = `${currentScenes[i].title}: Queued (${data.task_id})`;
-pollTask(data.task_id, i, div);
+if (data.task_id) {
+container.innerHTML = `<div class="task-status running" id="taskStatus_${data.task_id}">Generating...</div>`;
+pollTask(data.task_id, index, container);
+}
 } catch(e) {
-div.className = 'task-status failed';
-div.textContent = `${currentScenes[i].title}: ${e.message}`;
+container.innerHTML = `<div class="task-status failed">${e.message}</div>`;
 }
-}
-btn.disabled = false;
-btn.textContent = 'Generate All Scenes';
 }
 
-function pollTask(taskId, index, div) {
+function pollTask(taskId, index, container) {
 const interval = setInterval(async () => {
 try {
 const r = await fetch(`/api/task/${taskId}`);
-const data = await r.json();
-if (data.status === 'completed') {
-div.className = 'task-status completed';
-const count = data.result ? data.result.length : 0;
-div.textContent = `${currentScenes[index].title}: Done (${count} image${count !== 1 ? 's' : ''})`;
-clearInterval(interval);
+const d = await r.json();
+if (d.status === 'completed' && d.result) {
+container.innerHTML = d.result.map(url => `<div class="scene-image"><img src="${url}" alt="Generated image"></div>`).join('');
+totalScenesGenerated++;
 refreshGallery();
-} else if (data.status === 'failed') {
-div.className = 'task-status failed';
-div.textContent = `${currentScenes[index].title}: Failed - ${data.error || 'unknown error'}`;
+updateChapterStatus(index);
+clearInterval(interval);
+} else if (d.status === 'failed') {
+container.innerHTML = `<div class="task-status failed">Failed: ${d.error || 'unknown'}</div>`;
 clearInterval(interval);
 } else {
-div.textContent = `${currentScenes[index].title}: Generating...`;
+const el = document.getElementById(`taskStatus_${taskId}`);
+if (el) el.textContent = 'Generating...';
 }
 } catch(e) {}
 }, 3000);
 }
 
-async function refreshGallery() {
+async function generateAllScenes() {
+const btn = document.getElementById('genBtn');
+btn.disabled = true; btn.textContent = 'Generating...';
+const statusContainer = document.getElementById('generationStatus');
+statusContainer.innerHTML = '';
+for (let i = 0; i < currentScenes.length; i++) {
+const s = currentScenes[i];
+const prompt = getScenePrompt(i) || s.text;
+const negative = getSceneNeg(i) || document.getElementById('genNegative')?.value || 'blurry, low quality';
+const res = getSceneAspect(i).split('x');
+const steps = parseInt(document.getElementById('genSteps').value) || 25;
+const cfg = parseFloat(document.getElementById('genCfg').value) || 7.0;
+const div = document.createElement('div');
+div.className = 'task-status queued';
+div.textContent = `Scene ${i + 1}: Queued...`;
+statusContainer.appendChild(div);
 try {
-const r = await fetch('/api/config');
-const {output_dir} = await r.json();
-const gallery = document.getElementById('imageGallery');
-gallery.innerHTML = '<p style="color:rgba(255,255,255,0.2);grid-column:1/-1;text-align:center;padding:30px;font-size:14px">Refreshing...</p>';
-const taskIds = Object.keys(tasks);
-let allImages = [];
-for (const id of taskIds) {
-try {
-const tr = await fetch(`/api/task/${id}`);
-const td = await tr.json();
-if (td.result) allImages = allImages.concat(td.result);
-} catch(e) {}
+const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
+prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
+chapter: s.chapterNum || 1, scene: i + 1
+})});
+const d = await r.json();
+if (d.task_id) {
+div.textContent = `Scene ${i + 1}: Generating...`;
+pollTaskGlobal(d.task_id, i, div);
+} else {
+div.className = 'task-status failed';
+div.textContent = `Scene ${i + 1}: Failed`;
 }
-gallery.innerHTML = allImages.length ? allImages.map(url => `<div><a href="${url}" target="_blank"><img src="${url}"></a></div>`).join('') : '<p style="color:rgba(255,255,255,0.2);grid-column:1/-1;text-align:center;padding:60px;font-size:14px">No images generated yet</p>';
-} catch(e) {}
+} catch(e) {
+div.className = 'task-status failed';
+div.textContent = `Scene ${i + 1}: ${e.message}`;
+}
+btn.textContent = `Generating ${i+1}/${currentScenes.length}...`;
+}
+btn.disabled = false; btn.textContent = 'Generate All Scenes';
 }
 
-async function loadModels() {
+function pollTaskGlobal(taskId, index, div) {
+const interval = setInterval(async () => {
 try {
-const r = await fetch('/api/list-models');
-const data = await r.json();
-const sel = document.getElementById('ollamaModel');
-sel.innerHTML = data.models.map(m => `<option value="${m}">${m}</option>`).join('');
+const r = await fetch(`/api/task/${taskId}`);
+const d = await r.json();
+if (d.status === 'completed' && d.result) {
+div.className = 'task-status completed';
+div.innerHTML = `Scene ${index + 1}: Done → <a href="${d.result[0]}" target="_blank" style="color:#4ade80">View</a>`;
+totalScenesGenerated++;
+refreshGallery();
+updateChapterStatus(index);
+clearInterval(interval);
+} else if (d.status === 'failed') {
+div.className = 'task-status failed';
+div.textContent = `Scene ${index + 1}: Failed - ${d.error || 'unknown'}`;
+clearInterval(interval);
+} else {
+div.textContent = `Scene ${index + 1}: Generating...`;
+}
+} catch(e) {}
+}, 3000);
+}
+
+function updateChapterStatus(sceneIndex) {
+const s = currentScenes[sceneIndex];
+if (!s) return;
+const chIdx = s.chapter;
+const el = document.getElementById(`timelineStatus_${chIdx}`);
+if (el) {
+const scenes = chapterSceneMap[chIdx] || [];
+const done = scenes.filter((sc, i) => {
+const globalI = currentScenes.indexOf(sc);
+return globalI >= 0 && document.querySelector(`#sceneResult_${globalI} .scene-image`);
+}).length;
+el.textContent = `${done}/${scenes.length} done`;
+el.style.cssText = `font-size:11px;padding:2px 10px;border-radius:10px;background:${done === scenes.length ? 'rgba(74,222,128,0.1)' : 'rgba(96,165,250,0.1)'};color:${done === scenes.length ? '#4ade80' : '#60a5fa'}`;
+}
+}
+
+async function refreshGallery() {
+try {
+const r = await fetch('/api/gallery');
+const d = await r.json();
+const gallery = document.getElementById('imageGallery');
+if (!d.images || !d.images.length) {
+gallery.innerHTML = '<p style="color:rgba(255,255,255,0.2);grid-column:1/-1;text-align:center;padding:60px;font-size:14px">No images generated yet</p>';
+return;
+}
+gallery.innerHTML = d.images.map(url => {
+const parts = url.split('/').pop().replace('.png','');
+return `<div class="gallery-item"><a href="${url}" target="_blank"><img src="${url}" alt="${parts}"></a><div class="gallery-label">${parts}</div></div>`;
+}).join('');
 } catch(e) {}
 }
 
 async function loadSettings() {
 try {
 const r = await fetch('/api/config');
-const data = await r.json();
-document.getElementById('genSteps').value = data.steps || 30;
-document.getElementById('genCfg').value = data.cfg || 7.5;
-document.getElementById('ollamaEnabled').value = data.ollama_enabled ? 'true' : 'false';
+const d = await r.json();
+document.getElementById('genSteps').value = d.steps || 25;
+document.getElementById('genCfg').value = d.cfg || 7.0;
+document.getElementById('ollamaEnabled').value = d.ollama_enabled ? 'true' : 'false';
+document.getElementById('baseQuality').value = d.base_quality || '';
+document.getElementById('genNegative').value = d.negative_prompt || '';
+document.getElementById('styleSetting').value = d.style || 'cinematic fantasy';
 loadModels();
+} catch(e) {}
+}
+
+async function loadModels() {
+try {
+const r = await fetch('/api/list-models');
+const d = await r.json();
+const sel = document.getElementById('ollamaModel');
+sel.innerHTML = d.models.map(m => `<option value="${m}">${m}</option>`).join('');
 } catch(e) {}
 }
 
@@ -603,6 +905,11 @@ try {
 await fetch('/api/config', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
 ollama_enabled: document.getElementById('ollamaEnabled').value === 'true',
 ollama_model: document.getElementById('ollamaModel').value,
+steps: parseInt(document.getElementById('genSteps').value),
+cfg: parseFloat(document.getElementById('genCfg').value),
+style: document.getElementById('styleSetting').value,
+base_quality: document.getElementById('baseQuality').value,
+negative_prompt: document.getElementById('genNegative').value,
 })});
 alert('Settings saved');
 } catch(e) { alert('Error: '+e.message); }

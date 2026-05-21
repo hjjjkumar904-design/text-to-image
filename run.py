@@ -1,133 +1,140 @@
 #!/usr/bin/env python3
-"""Story-to-Image Pipeline - Single command entry point.
-
-Usage:
-    python run.py --story data/stories/my_story.txt [--output output/] [--config config/config.yaml]
-    python run.py --build-workflow          # Generate default ComfyUI workflow JSON
-    python run.py --list-characters         # List all loaded characters
+"""
+Story-to-Image Pipeline — Auto Setup & Launch
+Starts ComfyUI, Ollama, and the Flask web app automatically.
 """
 
-import argparse
-import json
+import os
+import subprocess
 import sys
+import time
+import webbrowser
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+COMFYUI_DIR = ROOT / 'ComfyUI'
+FLASK_PORT = 5000
+COMFYUI_PORT = 8188
+OLLAMA_PORT = 11434
+
+
+def log(msg):
+    print(f'  \033[36m{msg}\033[0m')
+
+
+def check_port(port):
+    import socket
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        return s.connect_ex(('127.0.0.1', port)) == 0
+
+
+def start_ollama():
+    if check_port(OLLAMA_PORT):
+        log('Ollama already running')
+        return True
+    log('Starting Ollama...')
+    try:
+        subprocess.Popen(['ollama', 'serve'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        for _ in range(15):
+            if check_port(OLLAMA_PORT):
+                log('Ollama ready')
+                return True
+            time.sleep(1)
+        log('Ollama start issued (may take a moment)')
+        return True
+    except FileNotFoundError:
+        log('Ollama not installed')
+        return False
+
+
+def start_comfyui():
+    if check_port(COMFYUI_PORT):
+        log('ComfyUI already running')
+        return True
+    log('Starting ComfyUI...')
+    main_py = COMFYUI_DIR / 'main.py'
+    if not main_py.exists():
+        log(f'ComfyUI not found at {main_py}')
+        return False
+    with open('/tmp/comfyui_server.log', 'w') as logf:
+        subprocess.Popen(
+            [sys.executable, str(main_py), '--listen', '--port', str(COMFYUI_PORT)],
+            cwd=str(COMFYUI_DIR),
+            stdout=logf, stderr=subprocess.STDOUT,
+        )
+    for _ in range(30):
+        if check_port(COMFYUI_PORT):
+            log('ComfyUI ready')
+            return True
+        time.sleep(2)
+    log('ComfyUI start timed out — check /tmp/comfyui_server.log')
+    return False
+
+
+def ensure_ollama_model():
+    import requests, yaml
+    config_path = ROOT / 'config' / 'config.yaml'
+    try:
+        with open(config_path) as f:
+            cfg = yaml.safe_load(f)
+        model = cfg.get('ollama', {}).get('model', 'qwen2.5:7b')
+    except:
+        model = 'qwen2.5:7b'
+
+    try:
+        r = requests.get(f'http://127.0.0.1:{OLLAMA_PORT}/api/tags', timeout=5)
+        models = [m['name'] for m in r.json().get('models', [])]
+        if any(model.startswith(m) or m.startswith(model) for m in models):
+            log(f'Model {model} already pulled')
+            return
+        log(f'Pulling {model} (may take a while)...')
+        subprocess.Popen(['ollama', 'pull', model], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except Exception as e:
+        log(f'Model check failed: {e}')
+
+
+def start_flask():
+    log('Starting Flask web app...')
+    app_py = ROOT / 'webapp' / 'app.py'
+    with open('/tmp/flask_app.log', 'w') as logf:
+        proc = subprocess.Popen(
+            [sys.executable, str(app_py)],
+            cwd=str(ROOT),
+            stdout=logf, stderr=subprocess.STDOUT,
+        )
+    for _ in range(10):
+        if check_port(FLASK_PORT):
+            log('Flask app ready!')
+            return proc
+        time.sleep(1)
+    log('Flask start timed out — check /tmp/flask_app.log')
+    return proc
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Automated Story-to-Image Pipeline",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=__doc__,
-    )
-    parser.add_argument("--story", "-s", type=str,
-                        help="Path to story text file")
-    parser.add_argument("--output", "-o", type=str, default=None,
-                        help="Output directory for generated images")
-    parser.add_argument("--config", "-c", type=str,
-                        default="config/config.yaml",
-                        help="Path to configuration YAML file")
-    parser.add_argument("--build-workflow", action="store_true",
-                        help="Build default ComfyUI workflow JSON and exit")
-    parser.add_argument("--list-characters", action="store_true",
-                        help="List all characters in the database and exit")
-    parser.add_argument("--import-characters", type=str, default=None,
-                        metavar="FOLDER",
-                        help="Bulk import character images from folder and exit")
+    print()
+    print('  \033[1;35m' + '=' * 56 + '\033[0m')
+    print('  \033[1;35m   Story-to-Image Pipeline — Auto Launch\033[0m')
+    print('  \033[1;35m' + '=' * 56 + '\033[0m')
+    print()
 
-    args = parser.parse_args()
+    start_ollama()
+    ensure_ollama_model()
+    start_comfyui()
+    flask_proc = start_flask()
 
-    if args.build_workflow:
-        _build_workflow(args.config)
-        return
-
-    if args.list_characters:
-        _list_characters(args.config)
-        return
-
-    if args.import_characters:
-        _import_characters(args.import_characters, args.config)
-        return
-
-    if not args.story:
-        parser.print_help()
-        print("\nError: --story is required unless using --build-workflow, --list-characters, or --import-characters")
-        sys.exit(1)
-
-    _run_pipeline(args.story, args.output, args.config)
+    print()
+    print('  \033[1;32m' + '=' * 56 + '\033[0m')
+    print(f'  \033[1;32m   All services running!\033[0m')
+    print(f'  \033[1;32m   Open: http://localhost:{FLASK_PORT}\033[0m')
+    print('  \033[1;32m' + '=' * 56 + '\033[0m')
+    print()
+    print('  Flask running in background (PID: %d)' % flask_proc.pid)
+    print('  Logs: /tmp/flask_app.log')
+    print()
+    print('  To stop: kill %d' % flask_proc.pid)
+    print()
 
 
-def _run_pipeline(story_path: str, output_dir: str, config_path: str):
-    sys.path.insert(0, str(Path(__file__).parent))
-
-    from src.pipeline import StoryPipeline
-
-    pipeline = StoryPipeline(config_path)
-    generated = pipeline.run(story_path, output_dir)
-
-    if generated:
-        print(f"\nGenerated {len(generated)} images successfully.")
-    else:
-        print("\nNo images were generated. Check the error messages above.")
-        print("If ComfyUI is not running, start it:")
-        print("  cd ComfyUI && python main.py --listen --port 8188 --normalvram")
-
-
-def _build_workflow(config_path: str):
-    sys.path.insert(0, str(Path(__file__).parent))
-
-    import yaml
-    with open(config_path) as f:
-        config = yaml.safe_load(f)
-
-    from src.comfyui_workflow_builder import ComfyUIWorkflowBuilder
-
-    builder = ComfyUIWorkflowBuilder()
-    workflow = builder.build_single_character_workflow()
-    builder.save_workflow(workflow, config["comfyui"]["workflow"])
-
-    multi_wf = builder.build_multi_character_workflow(num_characters=3)
-    multi_path = config["comfyui"]["workflow"].replace(".json", "_multi.json")
-    builder.save_workflow(multi_wf, multi_path)
-
-
-def _list_characters(config_path: str):
-    sys.path.insert(0, str(Path(__file__).parent))
-
-    import yaml
-    with open(config_path) as f:
-        config = yaml.safe_load(f)
-
-    from src.character_db import CharacterDatabase
-    db = CharacterDatabase(config["data"]["characters_dir"])
-    count = db.load_all()
-    print(f"\nCharacter Database: {count} characters loaded\n")
-    for cid, char in db.get_all_characters().items():
-        print(f"  [{cid}] {char.get('name', cid)}")
-        if char.get("aliases"):
-            print(f"         Aliases: {', '.join(char['aliases'])}")
-        if char.get("description"):
-            print(f"         Desc: {char['description'][:80]}...")
-        if char.get("tags"):
-            print(f"         Tags: {', '.join(char['tags'])}")
-        print()
-
-
-def _import_characters(input_folder: str, config_path: str):
-    sys.path.insert(0, str(Path(__file__).parent))
-
-    import yaml
-    with open(config_path) as f:
-        config = yaml.safe_load(f)
-
-    from src.character_db import CharacterDatabase
-    db = CharacterDatabase(config["data"]["characters_dir"])
-    count = db.load_all()
-    print(f"Existing characters: {count}")
-    imported = db.bulk_import(input_folder)
-    print(f"Imported: {imported}")
-    total = db.load_all()
-    print(f"Total characters now: {total}")
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

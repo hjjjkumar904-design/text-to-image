@@ -42,6 +42,6 @@ prompts:
   style: "digital painting, fantasy art"
 
 ollama:
-  enabled: false
+  enabled: true
   url: "http://127.0.0.1:11434"
-  model: "llama3.1:8b"
+  model: "qwen2.5:7b"
