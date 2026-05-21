@@ -6,51 +6,252 @@
 <title>Story-to-Image Pipeline</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f1a; color: #e0e0e0; min-height: 100vh; }
-.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-header { background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 20px; border-radius: 12px; margin-bottom: 24px; text-align: center; }
-header h1 { font-size: 28px; color: #e94560; margin-bottom: 4px; }
-header p { color: #888; font-size: 14px; }
-.setup-bar { display: flex; gap: 16px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
-.setup-item { padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; }
-.setup-item.ok { background: #1a4a2e; color: #4ade80; }
-.setup-item.pending { background: #3a3a1a; color: #facc15; }
-.setup-item.fail { background: #4a1a1a; color: #f87171; }
-.card { background: #1a1a2e; border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid #2a2a4a; }
-.card h2 { font-size: 18px; margin-bottom: 16px; color: #e94560; }
-label { display: block; font-size: 14px; color: #aaa; margin-bottom: 6px; }
-input, select, textarea { width: 100%; padding: 10px 14px; background: #16213e; border: 1px solid #2a2a4a; border-radius: 8px; color: #e0e0e0; font-size: 14px; transition: border 0.2s; }
-input:focus, select:focus, textarea:focus { outline: none; border-color: #e94560; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #0c0c1a 0%, #1a0a2e 30%, #0c0c1a 60%, #0a1628 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 20% 50%, rgba(233, 69, 96, 0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 50%, rgba(96, 165, 250, 0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 0%, rgba(233, 69, 96, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 24px; position: relative; z-index: 1; }
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.glass-hover:hover {
+  border-color: rgba(233, 69, 96, 0.25);
+  box-shadow: 0 8px 32px rgba(233, 69, 96, 0.08);
+}
+header {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.5), rgba(96, 165, 250, 0.5), transparent);
+}
+header h1 {
+  font-size: 28px;
+  background: linear-gradient(135deg, #e94560, #f59e0b, #e94560);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s ease-in-out infinite;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+@keyframes shimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+header p { color: rgba(255,255,255,0.5); font-size: 14px; letter-spacing: 0.3px; }
+.setup-bar { display: flex; gap: 12px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+.setup-item {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+.setup-item.ok { background: rgba(74, 222, 128, 0.1); color: #4ade80; border-color: rgba(74, 222, 128, 0.2); }
+.setup-item.pending { background: rgba(250, 204, 21, 0.1); color: #facc15; border-color: rgba(250, 204, 21, 0.2); }
+.setup-item.fail { background: rgba(248, 113, 113, 0.1); color: #f87171; border-color: rgba(248, 113, 113, 0.2); }
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.card h2 {
+  font-size: 16px;
+  color: #e94560;
+  margin-bottom: 16px;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+label { display: block; font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 6px; letter-spacing: 0.3px; text-transform: uppercase; font-weight: 600; }
+input, select, textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: #e0e0e0;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(233, 69, 96, 0.4);
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+}
 textarea { font-family: inherit; resize: vertical; min-height: 100px; }
-button { padding: 10px 24px; background: #e94560; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-button:hover { background: #d63851; }
-button:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn-secondary { background: #2a2a4a; }
-.btn-secondary:hover { background: #3a3a5a; }
+button {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #e94560, #d63851);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(233, 69, 96, 0.25);
+}
+button:active { transform: translateY(0); }
+button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255,255,255,0.7);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(255,255,255,0.05);
+  color: #fff;
+}
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.chapter-list { max-height: 300px; overflow-y: auto; border: 1px solid #2a2a4a; border-radius: 8px; }
-.chapter-item { padding: 10px 14px; border-bottom: 1px solid #2a2a4a; cursor: pointer; transition: background 0.2s; font-size: 14px; }
-.chapter-item:hover { background: #2a2a4a; }
-.chapter-item.selected { background: #e94560; color: #fff; }
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.gallery img { width: 100%; border-radius: 8px; border: 1px solid #2a2a4a; }
-.task-status { padding: 12px; border-radius: 8px; margin: 8px 0; font-size: 14px; }
-.task-status.queued { background: #3a3a1a; color: #facc15; }
-.task-status.running { background: #1a3a4a; color: #60a5fa; }
-.task-status.completed { background: #1a4a2e; color: #4ade80; }
-.task-status.failed { background: #4a1a1a; color: #f87171; }
+.chapter-list {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.chapter-list::-webkit-scrollbar { width: 6px; }
+.chapter-list::-webkit-scrollbar-track { background: transparent; }
+.chapter-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+.chapter-item {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+.chapter-item:last-child { border-bottom: none; }
+.chapter-item:hover { background: rgba(255, 255, 255, 0.05); }
+.chapter-item.selected { background: rgba(233, 69, 96, 0.15); color: #e94560; border-left: 3px solid #e94560; }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.gallery > div {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+.gallery > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  border-color: rgba(233, 69, 96, 0.2);
+}
+.gallery img { width: 100%; display: block; }
+.task-status {
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin: 8px 0;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+.task-status.queued { background: rgba(250, 204, 21, 0.08); color: #facc15; border-color: rgba(250, 204, 21, 0.1); }
+.task-status.running { background: rgba(96, 165, 250, 0.08); color: #60a5fa; border-color: rgba(96, 165, 250, 0.1); }
+.task-status.completed { background: rgba(74, 222, 128, 0.08); color: #4ade80; border-color: rgba(74, 222, 128, 0.1); }
+.task-status.failed { background: rgba(248, 113, 113, 0.08); color: #f87171; border-color: rgba(248, 113, 113, 0.1); }
 .hidden { display: none; }
 .flex { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .mt-8 { margin-top: 8px; }
 .mt-16 { margin-top: 16px; }
 .gap-8 { gap: 8px; }
-.tabs { display: flex; gap: 4px; margin-bottom: 16px; }
-.tab { padding: 8px 20px; border-radius: 8px 8px 0 0; background: #2a2a4a; cursor: pointer; font-size: 14px; color: #888; }
-.tab.active { background: #e94560; color: #fff; }
-.tab-content { display: none; }
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.tab {
+  padding: 10px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.tab:hover { color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.03); }
+.tab.active {
+  background: rgba(233, 69, 96, 0.15);
+  color: #e94560;
+  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.1);
+}
+.tab-content { display: none; animation: fadeIn 0.3s ease; }
 .tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
 .param-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.scene-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: all 0.25s ease;
+}
+.scene-card:hover {
+  border-color: rgba(233, 69, 96, 0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
 </style>
 </head>
 <body>
@@ -103,7 +304,7 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 <h2>Scene Editor</h2>
 <button onclick="enrichWithOllama()" id="enrichBtn">Enhance with AI</button>
 </div>
-<p style="color:#888;font-size:13px;margin-bottom:12px">Edit each scene's prompt before generating</p>
+<p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:16px">Edit each scene's prompt before generating</p>
 <div id="sceneList"></div>
 </div>
 
@@ -140,7 +341,7 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 <div class="card">
 <h2>Generated Images</h2>
 <div class="gallery" id="imageGallery">
-<p style="color:#666;grid-column:1/-1;text-align:center;padding:40px">No images generated yet</p>
+<p style="color:rgba(255,255,255,0.2);grid-column:1/-1;text-align:center;padding:60px;font-size:14px">No images generated yet</p>
 </div>
 </div>
 </div>
@@ -259,15 +460,15 @@ switchTab('prompts');
 function buildSceneEditor() {
 const list = document.getElementById('sceneList');
 list.innerHTML = currentScenes.map((s, i) => `
-<div class="card" style="margin-bottom:12px;padding:16px">
+<div class="scene-card">
 <div class="flex" style="justify-content:space-between">
 <h3 style="font-size:15px;color:#e94560">${s.title}</h3>
-<button class="btn-secondary" style="padding:4px 12px;font-size:12px" onclick="enrichScene(${i})">Enhance</button>
+<button class="btn-secondary" style="padding:4px 14px;font-size:12px" onclick="enrichScene(${i})">Enhance</button>
 </div>
-<p style="color:#888;font-size:12px;margin:8px 0">${s.text.substring(0, 200)}...</p>
-<label style="font-size:12px">SDXL Prompt</label>
+<p style="color:rgba(255,255,255,0.4);font-size:12px;margin:10px 0">${s.text.substring(0, 200)}...</p>
+<label style="font-size:11px">SDXL Prompt</label>
 <textarea style="min-height:60px;font-size:13px" id="prompt_${i}">${s.prompt || s.text.substring(0, 500)}</textarea>
-<label style="font-size:12px;margin-top:8px">Negative Prompt</label>
+<label style="font-size:11px;margin-top:10px">Negative Prompt</label>
 <input style="font-size:13px" id="neg_${i}" value="${s.negative}">
 </div>`).join('');
 }
@@ -363,7 +564,7 @@ try {
 const r = await fetch('/api/config');
 const {output_dir} = await r.json();
 const gallery = document.getElementById('imageGallery');
-gallery.innerHTML = '<p style="color:#666;grid-column:1/-1;text-align:center;padding:20px">Refreshing...</p>';
+gallery.innerHTML = '<p style="color:rgba(255,255,255,0.2);grid-column:1/-1;text-align:center;padding:30px;font-size:14px">Refreshing...</p>';
 const taskIds = Object.keys(tasks);
 let allImages = [];
 for (const id of taskIds) {
@@ -373,7 +574,7 @@ const td = await tr.json();
 if (td.result) allImages = allImages.concat(td.result);
 } catch(e) {}
 }
-gallery.innerHTML = allImages.length ? allImages.map(url => `<div><a href="${url}" target="_blank"><img src="${url}"></a></div>`).join('') : '<p style="color:#666;grid-column:1/-1;text-align:center;padding:40px">No images generated yet</p>';
+gallery.innerHTML = allImages.length ? allImages.map(url => `<div><a href="${url}" target="_blank"><img src="${url}"></a></div>`).join('') : '<p style="color:rgba(255,255,255,0.2);grid-column:1/-1;text-align:center;padding:60px;font-size:14px">No images generated yet</p>';
 } catch(e) {}
 }
 
