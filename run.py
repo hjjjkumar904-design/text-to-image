@@ -9,6 +9,7 @@ import subprocess
 import sys
 import time
 import webbrowser
+import threading
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -16,6 +17,14 @@ COMFYUI_DIR = ROOT / 'ComfyUI'
 FLASK_PORT = 5000
 COMFYUI_PORT = 8188
 OLLAMA_PORT = 11434
+
+ANIMA_FILES = [
+    ('split_files/diffusion_models/anima-base-v1.0.safetensors', COMFYUI_DIR / 'models' / 'diffusion_models'),
+    ('split_files/text_encoders/qwen_3_06b_base.safetensors', COMFYUI_DIR / 'models' / 'text_encoders'),
+    ('split_files/vae/qwen_image_vae.safetensors', COMFYUI_DIR / 'models' / 'vae'),
+]
+
+JUGGERNAUT_FILE = 'checkpoints/Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors'
 
 
 def log(msg):
@@ -111,6 +120,60 @@ def start_flask():
     return proc
 
 
+def ensure_diffusion_models():
+    log('Checking diffusion models...')
+    model_dir = COMFYUI_DIR / 'models'
+    
+    # Check Juggernaut XL
+    jgg_dest = model_dir / 'checkpoints'
+    jgg_fname = os.path.basename(JUGGERNAUT_FILE)
+    if not (jgg_dest / jgg_fname).exists():
+        log('Juggernaut XL checkpoint not found')
+        log('Download manually from: https://huggingface.co/RunDiffusion/Juggernaut-XL-v9')
+        log('Place at: ComfyUI/models/checkpoints/Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors')
+    
+    # Check Anima model files
+    missing = []
+    for rel_path, dest_dir in ANIMA_FILES:
+        fname = os.path.basename(rel_path)
+        if not (dest_dir / fname).exists():
+            missing.append((rel_path, dest_dir))
+    
+    if not missing:
+        log('All models present')
+        return
+    
+    missing_names = [os.path.basename(p) for p, _ in missing]
+    log(f'Downloading {len(missing)} missing model(s): {", ".join(missing_names)}')
+    log('This may take a while depending on file sizes...')
+    for rel_path, dest_dir in missing:
+        fname = os.path.basename(rel_path)
+        os.makedirs(dest_dir, exist_ok=True)
+        try:
+            tmp = '/tmp/anima_dl'
+            os.makedirs(tmp, exist_ok=True)
+            subprocess.run(
+                ['hf', 'download', 'circlestone-labs/Anima', rel_path, '--local-dir', tmp],
+                capture_output=True, timeout=600,
+            )
+            src = Path(tmp) / rel_path
+            if src.exists():
+                import shutil
+                shutil.move(str(src), str(dest_dir / fname))
+                log(f'  Downloaded {fname}')
+            else:
+                # Try to find it anywhere in the temp dir
+                found = list(Path(tmp).rglob(fname))
+                if found:
+                    shutil.move(str(found[0]), str(dest_dir / fname))
+                    log(f'  Downloaded {fname}')
+                else:
+                    log(f'  File not found after download: {rel_path}')
+        except Exception as e:
+            log(f'  Failed to download {fname}: {e}')
+    log('Model check complete')
+
+
 def main():
     print()
     print('  \033[1;35m' + '=' * 56 + '\033[0m')
@@ -118,6 +181,7 @@ def main():
     print('  \033[1;35m' + '=' * 56 + '\033[0m')
     print()
 
+    ensure_diffusion_models()
     start_ollama()
     ensure_ollama_model()
     start_comfyui()
