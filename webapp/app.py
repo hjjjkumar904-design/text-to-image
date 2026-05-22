@@ -206,6 +206,7 @@ def api_enrich():
     text = request.json.get('text', '').strip()
     context = request.json.get('context', '')
     style = request.json.get('style', 'cinematic fantasy')
+    model_name = request.json.get('model', 'juggernaut-xl')
     if not text:
         return jsonify({'error': 'Text is required'}), 400
 
@@ -218,7 +219,26 @@ def api_enrich():
     if context:
         ctx_blurb = f'\n\nStory context (previous scenes):\n{context[:2000]}'
 
-    prompt = f"""You are an expert SDXL prompt engineer. Transform this story scene into a detailed, cinematic image prompt.
+    if model_name == 'anima':
+        prompt = f"""You are an expert Danbooru tagger and prompt engineer for the Anima anime model. Convert this story scene into detailed Danbooru-style tags and a natural language prompt.
+
+Rules:
+- Start with quality tags: "masterpiece, best quality, score_7, safe, year 2025, newest, highres"
+- Describe the scene with Danbooru tags: character appearance, action, setting, mood, camera angle
+- Use lowercase, spaces instead of underscores, comma-separated tags
+- Include artist/style tags: "@anonymous, animated, detailed background, cinematic lighting"
+- End with a 1-2 sentence natural language description of the scene
+- Maintain consistency with story context
+- Art style: {style}
+- Output ONLY the prompt, no labels or explanations
+{ctx_blurb}
+
+Scene:
+{text[:2000]}
+
+Enhanced prompt:"""
+    else:
+        prompt = f"""You are an expert SDXL prompt engineer. Transform this story scene into a detailed, cinematic image prompt.
 
 Rules:
 - Describe setting, lighting, mood, camera angle, character appearance, action

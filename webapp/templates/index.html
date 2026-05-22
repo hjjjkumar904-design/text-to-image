@@ -706,6 +706,12 @@ if (p) parts.push(`Scene ${i+1}: ${p}`);
 return parts.join('\n');
 }
 
+function getEnrichPayload(text, context) {
+  const style = document.getElementById('artStyle')?.value || 'cinematic fantasy';
+  const model = document.getElementById('modelSetting')?.value || 'juggernaut-xl';
+  return {text, context, style, model};
+}
+
 async function enrichSingle(index) {
 const s = currentScenes[index];
 if (!s) return;
@@ -713,8 +719,7 @@ const btn = event?.target;
 if (btn) { btn.disabled = true; btn.textContent = '...'; }
 try {
 const context = getContext(index);
-const style = document.getElementById('artStyle')?.value || 'cinematic fantasy';
-const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text: s.text, context, style})});
+const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(getEnrichPayload(s.text, context))});
 const data = await r.json();
 if (data.enriched) {
 setScenePrompt(index, data.enriched);
@@ -731,8 +736,7 @@ for (let i = 0; i < currentScenes.length; i++) {
 const s = currentScenes[i];
 try {
 const context = getContext(i);
-const style = document.getElementById('artStyle')?.value || 'cinematic fantasy';
-const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text: s.text, context, style})});
+const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(getEnrichPayload(s.text, context))});
 const d = await r.json();
 if (d.enriched) { setScenePrompt(i, d.enriched); currentScenes[i].prompt = d.enriched; }
 } catch(e) {}
