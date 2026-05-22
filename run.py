@@ -37,10 +37,45 @@ def check_port(port):
         return s.connect_ex(('127.0.0.1', port)) == 0
 
 
+def install_ollama():
+    import shutil
+    if shutil.which('ollama'):
+        return True
+    log('Installing Ollama...')
+    try:
+        subprocess.run(['curl', '-fsSL', 'https://ollama.com/install.sh'], capture_output=True)
+        r = subprocess.run(['sh'], input=subprocess.run(['curl', '-fsSL', 'https://ollama.com/install.sh'], capture_output=True).stdout, capture_output=True, timeout=120)
+        if shutil.which('ollama'):
+            log('Ollama installed')
+            return True
+    except Exception as e:
+        log(f'Ollama install failed: {e}')
+    return False
+
+
+def install_comfyui():
+    if (COMFYUI_DIR / 'main.py').exists():
+        return True
+    log('Cloning ComfyUI...')
+    try:
+        subprocess.run(['git', 'clone', '--depth', '1', 'https://github.com/comfyanonymous/ComfyUI.git', str(COMFYUI_DIR)], check=True, timeout=120)
+        subprocess.run([sys.executable, '-m', 'pip', 'install', '-r', str(COMFYUI_DIR / 'requirements.txt')], check=True, timeout=120)
+        for d in ['checkpoints', 'diffusion_models', 'text_encoders', 'vae', 'clip', 'clip_vision', 'ipadapter', 'loras', 'upscale_models', 'controlnet', 'embeddings']:
+            (COMFYUI_DIR / 'models' / d).mkdir(parents=True, exist_ok=True)
+        log('ComfyUI installed')
+        return True
+    except Exception as e:
+        log(f'ComfyUI install failed: {e}')
+        return False
+
+
 def start_ollama():
     if check_port(OLLAMA_PORT):
         log('Ollama already running')
         return True
+    if not install_ollama():
+        log('Ollama not installed — install from https://ollama.com')
+        return False
     log('Starting Ollama...')
     try:
         subprocess.Popen(['ollama', 'serve'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -52,7 +87,7 @@ def start_ollama():
         log('Ollama start issued (may take a moment)')
         return True
     except FileNotFoundError:
-        log('Ollama not installed')
+        log('Ollama not found')
         return False
 
 
@@ -60,11 +95,11 @@ def start_comfyui():
     if check_port(COMFYUI_PORT):
         log('ComfyUI already running')
         return True
+    if not install_comfyui():
+        log('ComfyUI install failed')
+        return False
     log('Starting ComfyUI...')
     main_py = COMFYUI_DIR / 'main.py'
-    if not main_py.exists():
-        log(f'ComfyUI not found at {main_py}')
-        return False
     with open('/tmp/comfyui_server.log', 'w') as logf:
         subprocess.Popen(
             [sys.executable, str(main_py), '--listen', '--port', str(COMFYUI_PORT)],

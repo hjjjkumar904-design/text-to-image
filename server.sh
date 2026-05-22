@@ -10,6 +10,59 @@ FLASK_PORT=5000
 
 log() { printf "\033[36m%s\033[0m\n" "$1"; }
 ok()  { printf "\033[32m%s\033[0m\n" "$1"; }
+warn(){ printf "\033[33m%s\033[0m\n" "$1"; }
+
+# --- Auto-install: Ollama ---
+install_ollama() {
+  if command -v ollama &>/dev/null; then
+    return 0
+  fi
+  log "  Installing Ollama..."
+  if command -v curl &>/dev/null; then
+    curl -fsSL https://ollama.com/install.sh | sh 2>/tmp/ollama_install.log
+    if command -v ollama &>/dev/null; then
+      ok "  Ollama installed"
+      return 0
+    fi
+  fi
+  warn "  Ollama install failed — get it from https://ollama.com"
+  return 1
+}
+
+# --- Auto-install: ComfyUI ---
+install_comfyui() {
+  if [ -f "ComfyUI/main.py" ]; then
+    return 0
+  fi
+  log "  Cloning ComfyUI..."
+  git clone --depth 1 https://github.com/comfyanonymous/ComfyUI.git /tmp/ComfyUI 2>/tmp/comfyui_install.log
+  if [ -f "/tmp/ComfyUI/main.py" ]; then
+    rm -rf ComfyUI 2>/dev/null
+    mv /tmp/ComfyUI .
+    log "  Installing ComfyUI dependencies..."
+    PYTHON=$(command -v python3 || command -v python)
+    "$PYTHON" -m pip install -r ComfyUI/requirements.txt --quiet 2>/tmp/comfyui_deps.log
+    # Create model dirs
+    mkdir -p ComfyUI/models/{checkpoints,diffusion_models,text_encoders,vae,clip,clip_vision,ipadapter,loras,upscale_models,controlnet,embeddings}
+    ok "  ComfyUI installed"
+  else
+    warn "  ComfyUI clone failed — check /tmp/comfyui_install.log"
+    return 1
+  fi
+}
+
+# --- Auto-install: huggingface-cli ---
+install_hf_cli() {
+  if command -v hf &>/dev/null; then
+    return 0
+  fi
+  log "  Installing huggingface-cli..."
+  PYTHON=$(command -v python3 || command -v python)
+  "$PYTHON" -m pip install -q huggingface-hub 2>/tmp/hf_install.log
+  if command -v hf &>/dev/null; then
+    ok "  hf CLI ready"
+  fi
+}
 
 # --- Ollama ---
 start_ollama() {
@@ -17,10 +70,7 @@ start_ollama() {
     ok "  Ollama already running"
     return
   fi
-  if ! command -v ollama &>/dev/null; then
-    log "  ollama not found — install from https://ollama.com"
-    return
-  fi
+  install_ollama || return
   log "  Starting Ollama..."
   nohup ollama serve > /tmp/ollama.log 2>&1 &
   for _ in $(seq 1 15); do
@@ -39,6 +89,7 @@ start_comfyui() {
     ok "  ComfyUI already running"
     return
   fi
+  install_comfyui || return
   log "  Starting ComfyUI..."
   PYTHON=$(command -v python3 || command -v python)
   nohup "$PYTHON" ComfyUI/main.py --listen --port $COMFYUI_PORT > /tmp/comfyui_server.log 2>&1 &
@@ -89,6 +140,7 @@ printf "\033[1;35m%s\033[0m\n" "   Story-to-Image Pipeline — Launcher"
 printf "\033[1;35m%s\033[0m\n" "========================================"
 echo ""
 
+install_hf_cli
 ensure_models
 
 # Fire up both services concurrently
