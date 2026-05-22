@@ -33,11 +33,38 @@ OUTPUT_DIR = PROJECT_ROOT / 'output'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 sys.path.insert(0, str(PROJECT_ROOT))
 
+COUNTER_PATH = PROJECT_ROOT / '.opencode_counter'
+
 setup_status = {'done': False, 'comfyui': False, 'ollama': False, 'error': ''}
 tasks = {}
 story_sessions = {}
 image_counter = 0
 counter_lock = threading.Lock()
+
+
+def _load_counter():
+    global image_counter
+    try:
+        if COUNTER_PATH.exists():
+            image_counter = int(COUNTER_PATH.read_text().strip())
+            return
+        max_img = 0
+        for d in [OUTPUT_DIR / 'reverend_insanity', COMFYUI_OUTPUT / 'reverend_insanity']:
+            if d.exists():
+                for p in d.glob('ch*_img_*.png'):
+                    m = re.search(r'img_(\d+)', p.name)
+                    if m:
+                        max_img = max(max_img, int(m.group(1)))
+        image_counter = max_img
+    except:
+        image_counter = 0
+
+
+def _save_counter():
+    COUNTER_PATH.write_text(str(image_counter))
+
+
+_load_counter()
 
 
 def load_config():
@@ -226,6 +253,7 @@ def generate_next_image_id():
     global image_counter
     with counter_lock:
         image_counter += 1
+        _save_counter()
         return f'img_{image_counter:06d}'
 
 
@@ -470,4 +498,5 @@ def api_gallery():
 auto_setup()
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.environ.get('FLASK_PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)

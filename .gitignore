@@ -22,3 +22,4 @@ ComfyUI/
 nohup.out
 /tmp/
 .DS_Store
+.opencode_counter

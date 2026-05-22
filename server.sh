@@ -96,22 +96,37 @@ start_ollama &
 start_comfyui &
 wait
 
-# Start Flask
-log "  Starting Flask web app on http://0.0.0.0:$FLASK_PORT"
-python webapp/app.py &
-
-# Wait for Flask
-for _ in $(seq 1 10); do
+# Start Flask (skip if already running)
+FLASK_ACTUAL=$FLASK_PORT
+start_flask() {
   if curl -sf http://127.0.0.1:$FLASK_PORT >/dev/null 2>&1; then
-    break
+    ok "  Flask already running on :$FLASK_ACTUAL"
+    return 0
   fi
-  sleep 1
-done
+  for try in $FLASK_PORT $((FLASK_PORT+1)) $((FLASK_PORT+2)); do
+    if ! curl -sf http://127.0.0.1:$try >/dev/null 2>&1; then
+      FLASK_ACTUAL=$try
+      break
+    fi
+  done
+  log "  Starting Flask web app on http://0.0.0.0:$FLASK_ACTUAL"
+  FLASK_PORT=$FLASK_ACTUAL python webapp/app.py &
+  for _ in $(seq 1 10); do
+    if curl -sf http://127.0.0.1:$FLASK_ACTUAL >/dev/null 2>&1; then
+      ok "  Flask ready on :$FLASK_ACTUAL"
+      return 0
+    fi
+    sleep 1
+  done
+  log "  Flask start timed out — check /tmp/flask_app.log"
+}
+
+start_flask
 
 echo ""
 printf "\033[1;32m%s\033[0m\n" "========================================"
 printf "\033[1;32m%s\033[0m\n" "   All services running!"
-printf "\033[1;32m%s\033[0m\n" "   Open: http://localhost:$FLASK_PORT"
+printf "\033[1;32m%s\033[0m\n" "   Open: http://localhost:$FLASK_ACTUAL"
 printf "\033[1;32m%s\033[0m\n" "========================================"
 echo ""
 
