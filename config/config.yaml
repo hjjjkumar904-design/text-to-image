@@ -1,48 +1,18 @@
-# Story-to-Image Pipeline Configuration
-# Paths are relative to project root
-
-project_root: "."
-
 comfyui:
-  url: "http://127.0.0.1:8188"
-  workflow: "comfyui_workflows/story_generation.json"
-  output_dir: "output"
-  startup_flags: "--listen --port 8188"
-
-models:
-  active: "juggernaut-xl"
-  checkpoint: "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
-  checkpoint_path: "ComfyUI/models/checkpoints/Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
-  ipadapter: "ip-adapter-faceid-plusv2_sdxl.bin"
-  ipadapter_path: "ComfyUI/models/ipadapter/ip-adapter-faceid-plusv2_sdxl.bin"
-  clip_vision: "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
-  clip_vision_path: "ComfyUI/models/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
-
-data:
-  characters_dir: "data/characters"
-  stories_dir: "data/stories"
-  output_dir: "output"
-
+  startup_flags: --listen --port 8188
+  url: http://127.0.0.1:8188
 generation:
-  base_resolution: [1216, 832]
-  portrait_resolution: [832, 1216]
-  landscape_resolution: [1216, 832]
-  wide_resolution: [1344, 768]
-  steps: 30
-  cfg: 7.5
-  sampler: "dpmpp_2m"
-  scheduler: "karras"
-  ipadapter_weight: 0.75
-  ipadapter_start: 0.0
-  ipadapter_end: 1.0
-  max_characters_per_scene: 3
-
-prompts:
-  base_quality: "masterpiece, best quality, highly detailed background, cinematic lighting, 8k, depth of field"
-  negative_prompt: "blurry, low quality, bad anatomy, distorted face, extra limbs, watermark, text, signature, deformed, ugly, poorly drawn, out of frame"
-  style: "digital painting, fantasy art"
-
+  cfg: 7.0
+  steps: 25
+models:
+  active: flux-dev
 ollama:
   enabled: true
-  url: "http://127.0.0.1:11434"
-  model: "qwen2.5:7b"
+  model: qwen2.5:14b
+  url: http://127.0.0.1:11434
+prompts:
+  base_quality: masterpiece, best quality, highly detailed background, cinematic lighting,
+    8k, depth of field
+  negative_prompt: blurry, low quality, bad anatomy, distorted face, extra limbs,
+    watermark, text, signature, deformed, ugly, poorly drawn, out of frame
+  style: wuxia

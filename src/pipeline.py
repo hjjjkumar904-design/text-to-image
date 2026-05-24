@@ -18,8 +18,11 @@ class StoryPipeline:
         self.config = self._load_config(config_path)
         self.project_root = Path(self.config.get("project_root", "."))
 
+        data_cfg = self.config.get("data", {})
+        comfy_cfg = self.config.get("comfyui", {})
+
         self.db = CharacterDatabase(
-            str(self.project_root / self.config["data"]["characters_dir"])
+            str(self.project_root / data_cfg.get("characters_dir", "data/characters"))
         )
         self.parser = StoryParser(
             self.db,
@@ -28,11 +31,11 @@ class StoryPipeline:
         )
         self.prompt_engineer = PromptEngineer(self.config.get("prompts", {}))
         self.comfy = ComfyUIClient(
-            url=self.config["comfyui"]["url"],
-            workflow_path=str(self.project_root / self.config["comfyui"]["workflow"]),
+            url=comfy_cfg.get("url", "http://127.0.0.1:8188"),
+            workflow_path=str(self.project_root / comfy_cfg.get("workflow", "comfyui_workflows/story_generation.json")),
         )
 
-        self.output_base = self.project_root / self.config["data"]["output_dir"]
+        self.output_base = self.project_root / data_cfg.get("output_dir", "output")
 
     def _load_config(self, config_path: str) -> dict:
         with open(config_path, "r") as f:
@@ -68,7 +71,7 @@ class StoryPipeline:
         print(f"\n[4/5] Connecting to ComfyUI...")
         if not self.comfy.connect():
             print("  WARNING: Could not connect to ComfyUI at",
-                  self.config["comfyui"]["url"])
+                  comfy_cfg.get("url", "http://127.0.0.1:8188"))
             print("  Start ComfyUI with: python ComfyUI/main.py --listen --port 8188 --normalvram")
             print("  Saving prompts only (no generation).")
             self._save_text_output(scenes, scene_output_dir)
@@ -126,7 +129,7 @@ class StoryPipeline:
         text_path = output_dir / "prompts.txt"
         with open(text_path, "w") as f:
             for scene in scenes:
-                f.write(f"Scene {scene['scene_id']}: {scene.get('title', '')}\n")
+                f.write(f"Scene {scene.get('scene_id', '?')}: {scene.get('title', '')}\n")
                 f.write(f"  Characters: {', '.join(scene.get('characters_present', []))}\n")
                 f.write(f"  Setting: {scene.get('setting', '')}\n")
                 f.write(f"  Mood: {scene.get('mood', '')}\n")

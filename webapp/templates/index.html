@@ -11,29 +11,25 @@ body {
   background: linear-gradient(135deg, #0c0c1a 0%, #1a0a2e 30%, #0c0c1a 60%, #0a1628 100%);
   color: #e0e0e0;
   min-height: 100vh;
-  position: relative;
   overflow-x: hidden;
 }
 body::before {
   content: '';
   position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(ellipse at 20% 50%, rgba(233, 69, 96, 0.06) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 50%, rgba(96, 165, 250, 0.06) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(ellipse at 20% 50%, rgba(233, 69, 96, 0.07) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 50%, rgba(96, 165, 250, 0.07) 0%, transparent 50%);
+  pointer-events: none; z-index: 0;
 }
 .container { max-width: 1400px; margin: 0 auto; padding: 24px; position: relative; z-index: 1; }
 
 header {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 20px;
-  padding: 28px;
+  padding: 32px 28px 28px;
   margin-bottom: 28px;
   text-align: center;
   position: relative;
@@ -44,10 +40,10 @@ header::after {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.5), rgba(96, 165, 250, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(233,69,96,0.6), rgba(96,165,250,0.6), transparent);
 }
 header h1 {
-  font-size: 28px;
+  font-size: 30px;
   background: linear-gradient(135deg, #e94560, #f59e0b, #e94560);
   background-size: 200%;
   -webkit-background-clip: text;
@@ -56,250 +52,286 @@ header h1 {
   letter-spacing: -0.5px;
 }
 @keyframes shimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-header p { color: rgba(255,255,255,0.5); font-size: 13px; }
-.setup-bar { display: flex; gap: 12px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+header p { color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 4px; }
+.setup-bar { display: flex; gap: 10px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
 .setup-item {
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border: 1px solid transparent;
+  padding: 6px 18px; border-radius: 20px; font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  border: 1px solid transparent; transition: all 0.3s;
 }
-.setup-item.ok { background: rgba(74, 222, 128, 0.1); color: #4ade80; border-color: rgba(74, 222, 128, 0.2); }
-.setup-item.pending { background: rgba(250, 204, 21, 0.1); color: #facc15; border-color: rgba(250, 204, 21, 0.2); }
-.setup-item.fail { background: rgba(248, 113, 113, 0.1); color: #f87171; border-color: rgba(248, 113, 113, 0.2); }
+.setup-item.ok { background: rgba(74,222,128,0.12); color: #4ade80; border-color: rgba(74,222,128,0.25); }
+.setup-item.pending { background: rgba(250,204,21,0.1); color: #facc15; border-color: rgba(250,204,21,0.2); }
+.setup-item.fail { background: rgba(248,113,113,0.1); color: #f87171; border-color: rgba(248,113,113,0.2); }
 
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
 .card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  transition: border-color 0.3s;
 }
+.card:hover { border-color: rgba(255,255,255,0.09); }
 .card h2 {
-  font-size: 15px;
+  font-size: 14px;
   color: #e94560;
   margin-bottom: 16px;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
   display: flex;
   align-items: center;
   gap: 8px;
 }
-label { display: block; font-size: 11px; color: rgba(255,255,255,0.5); margin-bottom: 6px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+label {
+  display: block; font-size: 10px; color: rgba(255,255,255,0.45);
+  margin-bottom: 5px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.6px;
+}
 input, select, textarea {
   width: 100%;
   padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 10px;
   color: #e0e0e0;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.25s ease;
 }
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: rgba(233, 69, 96, 0.4);
-  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(233,69,96,0.5);
+  box-shadow: 0 0 0 3px rgba(233,69,96,0.1);
+  background: rgba(255,255,255,0.07);
 }
-textarea { font-family: inherit; resize: vertical; min-height: 80px; }
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.3)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;
+}
+textarea { font-family: inherit; resize: vertical; min-height: 80px; line-height: 1.5; }
 button {
   padding: 10px 24px;
   background: linear-gradient(135deg, #e94560, #d63851);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  letter-spacing: 0.3px;
+  color: #fff; border: none; border-radius: 10px;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: all 0.2s ease; letter-spacing: 0.3px;
+  position: relative; overflow: hidden;
 }
 button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(233, 69, 96, 0.25);
+  box-shadow: 0 8px 24px rgba(233,69,96,0.25);
 }
-button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
-.btn-secondary { background: rgba(255, 255, 255, 0.06); color: rgba(255,255,255,0.7); }
-.btn-secondary:hover { background: rgba(255, 255, 255, 0.1); color: #fff; box-shadow: none; }
-.btn-sm { padding: 6px 14px; font-size: 12px; }
+button:active { transform: translateY(0); }
+button:disabled { opacity: 0.35; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+.btn-secondary {
+  background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7);
+  backdrop-filter: blur(4px);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.13); color: #fff; box-shadow: none; }
+.btn-sm { padding: 6px 14px; font-size: 11px; border-radius: 8px; }
 .btn-success { background: linear-gradient(135deg, #22c55e, #16a34a); }
-.btn-success:hover { box-shadow: 0 8px 24px rgba(34, 197, 94, 0.25); }
+.btn-success:hover { box-shadow: 0 8px 24px rgba(34,197,94,0.25); }
+.btn-danger { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.btn-danger:hover { box-shadow: 0 8px 24px rgba(239,68,68,0.25); }
 
 .flex { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .flex-1 { flex: 1; min-width: 0; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
 .mt-8 { margin-top: 8px; }
 .mt-16 { margin-top: 16px; }
 .mb-8 { margin-bottom: 8px; }
-.hidden { display: none; }
+.hidden { display: none !important; }
 
 .tabs {
   display: flex;
-  gap: 4px;
-  margin-bottom: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  padding: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  gap: 2px;
+  margin-bottom: 24px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 14px;
+  padding: 5px;
+  border: 1px solid rgba(255,255,255,0.05);
   overflow-x: auto;
 }
 .tab {
-  padding: 10px 24px;
+  flex: 1;
+  padding: 12px 20px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 12px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.4);
-  transition: all 0.25s ease;
+  font-weight: 600;
+  color: rgba(255,255,255,0.35);
+  transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
+  text-align: center;
   white-space: nowrap;
 }
-.tab:hover { color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.03); }
+.tab:hover { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.03); }
 .tab.active {
-  background: rgba(233, 69, 96, 0.15);
+  background: rgba(233,69,96,0.15);
   color: #e94560;
-  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.1);
+  box-shadow: 0 4px 12px rgba(233,69,96,0.1);
 }
 .tab-content { display: none; animation: fadeIn 0.3s ease; }
 .tab-content.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 .chapter-list {
-  max-height: 300px;
+  max-height: 320px;
   overflow-y: auto;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255,255,255,0.02);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
 }
-.chapter-list::-webkit-scrollbar { width: 6px; }
+.chapter-list::-webkit-scrollbar { width: 5px; }
 .chapter-list::-webkit-scrollbar-track { background: transparent; }
 .chapter-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
 .chapter-item {
-  padding: 8px 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
   font-size: 13px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  transition: background 0.2s;
 }
 .chapter-item:last-child { border-bottom: none; }
-.chapter-item .ch-num { color: #e94560; font-weight: 600; min-width: 28px; }
-.chapter-item .ch-title { color: rgba(255,255,255,0.7); }
-.chapter-item .ch-status { margin-left: auto; font-size: 11px; padding: 2px 8px; border-radius: 10px; }
-.chapter-item .ch-status.done { background: rgba(74,222,128,0.1); color: #4ade80; }
+.chapter-item:hover { background: rgba(255,255,255,0.02); }
+.chapter-item .ch-num { color: #e94560; font-weight: 700; min-width: 30px; font-size: 12px; }
+.chapter-item .ch-title { color: rgba(255,255,255,0.65); flex: 1; }
+.chapter-item .ch-status { margin-left: auto; font-size: 10px; padding: 3px 10px; border-radius: 10px; font-weight: 600; letter-spacing: 0.3px; }
+.chapter-item .ch-status.done { background: rgba(74,222,128,0.12); color: #4ade80; }
 .chapter-item .ch-status.pending { background: rgba(250,204,21,0.1); color: #facc15; }
 .chapter-item .ch-status.generating { background: rgba(96,165,250,0.1); color: #60a5fa; }
+.chapter-item .ch-status.fail { background: rgba(248,113,113,0.1); color: #f87171; }
 
 .scene-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
   transition: all 0.25s ease;
 }
-.scene-card:hover { border-color: rgba(233, 69, 96, 0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
-.scene-card .scene-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-.scene-card .scene-title { font-size: 13px; color: #e94560; font-weight: 600; }
+.scene-card:hover {
+  border-color: rgba(233,69,96,0.2);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  background: rgba(255,255,255,0.03);
+}
+.scene-card.selected { border-color: rgba(233,69,96,0.3); }
+.scene-card .scene-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 8px; }
+.scene-card .scene-title { font-size: 13px; color: #e94560; font-weight: 600; flex: 1; line-height: 1.4; }
 .scene-card .scene-meta { font-size: 11px; color: rgba(255,255,255,0.3); }
-.scene-card .scene-text { font-size: 12px; color: rgba(255,255,255,0.4); margin: 8px 0; line-height: 1.5; max-height: 60px; overflow: hidden; }
+.scene-card .scene-text {
+  font-size: 12px; color: rgba(255,255,255,0.4); margin: 8px 0; line-height: 1.5;
+  max-height: 60px; overflow: hidden; position: relative;
+}
+.scene-card .scene-text::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 20px; background: linear-gradient(transparent, rgba(12,12,26,0.8));
+}
 .scene-card .scene-image { margin-top: 12px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
 .scene-card .scene-image img { width: 100%; display: block; }
-.scene-card.has-image { border-color: rgba(74, 222, 128, 0.2); }
-
-.range-inputs { display: flex; gap: 8px; align-items: center; }
-.range-inputs input { width: 80px; text-align: center; }
-.range-inputs span { color: rgba(255,255,255,0.3); font-size: 14px; }
+.scene-card.has-image { border-color: rgba(74,222,128,0.2); }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
 }
 .gallery-item {
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
   transition: all 0.3s ease;
   position: relative;
 }
 .gallery-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-  border-color: rgba(233, 69, 96, 0.2);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+  border-color: rgba(233,69,96,0.25);
 }
+.gallery-item:hover .gallery-overlay { opacity: 1; }
 .gallery-item img { width: 100%; display: block; }
-.gallery-item .gallery-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8px 12px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.8));
-  font-size: 11px;
-  color: rgba(255,255,255,0.8);
-  pointer-events: none;
-}
-
-.task-status {
-  padding: 10px 16px;
-  border-radius: 10px;
-  margin: 6px 0;
-  font-size: 12px;
-  font-weight: 500;
-  border: 1px solid transparent;
-}
-.task-status.queued { background: rgba(250, 204, 21, 0.08); color: #facc15; border-color: rgba(250, 204, 21, 0.1); }
-.task-status.running { background: rgba(96, 165, 250, 0.08); color: #60a5fa; border-color: rgba(96, 165, 250, 0.1); }
-.task-status.completed { background: rgba(74, 222, 128, 0.08); color: #4ade80; border-color: rgba(74, 222, 128, 0.1); }
-.task-status.failed { background: rgba(248, 113, 113, 0.08); color: #f87171; border-color: rgba(248, 113, 113, 0.1); }
-
-.toggle {
-  position: relative;
-  display: inline-block;
-  width: 44px;
-  height: 24px;
-  cursor: pointer;
-}
-.toggle input { display: none; }
-.toggle .slider {
+.gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.1);
-  border-radius: 12px;
-  transition: 0.3s;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 40%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 12px;
+  gap: 6px;
 }
-.toggle .slider::before {
-  content: '';
-  position: absolute;
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  background: #fff;
-  border-radius: 50%;
-  transition: 0.3s;
+.gallery-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.toggle input:checked + .slider { background: #e94560; }
-.toggle input:checked + .slider::before { transform: translateX(20px); }
+.gallery-btn {
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.gallery-btn:hover { background: rgba(233,69,96,0.7); transform: none; box-shadow: none; }
+.gallery-btn.danger:hover { background: rgba(239,68,68,0.7); }
 
-@media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: fadeIn 0.2s ease;
+}
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  object-fit: contain;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  font-size: 36px;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+.lightbox-close:hover { color: #fff; }
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .tabs .tab { font-size: 10px; padding: 10px 12px; }
+  header h1 { font-size: 22px; }
+  .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+}
 </style>
 </head>
 <body>
@@ -359,6 +391,14 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 <textarea id="manualText" placeholder="Paste story text... Use --- to separate scenes, or type chapter text directly"></textarea>
 <button class="mt-8 btn-success" onclick="useManualText()">Use This Text</button>
 </div>
+
+<div class="card" id="resumeCard" style="display:none">
+<h2>Resume Previous Session</h2>
+<p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:12px">
+You have <span id="savedSceneCount">0</span> saved scenes ready to continue.
+</p>
+<button class="btn-success" onclick="resumeSaved()">Resume</button>
+</div>
 </div>
 
 <div id="tab-editor" class="tab-content">
@@ -382,6 +422,13 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 </select>
 </label>
 <button onclick="enrichAllScenes()" id="enrichAllBtn" class="btn-sm">Enhance All</button>
+<button onclick="exportScenes()" class="btn-secondary btn-sm">Export JSON</button>
+<select id="bulkAspect" style="width:130px;padding:6px 10px;font-size:11px">
+<option value="1216x832">Landscape 3:2</option>
+<option value="832x1216">Portrait 2:3</option>
+<option value="1024x1024">Square 1:1</option>
+</select>
+<button onclick="bulkSetAspect()" class="btn-secondary btn-sm">Set All</button>
 </div>
 </div>
 <p style="color:rgba(255,255,255,0.3);font-size:12px;margin-bottom:16px">Each scene can be edited — prompts are auto-enhanced with story context when available</p>
@@ -393,7 +440,11 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 <div class="card">
 <div class="flex" style="justify-content:space-between">
 <h2>Generation Controls</h2>
+<div class="flex" style="gap:6px">
+<button onclick="generateRemainingScenes()" class="btn-secondary btn-sm">Generate Remaining</button>
+<button onclick="retryFailedScenes()" class="btn-secondary btn-sm">Retry Failed</button>
 <button onclick="generateAllScenes()" id="genBtn" class="btn-success">Generate All Scenes</button>
+</div>
 </div>
 <div class="grid-4" style="margin-top:16px">
 <div>
@@ -403,6 +454,10 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 <div>
 <label>CFG Scale</label>
 <input type="number" id="genCfg" value="7.0" min="1" max="30" step="0.5">
+</div>
+<div id="guidanceGroup" style="display:none">
+<label>Flux Guidance</label>
+<input type="number" id="genGuidance" value="3.5" min="1" max="10" step="0.5">
 </div>
 <div>
 <label>Default Aspect</label>
@@ -426,6 +481,15 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 <div id="chapterTimeline"></div>
 </div>
 
+<div id="batchProgress" class="batch-progress" style="display:none">
+<div class="batch-progress-header">
+<span id="batchProgressText">0/0 completed</span>
+<span id="batchProgressPct">0%</span>
+</div>
+<div class="batch-progress-bar">
+<div id="batchProgressFill" class="batch-progress-fill"></div>
+</div>
+</div>
 <div id="generationStatus"></div>
 </div>
 
@@ -433,7 +497,16 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 <div class="card">
 <div class="flex" style="justify-content:space-between">
 <h2>Generated Gallery</h2>
+<div class="flex" style="gap:6px">
+<button class="btn-secondary btn-sm" onclick="downloadAllZip()">Download ZIP</button>
+<button class="btn-secondary btn-sm" onclick="downloadAllImages()">Download All</button>
 <button class="btn-secondary btn-sm" onclick="refreshGallery()">Refresh</button>
+</div>
+</div>
+<div id="lightbox" class="lightbox" style="display:none" onclick="closeLightbox()">
+<span class="lightbox-close">&times;</span>
+<img id="lightboxImg" class="lightbox-img" src="" alt="" style="display:none">
+<video id="lightboxVideo" class="lightbox-img" src="" autoplay loop controls style="display:none"></video>
 </div>
 <div class="gallery-grid" id="imageGallery">
 <p style="color:rgba(255,255,255,0.2);grid-column:1/-1;text-align:center;padding:60px;font-size:14px">No images generated yet</p>
@@ -473,10 +546,11 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow
 </div>
 <div>
 <label>Model</label>
-<select id="modelSetting"></select>
+<select id="modelSetting" onchange="onModelChange()"></select>
 </div>
 </div>
 <button class="mt-16" onclick="saveSettings()">Save Settings</button>
+<button class="mt-8 btn-secondary" onclick="resetCounter()" style="background:rgba(248,113,113,0.15);color:#f87171">Reset Image Counter</button>
 </div>
 </div>
 </div>
@@ -490,7 +564,8 @@ let totalScenesGenerated = 0;
 function switchTab(name) {
 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
 document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
+const tabEl = document.querySelector(`.tab[onclick*="${name}"]`);
+if (tabEl) tabEl.classList.add('active');
 document.getElementById(`tab-${name}`).classList.add('active');
 }
 
@@ -549,18 +624,23 @@ const btn = document.getElementById('loadChaptersBtn');
 btn.disabled = true; btn.textContent = 'Loading...';
 chapterSceneMap = {};
 currentScenes = [];
+let hasError = false;
 document.querySelectorAll('#chapterList .ch-status').forEach(s => { s.textContent = 'Loading'; s.className = 'ch-status generating'; });
 for (let i = 0; i < chapters.length; i++) {
 try {
-const r = await fetch('/api/fetch-chapter', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url: chapters[i].url})});
+const r = await fetch('/api/split-scenes', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
+url: chapters[i].url,
+chapter_num: storyData.range?.start + i || i + 1,
+chapter_title: chapters[i].title,
+})});
 const data = await r.json();
-if (data.text) {
-const scenes = splitText(data.text);
-const chapterScenes = scenes.map(s => ({
+if (data.scenes && data.scenes.length) {
+const chapterScenes = data.scenes.map(s => ({
 chapter: i,
-chapterNum: storyData.range?.start + i || i + 1,
+chapterNum: data.chapter,
 title: chapters[i].title,
-text: s.trim().substring(0, 2000),
+summary: s.summary || '',
+text: (s.text || '').trim().substring(0, 2000),
 prompt: '',
 negative: 'blurry, low quality',
 aspect: document.getElementById('genResolution')?.value || '1216x832',
@@ -568,52 +648,100 @@ aspect: document.getElementById('genResolution')?.value || '1216x832',
 chapterSceneMap[i] = chapterScenes;
 currentScenes = currentScenes.concat(chapterScenes);
 const status = document.querySelectorAll('#chapterList .ch-status')[i];
-if (status) { status.textContent = `${scenes.length} scenes`; status.className = 'ch-status done'; }
+if (status) { status.textContent = `${data.scenes.length} scenes`; status.className = 'ch-status done'; }
+} else {
+hasError = true;
+const status = document.querySelectorAll('#chapterList .ch-status')[i];
+if (status) { status.textContent = 'Error - 0 scenes'; status.className = 'ch-status fail'; }
 }
-} catch(e) {}
+} catch(e) {
+hasError = true;
+const status = document.querySelectorAll('#chapterList .ch-status')[i];
+if (status) { status.textContent = 'Error'; status.className = 'ch-status fail'; }
+}
 btn.textContent = `Loading ${i+1}/${chapters.length}...`;
 }
 btn.disabled = false; btn.textContent = 'Load All & Start';
+if (hasError) { document.getElementById('storyResult').querySelector('h3').innerHTML += ' <span style="color:#f87171;font-size:12px">(some chapters failed)</span>'; }
+if (!currentScenes.length) { alert('Could not load any scenes. Check the logs.'); return; }
+debouncedSaveScenes();
 buildSceneEditor();
 buildTimeline();
 switchTab('editor');
+// Auto-enrich after loading
+setTimeout(() => { if (currentScenes.length) enrichAllScenes(); }, 500);
 }
 
-function splitText(text) {
-let scenes = text.split(/^(?:Scene\s+\d+|Chapter\s+\d+)/mi).filter(s => s.trim());
-if (scenes.length < 2) {
-const parts = text.split(/\n\s*---+\s*\n/);
-if (parts.length > 1) scenes = parts.filter(p => p.trim());
+async function saveScenes() {
+try {
+const mapped = {};
+for (const [k, v] of Object.entries(chapterSceneMap)) {
+mapped[k] = v.map(s => { const idx = currentScenes.indexOf(s); return idx >= 0 ? idx : null; }).filter(i => i !== null);
 }
-if (scenes.length < 2) {
-scenes = [];
-const paras = text.split('\n').filter(p => p.trim());
-let current = [];
-for (const p of paras) {
-current.push(p);
-if (current.length >= 4) {
-scenes.push(current.join('\n'));
-current = [];
-}
-}
-if (current.length) scenes.push(current.join('\n'));
-}
-if (!scenes.length) scenes = [text];
-return scenes;
+await fetch('/api/scenes', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
+story: storyData.title || '',
+chapters: storyData.chapters || [],
+current_chapter: storyData.range?.start || 1,
+scenes: currentScenes,
+chapterSceneMap: mapped,
+})});
+} catch(e) {}
 }
 
-function useManualText() {
+async function loadSavedScenes() {
+try {
+const r = await fetch('/api/scenes');
+const data = await r.json();
+if (data.scenes && data.scenes.length) {
+currentScenes = data.scenes;
+chapterSceneMap = {};
+if (data.chapterSceneMap) {
+for (const [ch, indices] of Object.entries(data.chapterSceneMap)) {
+chapterSceneMap[parseInt(ch)] = indices.map(i => currentScenes[i]).filter(Boolean);
+}
+} else {
+chapterSceneMap[0] = currentScenes;
+}
+storyData.title = data.story || '';
+buildSceneEditor();
+buildTimeline();
+return true;
+}
+} catch(e) {}
+return false;
+}
+
+async function resumeSaved() {
+const loaded = await loadSavedScenes();
+if (loaded) {
+switchTab('editor');
+}
+}
+
+async function useManualText() {
 const text = document.getElementById('manualText').value.trim();
 if (!text) return alert('Enter text');
-currentScenes = splitText(text).map((s, i) => ({
-chapter: 0, chapterNum: 1, title: `Manual Scene ${i+1}`,
-text: s.trim().substring(0, 2000), prompt: '',
-negative: 'blurry, low quality', aspect: '1216x832',
+try {
+const r = await fetch('/api/split-scenes', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({html: text, chapter_num: 1, chapter_title: 'Manual Text'})});
+const data = await r.json();
+if (data.scenes && data.scenes.length) {
+currentScenes = data.scenes.map((s, i) => ({
+chapter: 0, chapterNum: 1, title: 'Manual Text',
+summary: s.summary || '',
+text: (s.text || text).trim().substring(0, 2000),
+prompt: '', negative: 'blurry, low quality',
+aspect: document.getElementById('genResolution')?.value || '1216x832',
 }));
-chapterSceneMap = {0: currentScenes};
-buildSceneEditor();
-buildTimeline();
-switchTab('editor');
+}
+} catch(e) {}
+if (!currentScenes.length) {
+currentScenes = [{chapter:0, chapterNum:1, title:'Manual Text', text: text.substring(0,2000), prompt:'', negative:'blurry, low quality', aspect:'1216x832'}];
+}
+    chapterSceneMap = {0: currentScenes};
+    debouncedSaveScenes();
+    buildSceneEditor();
+    buildTimeline();
+    switchTab('editor');
 }
 
 function buildSceneEditor() {
@@ -634,7 +762,7 @@ const card = document.createElement('div');
 card.className = 'scene-card';
 card.innerHTML = `
 <div class="scene-header">
-<span class="scene-title">Scene ${si + 1} <span class="scene-meta">(${s.text.length} chars)</span></span>
+<span class="scene-title">Scene ${si + 1}${s.summary ? ' — ' + s.summary.substring(0, 120) : ''}</span>
 <div class="flex" style="gap:6px">
 <select class="scene-aspect" style="width:120px;padding:4px 8px;font-size:11px" data-gi="${globalIdx}">
 <option value="1216x832" ${s.aspect === '1216x832' ? 'selected' : ''}>Landscape 3:2</option>
@@ -642,16 +770,22 @@ card.innerHTML = `
 <option value="1024x1024" ${s.aspect === '1024x1024' ? 'selected' : ''}>Square 1:1</option>
 <option value="1344x768" ${s.aspect === '1344x768' ? 'selected' : ''}>Wide 16:9</option>
 </select>
-<button class="btn-secondary btn-sm" onclick="enrichSingle(${globalIdx})">AI</button>
-<button class="btn-secondary btn-sm" onclick="generateSingle(${globalIdx})">Generate</button>
+	<button class="btn-secondary btn-sm" onclick="enrichSingle(event, ${globalIdx})">AI</button>
+	<button class="btn-secondary btn-sm" onclick="generateSingle(${globalIdx})">Generate</button>
+	<button class="btn-secondary btn-sm" onclick="animateSingle(${globalIdx})" style="background:rgba(96,165,250,0.15);color:#60a5fa">Animate</button>
+	</div>
 </div>
-</div>
-<div class="scene-text">${s.text.substring(0, 300)}</div>
-<label style="font-size:10px">Prompt</label>
-<textarea style="min-height:50px;font-size:12px" id="prompt_${globalIdx}">${s.prompt || s.text.substring(0, 500)}</textarea>
-<label style="font-size:10px;margin-top:6px">Negative</label>
-<input style="font-size:12px" id="neg_${globalIdx}" value="${s.negative}">
-<div id="sceneResult_${globalIdx}"></div>
+	<div class="scene-text">${(s.text || '').substring(0, 300)}</div>
+	<div style="margin-top:2px;background:rgba(233,69,96,0.06);border-radius:6px;padding:4px 8px;font-size:11px;color:rgba(255,255,255,0.3)">Scene text: ${(s.text || '').length} chars</div>
+	<label style="font-size:10px;margin-top:6px">AI Prompt (click AI button to generate)</label>
+	<textarea style="min-height:50px;font-size:12px" id="prompt_${globalIdx}" oninput="document.getElementById('promptLen_${globalIdx}').textContent=this.value.length+' chars';onSceneInput()">${s.prompt || ''}</textarea>
+	<div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.3);margin-top:2px">
+	<span id="promptLen_${globalIdx}">${(s.prompt || '').length} chars</span>
+	<span style="color:rgba(255,255,255,0.15)">max ~1500 for ComfyUI</span>
+	</div>
+	<label style="font-size:10px;margin-top:6px">Negative Prompt</label>
+	<input style="font-size:12px" id="neg_${globalIdx}" value="${s.negative}" oninput="onSceneInput()">
+	<div id="sceneResult_${globalIdx}" style="display:flex;gap:6px;flex-wrap:wrap;align-items:center"></div>
 `;
 chDiv.appendChild(card);
 globalIdx++;
@@ -712,7 +846,7 @@ function getEnrichPayload(text, context) {
   return {text, context, style, model};
 }
 
-async function enrichSingle(index) {
+async function enrichSingle(event, index) {
 const s = currentScenes[index];
 if (!s) return;
 const btn = event?.target;
@@ -722,8 +856,9 @@ const context = getContext(index);
 const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(getEnrichPayload(s.text, context))});
 const data = await r.json();
 if (data.enriched) {
-setScenePrompt(index, data.enriched);
-currentScenes[index].prompt = data.enriched;
+    setScenePrompt(index, data.enriched);
+    currentScenes[index].prompt = data.enriched;
+    debouncedSaveScenes();
 }
 } catch(e) {}
 if (btn) { btn.disabled = false; btn.textContent = 'AI'; }
@@ -731,7 +866,9 @@ if (btn) { btn.disabled = false; btn.textContent = 'AI'; }
 
 async function enrichAllScenes() {
 const btn = document.getElementById('enrichAllBtn');
+if (!currentScenes.length) { btn.textContent = 'No Scenes'; setTimeout(() => { btn.textContent = 'Enhance All'; }, 2000); return; }
 btn.disabled = true; btn.textContent = 'Enhancing...';
+let errors = 0;
 for (let i = 0; i < currentScenes.length; i++) {
 const s = currentScenes[i];
 try {
@@ -739,10 +876,11 @@ const context = getContext(i);
 const r = await fetch('/api/enrich', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(getEnrichPayload(s.text, context))});
 const d = await r.json();
 if (d.enriched) { setScenePrompt(i, d.enriched); currentScenes[i].prompt = d.enriched; }
-} catch(e) {}
-btn.textContent = `Enhancing ${i+1}/${currentScenes.length}...`;
+} catch(e) { errors++; }
+btn.textContent = `Enhancing ${i+1}/${currentScenes.length}${errors ? ' ('+errors+' errors)' : ''}...`;
 }
-btn.disabled = false; btn.textContent = 'Enhance All';
+    debouncedSaveScenes();
+    btn.disabled = false; btn.textContent = errors ? 'Enhance All (with errors)' : 'Enhance All';
 }
 
 async function generateSingle(index) {
@@ -753,14 +891,15 @@ const negative = getSceneNeg(index) || document.getElementById('genNegative')?.v
 const res = getSceneAspect(index).split('x');
 const steps = parseInt(document.getElementById('genSteps').value) || 25;
 const cfg = parseFloat(document.getElementById('genCfg').value) || 7.0;
+const guidance = parseFloat(document.getElementById('genGuidance')?.value) || null;
 const container = document.getElementById(`sceneResult_${index}`);
 container.innerHTML = '<div class="task-status queued">Queued...</div>';
 try {
 	const model = document.getElementById('modelSetting').value || 'juggernaut-xl';
-	const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
-		prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
-		chapter: s.chapterNum || 1, scene: index + 1, model
-	})});
+	const body = {prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
+		chapter: s.chapterNum || 1, scene: index + 1, model};
+	if (guidance) body.guidance = guidance;
+	const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
 	const data = await r.json();
 	if (data.task_id) {
 		container.innerHTML = `<div class="task-status running" id="taskStatus_${data.task_id}">Generating...</div>`;
@@ -771,17 +910,70 @@ container.innerHTML = `<div class="task-status failed">${e.message}</div>`;
 }
 }
 
+async function animateSingle(index) {
+const s = currentScenes[index];
+if (!s) return;
+const prompt = getScenePrompt(index) || s.text;
+const negative = getSceneNeg(index) || document.getElementById('genNegative')?.value || 'blurry, low quality';
+const res = getSceneAspect(index).split('x');
+const steps = parseInt(document.getElementById('genSteps').value) || 20;
+const cfg = parseFloat(document.getElementById('genCfg').value) || 7.0;
+const guidance = parseFloat(document.getElementById('genGuidance')?.value) || null;
+const container = document.getElementById(`sceneResult_${index}`);
+container.innerHTML = '<div class="task-status queued">Creating animation (8 frames)...</div>';
+try {
+	const model = document.getElementById('modelSetting').value || 'juggernaut-xl';
+	const body = {prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
+		chapter: s.chapterNum || 1, scene: index + 1, model, frames: 8};
+	if (guidance) body.guidance = guidance;
+	const r = await fetch('/api/animate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+	const data = await r.json();
+	if (data.task_id) {
+		container.innerHTML = `<div class="task-status running" id="animStatus_${data.task_id}">Animating...</div>`;
+		pollAnimation(data.task_id, index, container);
+	}
+} catch(e) {
+container.innerHTML = `<div class="task-status failed">${e.message}</div>`;
+}
+}
+
+function pollAnimation(taskId, index, container) {
+const interval = setInterval(async () => {
+try {
+const r = await fetch(`/api/task/${taskId}`);
+const d = await r.json();
+if (d.status === 'completed' && d.result) {
+	const url = d.result[0];
+	container.innerHTML = `<video src="${url}" controls loop style="width:100%;border-radius:8px;margin-top:8px"></video><div style="margin-top:4px"><button class="btn-sm btn-success" onclick="downloadImage('${url}', '${url.split('/').pop()}')">Download</button></div>`;
+	totalScenesGenerated++;
+	refreshGallery();
+	clearInterval(interval);
+} else if (d.status === 'failed') {
+	container.innerHTML = `<div class="task-status failed">Animation failed: ${d.error || 'unknown'}</div>`;
+	clearInterval(interval);
+} else if (d.status === 'cancelled') {
+	container.innerHTML = `<div class="task-status failed">Cancelled</div>`;
+	clearInterval(interval);
+} else {
+	const el = document.getElementById(`animStatus_${taskId}`);
+	if (el) el.textContent = 'Animating...';
+}
+} catch(e) {}
+}, 3000);
+}
+
 function pollTask(taskId, index, container) {
 const interval = setInterval(async () => {
 try {
 const r = await fetch(`/api/task/${taskId}`);
 const d = await r.json();
 if (d.status === 'completed' && d.result) {
-container.innerHTML = d.result.map(url => `<div class="scene-image"><img src="${url}" alt="Generated image"></div>`).join('');
-totalScenesGenerated++;
-refreshGallery();
-updateChapterStatus(index);
-clearInterval(interval);
+container.innerHTML = d.result.map(url => `<div class="scene-image"><img src="${url}" alt="Generated image" style="cursor:pointer" onclick="openLightbox('${url}')"></div>`).join('') + `<div style="display:flex;gap:6px;margin-top:4px"><button class="btn-sm" onclick="generateSingle(${index})">Regenerate</button><button class="btn-sm" onclick="animateSingle(${index})" style="background:rgba(96,165,250,0.15);color:#60a5fa">Animate</button></div>`;
+    totalScenesGenerated++;
+    refreshGallery();
+    updateChapterStatus(index);
+    debouncedSaveScenes();
+    clearInterval(interval);
 } else if (d.status === 'failed') {
 container.innerHTML = `<div class="task-status failed">Failed: ${d.error || 'unknown'}</div>`;
 clearInterval(interval);
@@ -793,12 +985,31 @@ if (el) el.textContent = 'Generating...';
 }, 3000);
 }
 
+let batchTracker = null;
+
+function updateBatchProgress() {
+if (!batchTracker) return;
+const pct = batchTracker.total > 0 ? Math.round((batchTracker.completed + batchTracker.failed) / batchTracker.total * 100) : 0;
+document.getElementById('batchProgressText').textContent = `${batchTracker.completed}/${batchTracker.total} completed, ${batchTracker.failed} failed`;
+document.getElementById('batchProgressPct').textContent = `${pct}%`;
+document.getElementById('batchProgressFill').style.width = pct + '%';
+if (batchTracker.completed + batchTracker.failed === batchTracker.total) {
+setTimeout(() => { document.getElementById('batchProgress').style.display = 'none'; }, 4000);
+}
+}
+
 async function generateAllScenes() {
+const total = currentScenes.length;
+if (!total) { alert('No scenes to generate'); return; }
+batchTracker = { total, completed: 0, failed: 0 };
+document.getElementById('batchProgress').style.display = 'block';
+updateBatchProgress();
 const btn = document.getElementById('genBtn');
-btn.disabled = true; btn.textContent = 'Generating...';
+btn.disabled = true; btn.textContent = `0/${total}...`;
 const statusContainer = document.getElementById('generationStatus');
 statusContainer.innerHTML = '';
-for (let i = 0; i < currentScenes.length; i++) {
+const guidance = parseFloat(document.getElementById('genGuidance')?.value) || null;
+for (let i = 0; i < total; i++) {
 const s = currentScenes[i];
 const prompt = getScenePrompt(i) || s.text;
 const negative = getSceneNeg(i) || document.getElementById('genNegative')?.value || 'blurry, low quality';
@@ -807,29 +1018,35 @@ const steps = parseInt(document.getElementById('genSteps').value) || 25;
 const cfg = parseFloat(document.getElementById('genCfg').value) || 7.0;
 const div = document.createElement('div');
 div.className = 'task-status queued';
-div.textContent = `Scene ${i + 1}: Queued...`;
+div.textContent = `Scene ${i + 1}: Submitting...`;
 statusContainer.appendChild(div);
+btn.textContent = `${i+1}/${total}...`;
 try {
 		const model = document.getElementById('modelSetting').value || 'juggernaut-xl';
-		const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({
-			prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
-			chapter: s.chapterNum || 1, scene: i + 1, model
-		})});
+		const body = {prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
+			chapter: s.chapterNum || 1, scene: i + 1, model};
+		if (guidance) body.guidance = guidance;
+		const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
 const d = await r.json();
 if (d.task_id) {
 div.textContent = `Scene ${i + 1}: Generating...`;
 pollTaskGlobal(d.task_id, i, div);
 } else {
 div.className = 'task-status failed';
-div.textContent = `Scene ${i + 1}: Failed`;
+div.textContent = `Scene ${i + 1}: Failed - no task_id`;
+batchTracker.failed++;
+updateBatchProgress();
 }
 } catch(e) {
 div.className = 'task-status failed';
 div.textContent = `Scene ${i + 1}: ${e.message}`;
+batchTracker.failed++;
+updateBatchProgress();
 }
-btn.textContent = `Generating ${i+1}/${currentScenes.length}...`;
 }
-btn.disabled = false; btn.textContent = 'Generate All Scenes';
+}
+btn.disabled = false;
+btn.textContent = 'Generate All Scenes';
 }
 
 function pollTaskGlobal(taskId, index, div) {
@@ -839,20 +1056,44 @@ const r = await fetch(`/api/task/${taskId}`);
 const d = await r.json();
 if (d.status === 'completed' && d.result) {
 div.className = 'task-status completed';
-div.innerHTML = `Scene ${index + 1}: Done → <a href="${d.result[0]}" target="_blank" style="color:#4ade80">View</a>`;
+div.innerHTML = `Scene ${index + 1}: Done → <a href="${d.result[0]}" target="_blank" style="color:#4ade80">View</a> <button class="btn-sm" onclick="generateSingle(${index})" style="margin-left:4px">Regenerate</button> <button class="btn-sm" onclick="animateSingle(${index})" style="background:rgba(96,165,250,0.15);color:#60a5fa;margin-left:2px">Animate</button>`;
 totalScenesGenerated++;
+batchTracker.completed++;
+updateBatchProgress();
 refreshGallery();
 updateChapterStatus(index);
 clearInterval(interval);
+if (batchTracker.completed + batchTracker.failed === batchTracker.total) {
+document.getElementById('genBtn').disabled = false;
+}
 } else if (d.status === 'failed') {
 div.className = 'task-status failed';
 div.textContent = `Scene ${index + 1}: Failed - ${d.error || 'unknown'}`;
+batchTracker.failed++;
+updateBatchProgress();
+clearInterval(interval);
+if (batchTracker.completed + batchTracker.failed === batchTracker.total) {
+document.getElementById('genBtn').disabled = false;
+}
+} else if (d.status === 'cancelled') {
+div.className = 'task-status failed';
+div.textContent = `Scene ${index + 1}: Cancelled`;
+batchTracker.failed++;
+updateBatchProgress();
 clearInterval(interval);
 } else {
-div.textContent = `Scene ${index + 1}: Generating...`;
+const elapsed = Math.round((Date.now() - div._start || Date.now()) / 1000);
+div.innerHTML = `Scene ${index + 1}: Generating... (${elapsed}s) <button class="btn-sm" style="background:rgba(248,113,113,0.3);margin-left:6px" onclick="cancelTask('${taskId}')">Cancel</button>`;
+if (!div._start) div._start = Date.now();
 }
 } catch(e) {}
 }, 3000);
+}
+
+async function cancelTask(taskId) {
+try {
+await fetch(`/api/cancel-task/${taskId}`, {method:'POST'});
+} catch(e) {}
 }
 
 function updateChapterStatus(sceneIndex) {
@@ -876,14 +1117,23 @@ try {
 const r = await fetch('/api/gallery');
 const d = await r.json();
 const gallery = document.getElementById('imageGallery');
-if (!d.images || !d.images.length) {
-gallery.innerHTML = '<p style="color:rgba(255,255,255,0.2);grid-column:1/-1;text-align:center;padding:60px;font-size:14px">No images generated yet</p>';
-return;
+if ((!d.images || !d.images.length) && (!d.videos || !d.videos.length)) {
+	gallery.innerHTML = '<p style="color:rgba(255,255,255,0.2);grid-column:1/-1;text-align:center;padding:60px;font-size:14px">No images generated yet</p>';
+	return;
 }
-gallery.innerHTML = d.images.map(url => {
-const parts = url.split('/').pop().replace('.png','');
-return `<div class="gallery-item"><a href="${url}" target="_blank"><img src="${url}" alt="${parts}"></a><div class="gallery-label">${parts}</div></div>`;
-}).join('');
+let items = (d.images || []).map(url => {
+	const parts = url.split('/').pop().replace('.png','');
+	return `<div class="gallery-item"><img src="${url}" alt="${parts}" style="cursor:pointer" onclick="openLightbox('${url}')"><div class="gallery-overlay"><span class="gallery-label">${parts}</span><button class="gallery-btn" onclick="event.stopPropagation();downloadImage('${url}', '${parts}.png')">Download</button><button class="gallery-btn danger" onclick="event.stopPropagation();deleteImage('${url}')">Del</button></div></div>`;
+});
+items = items.concat((d.videos || []).map(url => {
+	const isGif = url.endsWith('.gif');
+	const parts = url.split('/').pop().replace(/\.(gif|mp4)$/,'');
+	if (isGif) {
+		return `<div class="gallery-item"><img src="${url}" alt="${parts}" style="cursor:pointer" onclick="openLightbox('${url}')"><div class="gallery-overlay"><span class="gallery-label">${parts}</span><button class="gallery-btn" onclick="event.stopPropagation();downloadImage('${url}', '${parts}.gif')">Download</button><button class="gallery-btn danger" onclick="event.stopPropagation();deleteImage('${url}')">Del</button></div></div>`;
+	}
+	return `<div class="gallery-item"><video src="${url}" muted loop style="width:100%;display:block" onmouseenter="this.play()" onmouseleave="this.pause()" onclick="openLightbox('${url}')"></video><div class="gallery-overlay"><span class="gallery-label">${parts}</span><button class="gallery-btn" onclick="event.stopPropagation();downloadImage('${url}', '${parts}.mp4')">Download</button><button class="gallery-btn danger" onclick="event.stopPropagation();deleteImage('${url}')">Del</button></div></div>`;
+});
+gallery.innerHTML = items.join('');
 } catch(e) {}
 }
 
@@ -901,8 +1151,22 @@ async function loadSettings() {
 		if (d.available_models) {
 			modelSel.innerHTML = d.available_models.map(m => `<option value="${m.id}" ${m.id === d.model ? 'selected' : ''}>${m.name}</option>`).join('');
 		}
+		onModelChange();
 		loadModels();
 	} catch(e) {}
+}
+
+function onModelChange() {
+const model = document.getElementById('modelSetting').value;
+const isFlux = model === 'flux-dev' || model === 'flux';
+document.getElementById('guidanceGroup').style.display = isFlux ? 'block' : 'none';
+if (isFlux) {
+document.getElementById('genSteps').value = 30;
+document.getElementById('genCfg').value = 1.0;
+} else {
+document.getElementById('genSteps').value = document.getElementById('genSteps').value === '30' ? 25 : document.getElementById('genSteps').value;
+document.getElementById('genCfg').value = document.getElementById('genCfg').value === '1.0' ? 7.0 : document.getElementById('genCfg').value;
+}
 }
 
 async function loadModels() {
@@ -930,9 +1194,249 @@ async function saveSettings() {
 	} catch(e) { alert('Error: '+e.message); }
 }
 
+async function downloadAllImages() {
+try {
+const r = await fetch('/api/gallery');
+const d = await r.json();
+for (const url of d.images) {
+const parts = url.split('/').pop();
+await downloadImage(url, parts);
+await new Promise(r => setTimeout(r, 300));
+}
+} catch(e) { alert('Download failed: '+e.message); }
+}
+
+async function deleteImage(url) {
+if (!confirm('Delete this image?')) return;
+try {
+	await fetch('/api/delete-image', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url})});
+	refreshGallery();
+} catch(e) { alert('Delete failed'); }
+}
+
+let saveDebounceTimer = null;
+function debouncedSaveScenes() {
+	clearTimeout(saveDebounceTimer);
+	saveDebounceTimer = setTimeout(() => {
+		// Sync current values before saving
+		for (let i = 0; i < currentScenes.length; i++) {
+			const p = document.getElementById(`prompt_${i}`);
+			if (p) currentScenes[i].prompt = p.value;
+			const n = document.getElementById(`neg_${i}`);
+			if (n) currentScenes[i].negative = n.value;
+		}
+		saveScenes();
+	}, 2000);
+}
+function onSceneInput() { debouncedSaveScenes(); }
+
+function openLightbox(url) {
+	const isGif = url.endsWith('.gif');
+	const isVideo = url.endsWith('.mp4');
+	document.getElementById('lightboxImg').style.display = (isGif || !isVideo) ? 'block' : 'none';
+	document.getElementById('lightboxVideo').style.display = isVideo ? 'block' : 'none';
+	if (isVideo) {
+		document.getElementById('lightboxVideo').src = url;
+	} else {
+		document.getElementById('lightboxImg').src = url;
+	}
+	document.getElementById('lightbox').style.display = 'flex';
+}
+function closeLightbox() {
+	document.getElementById('lightbox').style.display = 'none';
+	document.getElementById('lightboxVideo').pause();
+}
+
+async function exportScenes() {
+	try {
+		const r = await fetch('/api/export-scenes');
+		const data = await r.json();
+		const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+		const a = document.createElement('a');
+		a.href = URL.createObjectURL(blob);
+		a.download = 'scenes_export.json';
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(a.href);
+	} catch(e) { alert('Export failed'); }
+}
+
+async function retryFailedScenes() {
+	const total = currentScenes.length;
+	if (!total) return alert('No scenes');
+	const statusContainer = document.getElementById('generationStatus');
+	statusContainer.innerHTML = '';
+	let retried = 0;
+	const guidance = parseFloat(document.getElementById('genGuidance')?.value) || null;
+	for (let i = 0; i < total; i++) {
+		const resultDiv = document.getElementById(`sceneResult_${i}`);
+		if (!resultDiv || !resultDiv.querySelector('.task-status.failed')) continue;
+		retried++;
+		const s = currentScenes[i];
+		const prompt = getScenePrompt(i) || s.text;
+		const negative = getSceneNeg(i) || document.getElementById('genNegative')?.value || 'blurry, low quality';
+		const res = getSceneAspect(i).split('x');
+		const steps = parseInt(document.getElementById('genSteps').value) || 25;
+		const cfg = parseFloat(document.getElementById('genCfg').value) || 7.0;
+		const div = document.createElement('div');
+		div.className = 'task-status queued';
+		div.textContent = `Scene ${i + 1}: Retrying...`;
+		statusContainer.appendChild(div);
+		try {
+			const model = document.getElementById('modelSetting').value || 'juggernaut-xl';
+			const body = {prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
+				chapter: s.chapterNum || 1, scene: i + 1, model};
+			if (guidance) body.guidance = guidance;
+			const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+			const d = await r.json();
+			if (d.task_id) {
+				div.textContent = `Scene ${i + 1}: Generating...`;
+				pollTaskGlobal(d.task_id, i, div);
+			} else {
+				div.className = 'task-status failed';
+				div.textContent = `Scene ${i + 1}: Failed`;
+			}
+		} catch(e) {
+			div.className = 'task-status failed';
+			div.textContent = `Scene ${i + 1}: ${e.message}`;
+		}
+	}
+	if (!retried) alert('No failed scenes to retry');
+}
+
+async function downloadAllZip() {
+	try {
+		const r = await fetch('/api/download-zip');
+		const blob = await r.blob();
+		const a = document.createElement('a');
+		a.href = URL.createObjectURL(blob);
+		a.download = 'images.zip';
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(a.href);
+	} catch(e) { alert('Download ZIP failed'); }
+}
+
+function bulkSetAspect() {
+	const val = document.getElementById('bulkAspect').value;
+	const sels = document.querySelectorAll('.scene-aspect');
+	sels.forEach(sel => { sel.value = val; });
+	for (let i = 0; i < currentScenes.length; i++) {
+		currentScenes[i].aspect = val;
+	}
+	debouncedSaveScenes();
+}
+
+async function generateRemainingScenes() {
+	const total = currentScenes.length;
+	if (!total) { alert('No scenes'); return; }
+	// Check which scenes already have images
+	let r = await fetch('/api/gallery');
+	const gallery = await r.json();
+	const existingNames = new Set((gallery.images || []).map(u => u.split('/').pop()));
+	
+	let remaining = [];
+	for (let i = 0; i < total; i++) {
+		const s = currentScenes[i];
+		const prompt = getScenePrompt(i) || s.text;
+		// Simple hash to check if this scene likely has an image
+		const ch = String(s.chapterNum || 1).padStart(4,'0');
+		const sc = String(i + 1).padStart(4,'0');
+		const hasImage = Array.from(existingNames).some(n => n.includes(`ch${ch}_sc${sc}_`));
+		if (!hasImage) remaining.push(i);
+	}
+	if (!remaining.length) { alert('All scenes already have images!'); return; }
+	
+	batchTracker = { total: remaining.length, completed: 0, failed: 0 };
+	document.getElementById('batchProgress').style.display = 'block';
+	updateBatchProgress();
+	const btn = document.getElementById('genBtn');
+	btn.disabled = true; btn.textContent = `0/${remaining.length}...`;
+	const statusContainer = document.getElementById('generationStatus');
+	statusContainer.innerHTML = '';
+	const guidance = parseFloat(document.getElementById('genGuidance')?.value) || null;
+	for (let idx = 0; idx < remaining.length; idx++) {
+		const i = remaining[idx];
+		const s = currentScenes[i];
+		const prompt = getScenePrompt(i) || s.text;
+		const negative = getSceneNeg(i) || document.getElementById('genNegative')?.value || 'blurry, low quality';
+		const res = getSceneAspect(i).split('x');
+		const steps = parseInt(document.getElementById('genSteps').value) || 25;
+		const cfg = parseFloat(document.getElementById('genCfg').value) || 7.0;
+		const div = document.createElement('div');
+		div.className = 'task-status queued';
+		div.textContent = `Scene ${i + 1}: Submitting...`;
+		statusContainer.appendChild(div);
+		btn.textContent = `${idx+1}/${remaining.length}...`;
+		try {
+			const model = document.getElementById('modelSetting').value || 'juggernaut-xl';
+			const body = {prompt, negative, steps, cfg, width: parseInt(res[0]), height: parseInt(res[1]),
+				chapter: s.chapterNum || 1, scene: i + 1, model};
+			if (guidance) body.guidance = guidance;
+			const r = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+			const d = await r.json();
+			if (d.task_id) {
+				div.textContent = `Scene ${i + 1}: Generating...`;
+				pollTaskGlobal(d.task_id, i, div);
+			} else {
+				div.className = 'task-status failed';
+				div.textContent = `Scene ${i + 1}: Failed`;
+				batchTracker.failed++;
+				updateBatchProgress();
+			}
+		} catch(e) {
+			div.className = 'task-status failed';
+			div.textContent = `Scene ${i + 1}: ${e.message}`;
+			batchTracker.failed++;
+			updateBatchProgress();
+		}
+	}
+	btn.disabled = false;
+	btn.textContent = 'Generate Remaining';
+}
+
+async function resetCounter() {
+	if (!confirm('Reset image counter to 0? Next generation will start at img_000001.')) return;
+	try {
+		await fetch('/api/reset-counter', {method:'POST'});
+		alert('Image counter reset to 0');
+	} catch(e) { alert('Reset failed'); }
+}
+
+async function checkSaved() {
+try {
+const r = await fetch('/api/scenes');
+const d = await r.json();
+if (d.scenes && d.scenes.length) {
+document.getElementById('savedSceneCount').textContent = d.scenes.length;
+document.getElementById('resumeCard').style.display = 'block';
+}
+} catch(e) {}
+}
+
+async function downloadImage(url, filename) {
+try {
+const r = await fetch(url);
+const blob = await r.blob();
+const a = document.createElement('a');
+a.href = URL.createObjectURL(blob);
+a.download = filename;
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+URL.revokeObjectURL(a.href);
+} catch(e) { alert('Download failed'); }
+}
+
 setInterval(checkSetup, 5000);
 checkSetup();
 loadSettings();
+checkSaved();
+document.addEventListener('keydown', function(e) {
+	if (e.key === 'Escape') closeLightbox();
+});
 </script>
 </body>
 </html>

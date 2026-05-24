@@ -1,8 +1,7 @@
 import json
-import os
 import re
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 
 from src.character_db import CharacterDatabase
 
@@ -232,7 +231,7 @@ Respond ONLY in JSON format:
             response = requests.post(
                 f"{self.ollama_config.get('url', 'http://127.0.0.1:11434')}/api/generate",
                 json={
-                    "model": self.ollama_config.get("model", "llama3.1:8b"),
+                    "model": self.ollama_config.get("model", "qwen2.5:14b"),
                     "prompt": prompt,
                     "stream": False,
                 },

@@ -3,7 +3,7 @@ import os
 import time
 import uuid
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import List, Optional
 
 import requests
 from tqdm import tqdm
@@ -75,7 +75,9 @@ class ComfyUIClient:
         print(f"Timeout after {timeout}s waiting for prompt {prompt_id}")
         return False
 
-    def get_image(self, filename: str, output_dir: str = "output") -> Optional[bytes]:
+    def get_image(self, filename: str, output_dir: Optional[str] = None) -> Optional[bytes]:
+        if output_dir is None:
+            output_dir = os.path.join(os.path.dirname(__file__), '..', 'ComfyUI', 'output')
         image_path = Path(output_dir) / filename
         if image_path.exists():
             with open(image_path, "rb") as f:

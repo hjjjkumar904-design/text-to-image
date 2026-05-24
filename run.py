@@ -43,7 +43,6 @@ def install_ollama():
         return True
     log('Installing Ollama...')
     try:
-        subprocess.run(['curl', '-fsSL', 'https://ollama.com/install.sh'], capture_output=True)
         r = subprocess.run(['sh'], input=subprocess.run(['curl', '-fsSL', 'https://ollama.com/install.sh'], capture_output=True).stdout, capture_output=True, timeout=120)
         if shutil.which('ollama'):
             log('Ollama installed')

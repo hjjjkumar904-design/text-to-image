@@ -10,7 +10,7 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, 'output', 'reverend_insanity')
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 

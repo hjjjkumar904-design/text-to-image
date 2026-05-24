@@ -1,0 +1,1250 @@
+{
+  "chapterSceneMap": {
+    "0": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "1": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "2": [
+      11,
+      12,
+      13,
+      14
+    ],
+    "3": [
+      15,
+      16,
+      17,
+      18
+    ],
+    "4": [
+      19
+    ],
+    "5": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "6": [
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "7": [
+      33,
+      34,
+      35
+    ],
+    "8": [
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "9": [
+      46,
+      47,
+      48,
+      49
+    ]
+  },
+  "chapters": [
+    {
+      "chapterNum": 1,
+      "id": "",
+      "scenes": [
+        {
+          "aspect": "1216x832",
+          "chapter": 0,
+          "chapterNum": 1,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A sweeping vista of an ancient Chinese landscape at golden hour, with dramatic lighting casting long shadows over a rugged mountain fortress. The sky blazes in hues of orange and pink as the sun sets. Inside the fortress, a tense standoff between two figures: Fang Yuan, clad in ornate black armor adorned with intricate jade accents, stands defiantly amidst swirling mists and deep shadows, his eyes fierce and determined. Facing him is a formidable group of martial artists from righteous sects, their weapons glinting under the fading light, led by an imposing elder with a long white beard, dressed in flowing robes. The air crackles with tension as the elder declares Fang Yuan's inevitable downfall. In the foreground, the Spring Autumn Cicada, a precious artifact glowing softly with ethereal blue light, rests on a stone pedestal amidst the chaos. Camera angle: high overhead shot to capture the vast landscape and fortress interior in one sweeping frame, emphasizing the isolation and drama of the scene.",
+          "scene_id": 1,
+          "summary": "Fang Yuan faces a coalition of righteous warriors demanding his surrender. Despite the overwhelming odds and the severity of the charges against him, he remains calm and composed.",
+          "text": "\"Fang Yuan, surrender the Spring Autumn Cicada obediently, and I'll grant you a swift death!\" \"Old bastard Fang, cease your resistance! Today, all righteous sects have united to storm your den of evil. This place is sealed tighter than heaven's net \u2013 your decapitation is inevitable!\"",
+          "title": "Scene 1"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 0,
+          "chapterNum": 1,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A misty bamboo forest at golden hour, soft light filtering through dense foliage casting dramatic shadows. A fierce martial artist, Fang Yuan, stands tall in a white silk robe with deep crimson stains, his eyes filled with cold determination and distant sorrow. In the background, a silhouette of an enraged figure cloaked in black, muscles taut as if ready to pounce, fists clenched tight. The air is thick with tension, ancient enmity etching every line on their faces. Camera angle: low perspective, looking up at Fang Yuan from the ground level, emphasizing his imposing presence and the looming threat behind him.",
+          "scene_id": 2,
+          "summary": "The righteousness coalition delivers their moral judgment upon Fang Yuan for his past transgressions, emphasizing the severity and weight of his crimes.",
+          "text": "\"Fang Yuan, you accursed fiend! To refine the Spring Autumn Cicada, you slaughtered millions. Your sins drown mountains and exhaust bamboo scrolls \u2013 no atonement remains!\" \"Demon, three centuries ago you defiled me, slaughtered my family, exterminated my bloodline! Since that day, I've hungered for your flesh and thirsted for your blood! Today, you'll beg for death's release!\"",
+          "title": "Scene 2"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 0,
+          "chapterNum": 1,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "Fang Yuan stands alone on a desolate mountain peak, his emerald robes torn and stained with blood, hair tousled and windblown. The sun sets behind him, casting long shadows and bathed in the dramatic golden hour light. Deep shadows play across the ravaged battlefield below, strewn with fallen warriors. His eyes are intense and focused as he surveys the carnage, a lone figure against the stormy sky. Wind whips his tattered garments, making them flutter like war banners. Camera angle: high overhead shot looking down on Fang Yuan, emphasizing his isolation amidst the chaos. Art style: traditional wuxia with dynamic lines and bold colors.",
+          "scene_id": 3,
+          "summary": "Fang Yuan assesses his dire situation \u2013 surrounded with no escape route and certain of his imminent demise. Despite the gravity of this moment, he maintains an unflappable demeanor.",
+          "text": "Fang Yuan stood amidst the carnage, his emerald robes in tatters, hair matted with blood, surveying the battlefield. Mountain winds whipped his bloody garments, snapping like war banners in the gale.",
+          "title": "Scene 3"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 0,
+          "chapterNum": 1,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A lone warrior stands amidst a sea of his own crimson blood, the golden hour casting dramatic lighting on the scene, deep shadows accentuating the pools of lifeblood that spread like dark petals beneath his feet. Dozens of enemies surround him, their silhouettes stark against the fading light, swords and spears raised in anticipation. The warrior's face is a mask of grim determination, eyes burning with defiance as he stands resolutely, refusing to yield. Camera angle: low perspective, looking up at the warrior, emphasizing his solitary stand against overwhelming odds. Art style: wuxia, with bold brushstrokes and dynamic lines capturing the intensity of the moment.",
+          "scene_id": 4,
+          "summary": "The righteous coalition encircles Fang Yuan cautiously, waiting for an opportune moment to strike. None are willing to be the first to attack due to fear of retaliation from a desperate demon.",
+          "text": "Crimson lifeblood gushed from hundreds of wounds. A mere moment's standing left him ankle-deep in a growing pool of gore. Enemies encircled him \u2013 no retreat remained.",
+          "title": "Scene 4"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 0,
+          "chapterNum": 1,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "Fang Yuan stands on a desolate cliff edge at golden hour, dramatic lighting casting long shadows across the rugged terrain below. The sky is painted with hues of fiery orange and deep purples, reflecting the gravity of his situation. He wears traditional wuxia robes adorned with intricate embroidery that seem to shift in color as light dances across them. His eyes are pools of ancient well-water, dark and impenetrable, conveying a stoic acceptance of his fate. The wind whispers through the barren landscape, adding an eerie silence to the scene. Camera angle is from slightly above, looking down at him with a narrow depth of field that isolates Fang Yuan against the vast, dramatic backdrop. In his hands rests a simple sword, its blade reflecting hints of the setting sun. Deep shadows fall across his face, accentuating his determined expression and sharp features.",
+          "scene_id": 5,
+          "summary": "Six hours pass in silence as the demon remains still, contemplating his fate and recounting memories from another life where he was once a scholar in China before transmigrating to this world.",
+          "text": "The die was cast; death's embrace awaited. Fang Yuan saw his predicament with crystal clarity, yet faced annihilation with unshaken composure. His eyes held the stillness of ancient well-waters \u2013 dark, fathomless, inscrutable.",
+          "title": "Scene 5"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 0,
+          "chapterNum": 1,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A golden hour sunset bathes the ancient courtyard in warm amber light, casting long shadows that accentuate the tension. The scene is set from a low angle to emphasize the imposing stature of the patriarchs and heroes standing in a tight semicircle around their captive adversary. Each character\u2019s attire is traditional wuxia, with flowing silk robes and intricate weaponry, highlighting their martial prowess. Dramatic lighting creates deep shadows under their eyes, hinting at hidden fears or secrets. Patriarchs wear stern expressions, some baring teeth in fierce challenges, others sneering contemptuously. Heroes stand slightly behind, more youthful yet equally wary, eyeing the captive with a mix of dread and resolve. The mood is charged, filled with anticipation for an impending clash that could shift the balance of power forever.",
+          "scene_id": 6,
+          "summary": "As evening approaches and the sky turns red from sunset, Fang Yuan acknowledges his demise but remembers his past journey through hardship and domination. He prepares to make another attempt at walking the demonic path if the Spring Autumn Cicada works.",
+          "text": "The righteous coalition comprised venerable patriarchs and prodigious heroes. Now they tightened their ring \u2013 some roaring challenges, others sneering contemptuously, all eyeing their prey with wariness or poorly concealed dread.",
+          "title": "Scene 6"
+        }
+      ],
+      "title": "Chapter 1"
+    },
+    {
+      "chapterNum": 2,
+      "id": "",
+      "scenes": [
+        {
+          "aspect": "1216x832",
+          "chapter": 1,
+          "chapterNum": 2,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "Close-up shot of a determined Fang Yuan standing amidst an ancient, mist-covered training ground at dusk. The sky is painted with hues of orange and purple, casting long shadows that emphasize his resolve. He wears traditional wuxia attire, with a sword sheathed at his side, and his eyes glow with ambition as he contemplates the possibilities of refining his inner strength once again.",
+          "scene_id": 7,
+          "summary": "Fang Yuan reflects on the loss of the Spring Autumn Cicada and feels determined to make use of his past experiences. He considers how to proceed with his plans.",
+          "text": "But even if its gone, I can still refine another. I have done it in my previous life, why can't I do it in this life? After the thoughts of pity were put aside, Fang Yuan's heart burst forth ambitious and determined feelings.",
+          "title": "Scene 1"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 1,
+          "chapterNum": 2,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A moonlit bamboo forest at night, ethereal and serene, with soft silver light filtering through the leaves. The protagonist, a slender figure in flowing white robes, stands contemplatively amidst the shadows, holding an ancient scroll tightly against his chest, his silhouette framed by the glowing mist that envelops the scene, capturing the bittersweet moment of sacrifice and rebirth.",
+          "scene_id": 8,
+          "summary": "Fang Yuan contemplates his current situation and decides that cultivation is the most important priority. He plans to borrow resources from the clan to speed up his progress.",
+          "text": "To be able to be reborn made the loss of the Spring Autumn Cicada entirely acceptable. Not to mention he had something precious with him, so it's not like he had lost everything.",
+          "title": "Scene 2"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 1,
+          "chapterNum": 2,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "Fang Yuan stands contemplative in a dimly lit room, rain pouring heavily against the window pane behind him, his silhouette sharp against the stormy backdrop; soft moonlight casts an ethereal glow on his determined face as he ponders deeply, camera angled slightly from above to capture the solemnity and intensity of the moment.",
+          "scene_id": 9,
+          "summary": "Fang Yuan thinks about the Awakening Ceremony and his past memories resurface as his twin brother enters the room.",
+          "text": "\"So how do I go about this hmmm\u2026\" Fang Yuan was incredibly sensible. He collected himself together and faced the night rain outside the window, pondering.",
+          "title": "Scene 3"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 1,
+          "chapterNum": 2,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A dimly lit ancient study filled with scrolls and books, moonlight streaming through a cracked window casting eerie shadows. The mood is tense yet determined. From an overhead angle, showing Fang Yuan seated at a wooden desk, his silhouette sharp against the light. He wears traditional wuxia robes, sleeves slightly rolled up, holding a jade amulet in contemplation. His expression is resolute as he prepares to embark on a challenging task, eyes glowing with ambition and determination.",
+          "scene_id": 10,
+          "summary": "Fang Yuan reflects on his rebirth and the loss of the Spring Autumn Cicada, finding solace in his accumulated memories and experiences from a past life.",
+          "text": "But even if its gone, I can still refine another. I have done it in my previous life, why can't I do it in this life? After the thoughts of pity were put aside, Fang Yuan's heart burst forth ambitious",
+          "title": "Scene 4"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 1,
+          "chapterNum": 2,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A moonlit bamboo forest at night, ethereal glow illuminates a lone figure in flowing silk robes, standing amidst ancient trees. The mood is serene yet contemplative. Camera angle from below, looking up at the character. He holds an ornate, glowing object in his hand, symbolizing his precious possession.",
+          "scene_id": 11,
+          "summary": "Fang Yuan contemplates his current situation and decides to prioritize cultivation over other endeavors, recognizing the importance of a solid foundation before pursuing hidden treasures.",
+          "text": "To be able to be reborn made the loss of the Spring Autumn Cicada entirely acceptable. Not to mention he had something precious with him, so it's not like he had lost everything.",
+          "title": "Scene 5"
+        }
+      ],
+      "title": "Chapter 2"
+    },
+    {
+      "chapterNum": 3,
+      "id": "",
+      "scenes": [
+        {
+          "aspect": "1216x832",
+          "chapter": 2,
+          "chapterNum": 3,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A young man dressed in flowing silk robes stands at the entrance of a traditional Chinese courtyard bathed in the warm golden hour sunlight. Behind him, an ancient tree casts deep shadows on the stone path leading to the house. The air is filled with a sense of quiet anticipation as he turns to look back over his shoulder, his expression one of subtle determination. In the background, a distant peak is visible through the mist, symbolizing both journey and destiny. The camera angles from a low perspective, emphasizing the hero's stature against the majestic landscape. Dramatic lighting highlights the contours of his face, casting intricate shadows that add depth to his character. The scene captures the essence of wuxia, blending the beauty of nature with the intensity of personal resolve.",
+          "scene_id": 12,
+          "summary": "Shen Cui, Fang Yuan's servant, wakes him up and assists him in washing up and dressing. The scene sets the tone for their relationship based on past experiences.",
+          "text": "Young Master Fang Yuan, you're awake. I will go upstairs and wait for you to wash up.",
+          "title": "Scene 1"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 2,
+          "chapterNum": 3,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A misty dawn breaks over an ancient Chinese village, bathed in the soft golden hues of the first light. Shen Cui stands amidst the fog, her figure ethereal yet dynamic, with long black hair flowing gently in the breeze. Her traditional wuxia attire is a blend of white and blue, adorned with intricate gold embroidery that shimmers under the rising sun. The landscape around her is lush and green, with delicate cherry blossoms scattered along pathways and over small wooden bridges. Dramatic lighting casts deep shadows across her face and body, highlighting the lively sparkle in her eyes and the gentle curve of a smile on her lips. Camera angle: low, slightly tilted upward to emphasize her grace and poise amidst nature\u2019s serene yet powerful backdrop. The scene exudes a sense of anticipation and promise, as if anything is possible with the new day.",
+          "scene_id": 13,
+          "summary": "Shen Cui waits for Fang Yuan after he finishes washing, and helps him dress. The scene highlights the contrast in their current relationship compared to past interactions.",
+          "text": "Shen Cui waited gently, her face wearing a smile and her eyes lively as spring.",
+          "title": "Scene 2"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 2,
+          "chapterNum": 3,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A sweeping shot from above captures a serene garden at golden hour, with soft amber light bathing everything in a warm glow. The camera pans down to focus on Shen Cui and Fang Yuan seated under an ancient willow tree. Shen Cui, dressed in flowing blue silk robes, tenderly smooths the wrinkles on Fang Yuan's chest, who is clad in elegant black armor with intricate silver designs. Deep shadows play across their faces as they share a quiet moment of intimacy. The scene is imbued with a sense of serene beauty and profound connection, capturing the essence of wuxia romance.",
+          "scene_id": 14,
+          "summary": "Fang Zheng arrives at Fang Yuan's room and notices Shen Cui assisting his brother. This scene reveals jealousy from Fang Zheng towards the attention Shen Cui gives to Fang Yuan.",
+          "text": "When Fang Zheng came over he was in time to see Shen Cui smoothing the creases on the clothing of Fang Yuan's chest.",
+          "title": "Scene 3"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 2,
+          "chapterNum": 3,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A mist-shrouded mountain peak at dawn, where golden hour light filters through the clouds, casting a warm glow over rugged cliffs and ancient trees. A lone figure in flowing white robes stands atop a craggy outcrop, hair billowing in the wind, eyes closed as if meditating or sensing something beyond. The scene is bathed in soft, ethereal lighting with deep shadows below, hinting at the mystic power of the character. From an elevated overhead angle, the camera captures the figure's serene yet intense demeanor, emphasizing their connection to the natural world and their supernatural abilities. In the background, distant peaks are barely visible through swirling fog, adding a sense of isolation and otherworldliness. The mood is tranquil but charged with unseen tension, as if anything could happen at any moment in this fragile balance between peace and potential conflict.",
+          "scene_id": 15,
+          "summary": "Fang Yuan dismisses Shen Cui abruptly and prepares to leave with his brother. The scene underscores the strained relationship between Fang Yuan and Shen Cui.",
+          "text": "\"Alright, no need to tidy up.\"",
+          "title": "Scene 4"
+        }
+      ],
+      "title": "Chapter 3"
+    },
+    {
+      "chapterNum": 4,
+      "id": "",
+      "scenes": [
+        {
+          "aspect": "1216x832",
+          "chapter": 3,
+          "chapterNum": 4,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A misty dawn breaks over a lush bamboo forest as a group of young warriors gather before their master, clad in traditional silk robes and weapons sheathed at their sides. The light filters through the dense canopy, casting golden hour beams that highlight the intricate patterns on their garments. The master stands tall, his presence commanding and serene, with a long flowing robe billowing slightly in the gentle morning breeze. Dramatic lighting creates deep shadows under each warrior's eyes, emphasizing their determination and anticipation for the Awakening Ceremony ahead. Camera angle from a low perspective looking up at the group, capturing the vast expanse of bamboo stretching into the sky, symbolizing the journey to enlightenment. Art style: wuxia.",
+          "scene_id": 16,
+          "summary": "The elder of the academy gathers the teenagers for the Awakening Ceremony and leads them to an underground cave. This initiates the significant life-changing event for these young individuals.",
+          "text": "Good, all of you are punctual. Today is the Awakening Ceremony; it is your life's great turning point. I won't say much, just come with me.",
+          "title": "Scene 1"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 3,
+          "chapterNum": 4,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A breathtaking underground cave bathed in golden hour light, where intricate stalactites shimmer in vibrant hues of blue and green. A group of young martial artists stands in awe, their expressions filled with wonder and amazement. The scene is rendered in dramatic chiaroscuro, casting deep shadows that accentuate the ethereal glow. Camera angle: high overhead shot to capture the vast expanse of the cavern, transitioning to a close-up on one of the youths\u2019 amazed face. Characters are dressed in traditional wuxia attire, with flowing robes and intricate hairstyles, standing amidst swirling dust particles illuminated by shafts of light filtering through cracks above.",
+          "scene_id": 17,
+          "summary": "The teenagers explore the beautiful underground cave filled with colorful stalactites, marveling at its splendor and feeling a mixture of awe and excitement.",
+          "text": "The group of youths made surprised and amazed noises. The underground cave was beautiful, stalactites sparkling with the colors",
+          "title": "Scene 2"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 3,
+          "chapterNum": 4,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "Fang Yuan blends seamlessly into a bustling ancient Chinese market during golden hour, the warm sunlight casting long shadows and highlighting the vibrant colors of silk and tapestry. The camera angles shift from high overhead shots to intimate close-ups of Fang Yuan's contemplative expression as he observes the crowd with keen eyes. Deep shadows dance across his face, emphasizing his thoughtful demeanor. In the background, a sword master performs fluid martial arts moves under lantern light, drawing attention away from Fang Yuan but not hiding him from the viewer\u2019s eye. His traditional Chinese robe is simple yet elegant, blending into the sea of people while his presence radiates an air of quiet strength and mystery. The overall atmosphere is one of hidden tension and anticipation, as if a significant event is about to unfold amidst the serene chaos of daily life.",
+          "scene_id": 18,
+          "summary": "Fang Yuan reflects on the historical significance of the underground cave to the Gu Yue clan, recognizing its importance in establishing their village.",
+          "text": "Fang Yuan was mixed into the crowd, quietly observing everything that was happening. In his heart, he thought: Hundreds of years ago",
+          "title": "Scene 3"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 3,
+          "chapterNum": 4,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A lone figure emerges from the dense mist shrouded in darkness, with only the faint glow of golden hour illuminating his silhouette against the backdrop of towering bamboo groves. The scene is bathed in dramatic lighting, casting deep shadows that accentuate the rugged appearance of the protagonist, dressed in flowing, ethereal robes adorned with intricate dragon patterns. His eyes gleam with intensity as he pauses to listen to the distant sound of a rushing stream. Camera angle: low-angle shot from behind a bamboo stalk, capturing his profile and the mist curling around him like a living entity. The atmosphere is tense yet mystical, hinting at the impending drama.",
+          "scene_id": 19,
+          "summary": "The group proceeds deeper into the cave and encounters an underground river with moon orchids on the opposite bank, setting up the stage for the Awakening Ceremony.",
+          "text": "They walked several hundred steps. It got darker and the sounds of water were faintly heard. After turning around a corner",
+          "title": "Scene 4"
+        }
+      ],
+      "title": "Chapter 4"
+    },
+    {
+      "chapterNum": 5,
+      "id": "",
+      "scenes": [
+        {
+          "aspect": "1216x832",
+          "chapter": 4,
+          "chapterNum": 5,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A lone warrior stands in a desolate desert under the golden hour sun, dramatic lighting casting long shadows. The sky is painted with warm hues of orange and pink. In the foreground, the warrior wears traditional wuxia attire, a dark robe with intricate embroidery, his expression one of resignation mixed with defiance. Behind him, a figure clad in flowing white robes stands, hands clasped, embodying strength and wisdom. Deep shadows envelop the desert landscape, emphasizing isolation and despair. The camera is at an angle that captures both figures in silhouette against the vibrant sky, focusing on the moment of realization and surrender.",
+          "scene_id": 20,
+          "summary": "Ren Zu finds himself in a desperate situation surrounded by Predicaments and is approached by the third Gu, who offers to help him escape if he gives his heart. This scene establishes Ren Zu's dire circumstances and introduces Hope Gu as a potential solution.",
+          "text": "\"Human, what else can you give us? You don't have anything else left to provide to us,\" the strength and wisdom Gu said as they realized this.",
+          "title": "Scene 1"
+        }
+      ],
+      "title": "Chapter 5"
+    },
+    {
+      "chapterNum": 6,
+      "id": "",
+      "scenes": [
+        {
+          "aspect": "1216x832",
+          "chapter": 5,
+          "chapterNum": 6,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A misty moonlit night over a tranquil river, reflecting the sorrowful faces of the characters. Elder stands on one side, hands outstretched in despair, while Fang Yuan turns away, walking solemnly into the shadows under the dim glow of lanterns, the camera angle capturing their distant figures against the ethereal backdrop.",
+          "scene_id": 21,
+          "summary": "The academy elder questions Fang Yuan's progress across the river, leading to a reaction from the crowd who express disbelief at his C grade talent status.",
+          "text": "You can't go any further? The academy elder shouted across the river, holding onto a small thread of hope. Fang Yuan turned around and walked back, answering with his actions.",
+          "title": "Scene 1"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 5,
+          "chapterNum": 6,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A bustling marketplace at dusk under soft golden hour lighting, with a backdrop of ancient Chinese architecture and a gathering crowd in vibrant traditional attire; from an overhead bird's-eye view, the camera captures the sudden hush followed by murmured excitement as young teenagers point towards Fang Yuan, who stands calmly after taking exactly 27 deliberate steps, his silhouette framed against the fading light, exuding an aura of mystery and martial prowess.",
+          "scene_id": 22,
+          "summary": "The crowd reacts to Fang Yuan's return, discussing his unexpected C grade talent status.",
+          "text": "At this moment even the young teenagers started reacting. The crowd suddenly buzzed with chatter. What? Fang Yuan walked 27 steps?",
+          "title": "Scene 2"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 5,
+          "chapterNum": 6,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A misty moonlit night over a tranquil river, reflecting silvery light on ripples; Gu Yue Fang Zheng stands in awe, eyes wide with disbelief, as his elder brother Fang Yuan strides confidently across the water, breaking the surface with each step, embodying an ethereal and powerful wuxia hero.",
+          "scene_id": 23,
+          "summary": "Gu Yue Fang Zheng is shocked by his brother's C grade talent status and questions the accuracy of the results.",
+          "text": "Brother... Among them, Gu Yue Fang Zheng looked up, watching with shock as Fang Yuan returned across the river. He could not dare to believe it, his own brother was only a C grade? He had always thought that his older brother would be an A grade talent.",
+          "title": "Scene 3"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 5,
+          "chapterNum": 6,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "Close-up shot of the Gu Yue clan head standing amidst an ancient courtyard bathed in dim twilight, shadows casting long, ominous lines on the cobblestone path. His face is etched with disappointment and frustration as he clenches both fists tightly, the tension palpable in every rigid line of his body. Wuxia art style with intricate details highlighting his traditional robes and the surrounding ornate architecture.",
+          "scene_id": 24,
+          "summary": "The Gu Yue clan head reacts with disappointment and frustration upon learning Fang Yuan's talent status.",
+          "text": "Damn, he was only a C grade! The Gu Yue clan head clenched both his fists, drawing a deep breath, disappointment in his voice.",
+          "title": "Scene 4"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 5,
+          "chapterNum": 6,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "Elders cloaked in dark robes stand silhouetted against the moonlit night sky, their expressions ranging from deep concern to weary acceptance; the camera captures them from an overhead angle, emphasizing their somber figures and the tension in their body language as they deliberate under the soft glow of a distant lantern.",
+          "scene_id": 25,
+          "summary": "Elders watching the event from afar discuss the accuracy of the talent assessment method and express their mixed feelings about Fang Yuan's results.",
+          "text": "The elders watching from the darkness had mixed reactions. Some were frowning, some lowering their head in discussion, some looking up with a sigh.",
+          "title": "Scene 5"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 5,
+          "chapterNum": 6,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "Fang Yuan walks through a misty dawn by an icy river, his expression unchanged despite the biting cold seeping into his soaked socks; shot from a low angle to emphasize his solitary figure against the rising sun, with dramatic shadows casting long behind him in this wuxia-inspired scene.",
+          "scene_id": 26,
+          "summary": "Fang Yuan returns to the crowd after crossing the river and faces various reactions from others.",
+          "text": "His socks were soaked with the icy cold waters from the river, the coldness piercing into his bones. Fang Yuan walked with the same emotionless face, his distance getting closer and closer towards the crowd.",
+          "title": "Scene 6"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 5,
+          "chapterNum": 6,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A dimly lit ancient courtyard bathed in moonlight, shadows dancing on the cobblestone path; a lone figure clad in flowing white robes stands amidst a crowd of varied expressions\u2014astonishment, mockery, and indifference. The camera captures from a low angle, emphasizing Fang Yuan's solitary stance as he gazes into the distance, lost in memories of his past life.",
+          "scene_id": 27,
+          "summary": "Fang Yuan reflects on past experiences and remains calm despite the negative reactions from others.",
+          "text": "These glares were mixed with amazement, shock, gloat, and some taking pleasure at this unfortunate event, some indifferent. It was the same situation, making Fang Yuan unwillingly remember his previous life.",
+          "title": "Scene 7"
+        }
+      ],
+      "title": "Chapter 6"
+    },
+    {
+      "chapterNum": 7,
+      "id": "",
+      "scenes": [
+        {
+          "aspect": "1216x832",
+          "chapter": 6,
+          "chapterNum": 7,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A sweeping panoramic view from a high vantage point during golden hour, casting warm hues across an ancient Chinese landscape. Deep shadows drape the valleys below, highlighting towering bamboo groves and rugged mountain peaks. A lone scholar clad in flowing silk robes stands atop a weathered stone pagoda, his posture elegant and introspective. His eyes are closed, hands clasped gently as if in prayer or meditation. The sky is streaked with vibrant oranges and purples, symbolizing the dawn of new knowledge and understanding. In the foreground, subtle hints of ethereal Gu spirits can be seen weaving between wisps of cloud and ancient trees, their forms barely discernible yet integral to the scene\u2019s mystique. Camera angle: high-angle shot looking down upon the scholar, capturing his contemplative moment against the grand backdrop of nature and the setting sun.",
+          "scene_id": 28,
+          "summary": "The academy elder explains the concept of Gu Masters and their ranks to the students. This sets up the context for understanding the hierarchy and potential within the world.",
+          "text": "Humans are above all creatures, Gu are the essence of heaven and earth. In this world there are thousands of species, countless number of Gu. They live everywhere around us\u2014In the soil, in the bushes, even on the bodies of wild beasts. As humans continued to propagate and grow, the scholars of the past gradually uncovered the mysteries of the Gu.",
+          "title": "Scene 1"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 6,
+          "chapterNum": 7,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A golden hour sunset bathes an ancient bamboo forest in warm, orange hues. The camera pulls back from a narrow path to reveal a wise Gu Master, his silver hair flowing gently with the breeze, standing under a gnarled tree with intricate calligraphy carved into its bark. Deep shadows cast by the setting sun emphasize the master's imposing figure and the mysterious aura surrounding him. Young apprentices in traditional robes kneel respectfully on either side of the path, their faces illuminated only partially, showing intense curiosity mixed with reverence. The air is thick with anticipation as they listen intently to the master\u2019s teachings, which are infused with the wisdom of ages. Dramatic lighting highlights the depth of their expressions and the detail of the forest setting, creating a cinematic moment that captures both the mystique of wuxia and the solemnity of scholarly dedication.",
+          "scene_id": 29,
+          "summary": "The elder continues his explanation about how students have become Rank one Gu Masters through their Awakening Ceremony and what this means for their future progression.",
+          "text": "Those who have opened the aperture, using their own primeval essence to feed, refine and manipulate these Gu\u2014people who have achieved these various purposes are what we call Gu Masters. And all of you have successfully opened your aperture in the Awakening Ceremony 7 days ago.",
+          "title": "Scene 2"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 6,
+          "chapterNum": 7,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "Close-up shot of Gu Yue Fang Zheng, a distinguished figure seated rigidly in the first row, bathed in dramatic lighting during the golden hour, casting deep shadows that accentuate his sharp features and determined expression. A grade talent attire, elegant yet sturdy robes with intricate embroidery, highlighting his status as an elite student. His eyes pierce through the crowd, filled with a mix of pride and contemplation. The setting is a grand hall with ornate pillars and ancient scrolls hanging on the walls, creating an atmosphere of tradition and reverence. The lighting filters through stained glass windows, casting vibrant colors across the room, emphasizing the tension and admiration in the eyes of his peers as they gaze at him with envy and awe.",
+          "scene_id": 30,
+          "summary": "A student asks for more details about the ranks of Gu Masters, prompting the elder to elaborate on the nine ranks and their subdivisions.",
+          "text": "In the village academy, the academy elder talked with confidence and composure. In front of him were 57 students, seated and listening attentively.",
+          "title": "Scene 3"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 6,
+          "chapterNum": 7,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A misty dawn shrouds an ancient bamboo forest, golden hour light filtering through dense foliage casting long, ethereal shadows on the ground. A lone figure in tattered robes stands atop a weathered stone bridge, his silhouette stark against the backdrop of towering bamboos swaying gently in the breeze. The figure's eyes are downcast, disappointment etched into every line of his face as he gazes at a smaller, younger boy who kneels before him on one knee, head bowed low. The boy's posture is rigid, shoulders tense with anticipation and fear. Dramatic lighting highlights the older man\u2019s disapproving frown while deep shadows obscure parts of the scene, enhancing the tension between them. Camera angle from mid-shot, slightly tilted to emphasize the power dynamic, focusing on their interlocked gazes and the bamboo forest stretching endlessly behind them. Art style: wuxia.",
+          "scene_id": 31,
+          "summary": "The elder explains the progression from Rank one to higher ranks based on talent levels, detailing how different grades of talent can advance.",
+          "text": "Gu Masters have 9 ranks, from bottom to top\u2014Rank one, Rank two, Rank three all the way up to Rank nine. Every rank is considered a big realm, and it is divided into 4 small realms\u2014initial stage, middle stage, upper stage and peak stage.",
+          "title": "Scene 4"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 6,
+          "chapterNum": 7,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A moonlit courtyard bathed in soft silver light, with shadows dancing around ancient trees. The teenagers stand in a tight circle, their faces illuminated by the glow of whispered excitement and anticipation, eyes wide and eager, capturing the essence of youthful intrigue under the watchful gaze of the night sky.",
+          "scene_id": 32,
+          "summary": "Students react with interest as they learn about the potential for advancement based on their talent grades. Some look at Fang Zheng with envy while others notice Fang Yuan sleeping in class.",
+          "text": "The teenagers' ears all pricked up, their eyes shining brightly as they listened.",
+          "title": "Scene 5"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 6,
+          "chapterNum": 7,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A moonlit bamboo forest at midnight, with soft silver light filtering through the leaves. The camera angles from above, looking down on a young warrior in flowing silk robes, his sword beside him, peacefully asleep amidst the tranquil and serene atmosphere of the wuxia world.",
+          "scene_id": 33,
+          "summary": "Classmates gossip about Fang Yuan's unusual behavior of sleeping and wandering at night, spreading rumors among themselves.",
+          "text": "Look, he's still sleeping",
+          "title": "Scene 6"
+        }
+      ],
+      "title": "Chapter 7"
+    },
+    {
+      "chapterNum": 8,
+      "id": "",
+      "scenes": [
+        {
+          "aspect": "1216x832",
+          "chapter": 7,
+          "chapterNum": 8,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A narrow cobblestone alleyway bathed in the soft glow of golden hour, shadows stretch long and deep. The air is thick with tension, a sense of impending confrontation hangs heavy. A lone figure stands at the entrance, back to the setting sun, dressed in flowing dark robes adorned with intricate red and gold embroidery, face hidden behind a silk mask. Behind them, a line forms of similarly masked figures, each stepping into the frame one by one, their expressions unreadable. The camera angles from an elevated position above, looking down at the alley, capturing the dramatic lighting that casts sharp shadows on the ground. As the last figure enters, the first in line suddenly turns and starts walking towards the viewer with a fluid grace, sword glinting ominously under the fading light.",
+          "scene_id": 34,
+          "summary": "Fang Yuan enters the Gu room after others have gone in and out. The room is described as mysterious with various holes containing different types of Gu, each making unique sounds.",
+          "text": "\"Form a line, enter one by one,\" some voices suddenly yelled; it was natural that there were guards outside the Gu room. The youths went in one at a time and came out. Finally it was Fang Yuan's turn to enter the Gu room.",
+          "title": "Scene 1"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 7,
+          "chapterNum": 8,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A dimly lit, ancient chamber cloaked in shadows and mystery, with four walls punctuated by ominous, irregularly shaped holes. Golden hour light filters through the gaps, casting long, dramatic shadows that dance across the floor. A lone figure stands at the center of the room, dressed in ethereal white robes adorned with intricate silver patterns, their silhouette sharp against the fading daylight. The air is thick with tension and anticipation, as if something monumental is about to unfold. From an elevated angle slightly above the character\u2019s shoulder, looking down into the room, capturing the depth and drama of the scene.",
+          "scene_id": 35,
+          "summary": "Fang Yuan observes the different types of Rank One Gu inside the room, noting that these are suitable for new Gu Masters due to their manageable cost.",
+          "text": "This room was a mysterious room. The four walls all had holes; in each one of these embedded square holes were another square hole.",
+          "title": "Scene 2"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 7,
+          "chapterNum": 8,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A dimly lit chamber filled with ancient scrolls and mystical artifacts glows softly under the moonlight filtering through a cracked window, casting long shadows on the walls. Fang Yuan stands at the center, his silhouette sharp against the backdrop, eyes narrowing as he surveys the room brimming with Rank One Gu, each scroll pulsating with latent power, the air thick with tension and anticipation.",
+          "scene_id": 36,
+          "summary": "Fang Yuan decides against taking the Liquor Worm and instead chooses a Moonlight Gu, which is a specialty of his clan and symbolizes its identity.",
+          "text": "\"Gu are also divided into 9 big levels, following the same concept of the 9 rank realms of Gu Masters. All the Gu in this room are Rank one Gu.\" Fang Yuan glanced around, immediately aware of this.",
+          "title": "Scene 3"
+        }
+      ],
+      "title": "Chapter 8"
+    },
+    {
+      "chapterNum": 9,
+      "id": "",
+      "scenes": [
+        {
+          "aspect": "1216x832",
+          "chapter": 8,
+          "chapterNum": 9,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A lone warrior clad in dark robes with a sword sheathed at his side stands silhouetted against the crimson and gray sky as the sun sets over distant mountain peaks shrouded in encroaching twilight; shot from a low angle to emphasize his solitary figure, the scene is bathed in dramatic chiaroscuro lighting, capturing the somber yet majestic mood of a wuxia epic.",
+          "scene_id": 37,
+          "summary": "The chapter opens with a description of the setting, showing the dimly lit living room and the somber mood. The scene sets up the atmosphere for the conversation that follows.",
+          "text": "The sunset was a red hue setting over the east. The sky was still bright, but everything seemed to be covered by a shade of gray. Overlooking the window, the mountains in the distance were gradually drawing towards a heavy black color.",
+          "title": "Scene 1"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 8,
+          "chapterNum": 9,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A dimly lit wuxia living room at dusk, shadows dancing across antique furniture; Uncle Gu Yue Dong Tu and Aunt sit regally in high-backed chairs, their faces obscured by shadow, expressions enigmatic and foreboding; Fang Yuan enters with two jars of wine, his uncle's eyebrows furrowed in a tense, questioning scowl.",
+          "scene_id": 38,
+          "summary": "Uncle Gu Yue Dong Tu gives Fang Yuan and Fang Zheng primeval stones as gifts for their 15th birthday, acknowledging their talents. The scene highlights the relationship between Uncle and the boys.",
+          "text": "The light in the living room was dim. Aunt and Uncle sat high in their chairs, their faces enveloped in shadow, their expressions hard to discern. As he saw Fang Yuan carrying the two jars of wine, his Uncle Gu Yue Dong Tu's eyebrows twisted into a knot.",
+          "title": "Scene 2"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 8,
+          "chapterNum": 9,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "In the dimly lit, ancient courtyard of a secluded wuxia estate, under the soft glow of paper lanterns casting long shadows, Fang Yuan stands solemnly beside his brother Fang Zheng, both dressed in traditional silk robes with intricate embroidery. The camera captures their tense yet contemplative expressions from a low angle as servants approach them, handing each a small bag; Fang Yuan accepts his silently, his eyes reflecting the weight of his decision and the gravity of the moment.",
+          "scene_id": 39,
+          "summary": "Fang Zheng expresses gratitude for the primeval stones and Aunt and Uncle discuss adopting him as their son. The scene reveals deeper emotional connections and family dynamics.",
+          "text": "As he said this, some servants came over and passed Fang Yuan and Fang Zheng each a small bag. Fang Yuan took his bag silently.",
+          "title": "Scene 3"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 8,
+          "chapterNum": 9,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "In a dimly lit bamboo forest at dusk, under the soft glow of moonlight filtering through dense foliage, Fang Zheng crouches beside a gnarled tree trunk, his silhouette stark against the shadows. He opens an ancient leather bag and pulls out six oval-shaped, greyish-white primeval stones, each glowing faintly with ethereal energy, as he examines them intently in the half-light, his expression one of intense concentration and awe.",
+          "scene_id": 40,
+          "summary": "Uncle proposes adopting both boys as their sons, but Fang Yuan declines the offer while Fang Zheng accepts it enthusiastically. The scene highlights the different reactions of the two brothers to this proposal.",
+          "text": "Fang Zheng immediately opened his bag and looked inside to see 6 pieces of oval shaped, greyish white primeval stones.",
+          "title": "Scene 4"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 8,
+          "chapterNum": 9,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A misty moonlit night in an ancient Chinese courtyard, soft lantern lights casting gentle shadows on the cobblestone path; Fang Zheng stands with a radiant smile, his eyes filled with joy and gratitude as he clasps hands with his newly adopted Aunt and Uncle, the camera capturing this heartwarming moment from a low angle to emphasize the warmth and unity of their embrace.",
+          "scene_id": 41,
+          "summary": "Uncle offers financial support to Fang Yuan in the form of 200 primeval stones but Fang Yuan declines again. The scene underscores the tension and distance between Uncle and Fang Yuan.",
+          "text": "Fang Zheng was stunned for a second, but the look on his face quickly emerged a joyful smile and he said, \"To be honest, every since both my parents died I have longed very much for a family of my own. To be able to become a family with Aunt and Uncle, this is too good to be true!\"",
+          "title": "Scene 5"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 8,
+          "chapterNum": 9,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A moonlit courtyard bathed in silver light, with shadows dancing on ancient stone walls. From a high-angle shot, Gu Yue and Fang Zheng stand beneath the glow, their silhouettes sharp against the night sky; Uncle, his expression unreadable under the hood of his robe, interrupts them with an imperceptible shake of his head, the scene steeped in tension and secrecy, rendered in intricate wuxia style.",
+          "scene_id": 42,
+          "summary": "Fang Yuan leaves the room without further discussion, leaving behind an awkward silence. The scene ends on a note of unresolved tension.",
+          "text": "\"Brother.\" Gu Yue Fang Zheng was about to advise him, but Uncle, whose tone was unchanged, stopped him.",
+          "title": "Scene 6"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 8,
+          "chapterNum": 9,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A dimly lit ancient Chinese courtyard at dusk, with soft moonlight filtering through wispy clouds. The mood is bittersweet, filled with familial warmth and hidden sorrow. From an overhead angle, looking down into the courtyard. Father and Mother are dressed in elegant traditional robes, standing under a plum tree in full bloom. Aunt and Uncle wear casual yet dignified attire, laughing heartily at Fang Zheng, who stands slightly apart, his expression one of deep realization and contemplation.",
+          "scene_id": 43,
+          "summary": "Fang Zheng realizes something and addresses his aunt and uncle, who praise him for being a good son.",
+          "text": "Father, Mother.\" Fang Zheng in a state of realization changed his statement. Aunt and Uncle laughed heartily.",
+          "title": "Scene 7"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 8,
+          "chapterNum": 9,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A dimly lit traditional Chinese study room with ink paintings on the walls, soft moonlight streaming in through paper windows; somber mood with a sense of impending change; slightly tilted camera angle from behind Uncle to show Aunt's tear-streaked face and Fang Yuan's contemplative expression; Uncle dressed in elegant silk robes, Aunt in simple yet dignified attire, Fang Yuan wearing plain scholar\u2019s clothes but exuding an aura of latent power; Uncle gently questioning Fang Yuan who stands quietly, hands clasped in front of him.",
+          "scene_id": 44,
+          "summary": "Uncle asks Fang Yuan about his future plans, but Fang Yuan remains silent and declines the offer to be adopted.",
+          "text": "Aunt wiped her tears. Uncle looked at the silent Fang Yuan and said gently, \"Fang Yuan, how about you?\"",
+          "title": "Scene 8"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 8,
+          "chapterNum": 9,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "Fang Yuan stands in a misty bamboo forest at dusk, surrounded by tall, swaying bamboos. The lighting is soft and golden, casting long shadows. The mood is tense yet reflective. From a low angle, looking up at Fang Yuan, who wears traditional wuxia robes with intricate embroidery. Gu Yue Fang Zheng approaches from the side, her expression concerned.",
+          "scene_id": 45,
+          "summary": "Uncle offers 200 primeval stones as financial support to Fang Yuan if he agrees to be independent, but Fang Yuan still refuses.",
+          "text": "Fang Yuan shook his head without saying a word. \"Brother.\" Gu Yue Fang Zheng was about to advise him",
+          "title": "Scene 9"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 8,
+          "chapterNum": 9,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A dimly lit cave filled with ancient mystique and danger, glowing primeval stones scattered across the floor like stars. The mood is tense yet awe-inspiring. From a low angle, looking up at Fang Zheng whose silhouette is bathed in an ethereal blue light from the stones. He stands tall, wearing traditional wuxia attire with a sword sheathed at his side, eyes wide and mouth agape in astonishment.",
+          "scene_id": 46,
+          "summary": "Aunt and Uncle are disappointed by Fang Yuan's decision, while Fang Zheng tries to persuade his brother but is stopped by Uncle.",
+          "text": "\"200 primeval stones!\" Fang Zheng's eyes opened wide; he had never seen so many primeval stones in his life.",
+          "title": "Scene 10"
+        }
+      ],
+      "title": "Chapter 9"
+    },
+    {
+      "chapterNum": 10,
+      "id": "",
+      "scenes": [
+        {
+          "aspect": "1216x832",
+          "chapter": 9,
+          "chapterNum": 10,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A lone warrior stands atop a windswept cliff at dusk, the sky painted in hues of orange and purple during the golden hour. Behind him lies an abandoned village shrouded in mist, its silhouette barely visible against the darkening horizon. He clutches two intricately decorated jars of wine, his long black hair flowing freely with the wind. His robes flutter slightly as he turns to face a path ahead, eyes sharp and focused under dramatic lighting that casts deep shadows across his face. The camera angle is from behind him, capturing the vast emptiness before him and emphasizing his solitude against the encroaching darkness of night.",
+          "scene_id": 47,
+          "summary": "Fang Yuan attempts to search for the Liquor worm but stops due to heavy rain. He decides to refine the Moonlight Gu instead while waiting for better conditions.",
+          "text": "It has already been 3 days and 3 nights. On the night 3 days ago he had walked out of the village with two jars of wine, searching around the surroundings.",
+          "title": "Scene 1"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 9,
+          "chapterNum": 10,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A lone swordsman stands atop a rugged cliff, the sky darkening as storm clouds gather overhead during golden hour. Rain pours relentlessly in dramatic lighting, casting deep shadows across the landscape. The swordsman, Fang Yuan, wears tattered robes and a determined yet weary expression. His sword is sheathed at his side, water dripping from its hilt. The camera captures him from a low angle, emphasizing his solitary figure against the stormy backdrop of a wuxia world.",
+          "scene_id": 48,
+          "summary": "Fang Yuan reflects on his inability to find the Liquor worm and decides to proceed with refining the Moonlight Gu despite potential challenges.",
+          "text": "Thus under this helplessness, Fang Yuan could only stop his search. Not too mention that the moment it started raining, the rain had went on continuously.",
+          "title": "Scene 2"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 9,
+          "chapterNum": 10,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A lone warrior sits cross-legged on his rustic wooden bed in a dimly lit room at dusk. The golden hour casts long, dramatic shadows across the floor, highlighting the single candle flickering beside him. Deep shadows cover most of the room, save for a narrow beam of warm light that illuminates his serene face. He has short, dark hair and wears a traditional wuxia robe with intricate embroidery. His eyes are closed, and his breathing is steady, conveying deep concentration and inner peace. The camera captures him from an intimate close-up angle, emphasizing the tranquility and determination etched on his features.",
+          "scene_id": 49,
+          "summary": "Fang Yuan begins the process of refining the Moonlight Gu and faces initial resistance from the Gu.",
+          "text": "He closed the door and window and sat cross-legged on his bed. He closed his eyes slowly and after breathing a few times, he calmed his state of mind.",
+          "title": "Scene 3"
+        },
+        {
+          "aspect": "1216x832",
+          "chapter": 9,
+          "chapterNum": 10,
+          "negative": "blurry, low quality, deformed, bad anatomy",
+          "prompt": "A moonlit courtyard bathed in the golden hour glow, ancient trees casting long shadows. In the center stands Fang Yuan, his face drained of color, hair disheveled and clothes slightly tattered from recent battles. Dramatic lighting highlights the flowing veins on his forehead as a massive influx of primeval essence pours into the shimmering Moonlight Gu beside him. Camera angle: low-angle shot to emphasize Fang Yuan\u2019s struggle, deep shadows accentuating his determined yet strained expression. Wuxia art style with intricate line work and vibrant colors.",
+          "scene_id": 50,
+          "summary": "Fang Yuan continues to refine the Moonlight Gu despite the difficult process and slow progress.",
+          "text": "In less than three minutes, Fang Yuan's face had become pale. A huge volume of primeval essence continuously poured into the Moonlight Gu,",
+          "title": "Scene 4"
+        }
+      ],
+      "title": "Chapter 10"
+    }
+  ],
+  "current_chapter": 1,
+  "scenes": [
+    {
+      "aspect": "1216x832",
+      "chapter": 0,
+      "chapterNum": 1,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 1,
+      "summary": "",
+      "text": "\"Fang Yuan, surrender the Spring Autumn Cicada obediently, and I'll grant you a swift death!\"\n\"Old bastard Fang, cease your resistance! Today, all righteous sects have united to storm your den of evil. This place is sealed tighter than heaven's net \u2013 your decapitation is inevitable!\"\n\"Fang Yuan, you accursed fiend! To refine the Spring Autumn Cicada, you slaughtered millions. Your sins drown mountains and exhaust bamboo scrolls \u2013 no atonement remains!\"\n\"Demon, three centuries ago you defiled me, slaughtered my family, exterminated my bloodline! Since that day, I've hungered for your flesh and thirsted for your blood! Today, you'll beg for death's release!\"\n...\nFang Yuan stood amidst the carnage, his emerald robes in tatters, hair matted with blood, surveying the battlefield.\nMountain winds whipped his bloody garments, snapping like war banners in the gale.\nCrimson lifeblood gushed from hundreds of wounds. A mere moment's standing left him ankle-deep in a growing pool of gore.\nEnemies encircled him \u2013 no retreat remained.\nThe die was cast; death's embrace awaited.\nFang Yuan saw his predicament with crystal clarity, yet faced annihilation with unshaken composure.\nHis eyes held the stillness of ancient well-waters \u2013 dark, fathomless, inscrutable.\nThe righteous coalition comprised venerable patriarchs and prodigious heroes. Now they tightened their ring \u2013 some roaring challenges, others sneering contemptuously, all eyeing their prey with wariness or poorly concealed dread.\nNone dared strike first, fearing the cornered demon's final gambit.\nSix hours passed in lethal stillness until sunset painted the peaks in wildfire hues.",
+      "title": "Scene 1"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 0,
+      "chapterNum": 1,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 2,
+      "summary": "",
+      "text": "The statue-still demon finally turned.\nA hundred warriors recoiled as one.\nBlood had long stained the granite black beneath him. His pallid face, kissed by dying light, gained an ethereal radiance.\nGazing at the blazing horizon, Fang Yuan murmured, \"Green peaks at dusk, autumn moons in spring winds. Dawn's black silk becomes twilight's snow \u2013 all triumphs and defeats dissolve to emptiness.\"\nEarthly memories from another life flooded his vision.\nOnce a scholar in China, he'd transmigrated to this world to wander three centuries in hardship, then dominate two more \u2013 five hundred years vanished like morning mist.\nLong-buried recollections now unfolded with vivid clarity.\n\"So it ends in failure,\" he mused without regret.\nThis outcome had been anticipated since first embarking on this path.\nThe demonic path spurns virtue \u2013 arson and slaughter make heaven and earth recoil. To embrace it meant making the world one's enemy.\n\"If my newborn Spring Autumn Cicada works,\" he laughed wildly, \"I'll walk the demon's path again!\"\n\"Why laugh, Ancient Evil?\"\n\"Brace yourselves! The demon's death-throes approach!\"\n\"Yield the Cicada!!\"\nAs they surged forward, Fang Yuan detonated his essence in cataclysmic fury.",
+      "title": "Scene 2"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 0,
+      "chapterNum": 1,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 3,
+      "summary": "",
+      "text": "\u2026\nSpring rains whispered across Qing Mao Mountain.\nLate night breezes carried drizzle through the dark.\nYet the mountain gleamed \u2013 from foothills to slopes, countless pinpricks of light formed a luminous belt.\nThese emanated from stilted towers \u2013 not ten thousand, but several thousand lanterns strong.\nThus did Gu\nYue\n1\nVillage imprint human presence upon the vast wilderness.\nAt its heart stood a grand pavilion, blazing with ceremonial lights for the Ancestral Rites.\n\"Ancestors, bless our Awakening Ceremony!\" prayed the middle-aged clan leader, silver-templed and white-robed, kneeling rigidly on ochre tiles. \"Let worthy youths emerge to renew our bloodline!\"\nBefore him rose a black-lacquered altar holding three tiers of ancestral tablets flanked by bronze censers smoldering with incense.\nBehind knelt a dozen elders in voluminous white vestments \u2013 the clan's powerbrokers and administrators.\nAfter prayers, the leader pressed palms to the floor and kowtowed, forehead thudding dully.\nSolemn elders mirrored his motions.",
+      "title": "Scene 3"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 0,
+      "chapterNum": 1,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 4,
+      "summary": "",
+      "text": "The hall echoed with muffled impacts of flesh on wood.\nRites concluded, the assembly rose silently and filed out.\nIn the corridor, elders exhaled collectively, tension easing.\nMurmurs swelled.\n\"A year passes in the blink of an eye.\"\n\"The last Awakening Ceremony feels like yesterday \u2013 still fresh in memory.\"\n\"What new talents will emerge at tomorrow's ceremony?\"\n\"Three years without a Grade-A prodigy\u2026 May the ancestors answer us.\"\n\"The Bai and Xiong Clans spawn geniuses yearly. Bai Ning Bing's talent chills the blood.\"\nAt Bai Ning Bing's name, worried glances passed among the elders.\nThe youth had reached Third-Rank Gu Master in two years \u2013 outshining contemporaries and unnerving veterans.\nNone doubted he'd become Bai Clan's pillar \u2013 a powerhouse rivaling veteran masters.\n\"Yet hope remains in this year's candidates.\"\n\"The Fang Branch boasts a wonderchild \u2013 spoke at three months, walked at four, composed poetry by five. Orphaned early, now raised by his aunt and uncle.\"\n\"His 'Invitation to Wine', 'Ode to Plum Blossoms', and 'River City Ballad' reveal extraordinary genius!\"",
+      "title": "Scene 4"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 0,
+      "chapterNum": 1,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 5,
+      "summary": "",
+      "text": "The clan leader, last to exit, closed the temple doors on elders' buzzing discussions.\nHe recognized their subject: Gu Yue Fang Yuan.\nAs leader, he tracked all promising youths \u2013 none shone brighter than this boy.\nHistory showed early prodigies often possessed superior cultivation aptitudes.\n'If he tests Grade-A,' the leader mused, smiling faintly, 'he might rival Bai Ning Bing. Even Grade-B would become a clan standard-bearer. But such precocity suggests Grade-A.'\nClearing his throat, he addressed the elders, \"Rest well tonight for tomorrow's trials.\"\nElders stiffened, eyeing each other with veiled suspicion.\nAll understood the subtext.\nAnnual recruitment battles turned dignified elders into snarling wolves.\nTonight's rest would fuel tomorrow's contests.\nFang Yuan \u2013 likely Grade-A, orphaned last of his line \u2013 promised century-long dominance to whichever branch secured him.\n\"But compete honorably,\" the leader warned. \"No scheming that fractures clan unity.\"\n\"We wouldn't dare.\"\n\"Your words guide us.\"\n\"We take our leave, Clan Leader.\"",
+      "title": "Scene 5"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 0,
+      "chapterNum": 1,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 6,
+      "summary": "",
+      "text": "Elders dispersed, minds racing with strategies.\nSoon the corridor stood empty. The leader drifted to a rain-streaked window.\nCool mountain air washed over him, fragrant with petrichor.\nFrom this third-story vantage, Gu Yue Village spread below.\nUnusually, most households still burned lamps deep into the night.\nThe Awakening Ceremony's import thrummed through the clan \u2013 sleep eluded many.\n\"There flickers our future,\" the leader murmured, watching firefly lights.\nElsewhere, another pair of eyes observed those same lights with profound complexity.\n\"Gu Yue Village\u2026 Five centuries past? The Spring Autumn Cicada succeeded\u2026\" Fang Yuan stood drenched at his window, gaze piercing the storm.\nRanked seventh among the Ten Legendary Gu, the Cicada's time-reversal power defied cosmic law.\nIn essence \u2013 rebirth.\n\"Reborn through the Cicada,\" he whispered, studying his youthful palm before clenching it. \"This\u2026 is reality.\"\nRain whispered against shutters as he sighed. \"Five hundred years\u2026 a fading dream.\"\nYet he knew \u2013 this was no mere dream.\nGu Yue: It means Ancient Moon in direct translation. The clan has an affinity with moon things. The 'Gu' used here is a different Chinese character from the mystical Gu insects.\ncomment\n999+ comment\nVote\nSEND GIFT",
+      "title": "Scene 6"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 1,
+      "chapterNum": 2,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 7,
+      "summary": "",
+      "text": "\"But even if its gone, I can still refine another. I have done it in my previous life, why can't I do it in this life?\" After the thoughts of pity were put aside, Fang Yuan's heart burst forth ambitious and determined feelings.\nTo be able to be reborn made the loss of the Spring Autumn Cicada entirely acceptable.\nNot to mention he had something precious with him, so it's not like he had lost everything.\nThis precious treasure was his 500 years worth of memories and experience.\nIn his memories were a multitude of all kinds of treasures and precious items that no one had opened yet in this time. He could easily grasp all the big events and incidents by the veins of history. There were a countless number of figures: some predecessors of hidden levels; some geniuses, and some were not even born yet. Also in those 500 years were memories of painstaking cultivation and rich combat experience.\nWith all these memories and experiences, he had undeniably grasped the overall situation and upcoming opportunities. With good planning and execution, he could empower the situation with great fierceness and elegance. It was not a problem now that he could take a step ahead of others, breaking the higher boundaries!\n\"So how do I go about this hmmm\u2026\" Fang Yuan was incredibly sensible. He collected himself together and faced the night rain outside the window, pondering. With this thought, things started to feel complicated. After thinking for a moment, his brows wrinkled deeper.\n500 years of time was a rather long period. Ignoring those long muddled memories that couldn't be recalled, even remembering the hidden locations of treasures or special encounters of people was demanding, but the main issue was that the locations were separated among a long distance and had to be accessed or visited at certain periods of time.\n\"The most important thing is cultivation. The present me has not even opened my Primeval Sea, hasn't stepped on the path to be a Gu Master. I'm just a mortal! I have to ",
+      "title": "Scene 1"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 1,
+      "chapterNum": 2,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 8,
+      "summary": "",
+      "text": "He had to increase the level of his foundation as fast as possible. If he were slow like his previous life, he would just be too late.\n\"To cultivate as fast as possible, I would have to borrow the resources from the clan. With the state I am right now, I have no power or ability to travel back and forth across the dangerous mountains. Even an ordinary mountain boar can take my life. If I can reach the cultivation of a Third level Gu Master, I'd have the means to protect myself and leave the mountain.\"\nThrough the eyes of a 500-year-old person who had cultivated in the demonic path, Qing Mao Mountain was just way too small, Gu Yue Village even felt like a cage.\nBut while the cage restricted freedom, the sturdy bars of the cage also brought about a certain kind of safety.\n\"Hmm, in this short period of time, I'll just stay in this cage. As long as I can reach Third level Gu Master, I can leave this poor mountain. Luckily tomorrow is the Awakening Ceremony, I'll be able to start training as a Gu Master soon after.\"\nWhen he thought about the Awakening Ceremony, old memories that had long been buried away in his heart resurfaced themselves.\n\"Talent huh\u2026\" He sneered, his gaze focused out the window.\nAt this moment, the door to his room was lightly pushed open and a young teenager walked in.\n\"Brother, why are you standing in the rain by the window side ?\"\nThe youth was thin, slightly shorter than Fang Yuan. His face resembled Fang Yuan's features greatly. As Fang Yuan turned his head to look at this young man, a complicated look flickered across his face.\n\"It's you huh, my twin little brother.\" He raised his eyebrows, his expression returning to that of cold indifference. Fang Zheng lowered his head and looked at his own toes; this is his signature stance.",
+      "title": "Scene 2"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 1,
+      "chapterNum": 2,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 9,
+      "summary": "",
+      "text": "\"Brother, I saw that your window wasn't shut, so I thought I'd come in here and close it. Tomorrow is the Awakening Ceremony, it's so late and you haven't gone to bed yet. If Uncle and Aunty knew, they would probably be worried.\"\nFang Zheng was not surprised at Fang Yuan's coldness. Ever since he was a little child, his older brother had always been like that. Sometimes he would wonder, perhaps a genius was just like that, being rather different from ordinary people. Even though he had the same looks as his older brother, he felt that he was ordinary akin to an ant.\nThey were born from the same womb at the same time, and yet why were the heavens so unfair? His older brother had been endowed with gleaming talent, while he himself was as ordinary as a stone.\nEveryone around him would say, \"This is Fang Yuan's younger brother\u2014\" when they mentioned him. His aunt and uncle would constantly tell him to learn from his older brother. Even when he looked into the mirror sometimes, he would feel disgusted as he saw his own face!\nThese thoughts had been ongoing for many years, accumulating day and night deeply into his heart. Like a giant stone pressing against his heart, Fang Zheng's head lowered more and more over the years, and he also grew quieter.\n\"Worried\u2026\" At the thought of his aunt and uncle, Fang Yuan laughed silently. He could still remember clearly how his parents of this world had both lost their lives in one of the clan missions. When he was only three years old, he and his little brother had become orphans.\nIn the name of upbringing, his aunt and uncle grabbed hold of the inheritance left behind by his parents while inflicting harsh treatment against his younger brother and himself.\nHe originally planned on simply being a normal person, even planning to conceal his abilities and bide his time. However his life was difficult, making Fang Yuan have no choice but to choose to expose some of his talents.\nThe so-called talent was merely but a mature and intellect soul",
+      "title": "Scene 3"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 1,
+      "chapterNum": 2,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 10,
+      "summary": "",
+      "text": "It's hilarious how his little brother never saw the truth; not only was he deceived by their aunt and uncle, but he also started burying his resentments inside. Although he looked like a good-natured and honest boy now, in Fang Yuan's memories when his brother was found out to be an A grade talent, the clan spent much effort in raising him with all they had. After that, all the buried resentment and jealous and hate inside was released, and many a time Fang Zheng would target, suppress, and make life difficult for his own older brother.\nAs for his own grade, it was only C grade talent.\nFate loved to play a joke.\nA pair of twins\u2014the older one only had C grade talent, but had been known as a genius for a dozen years. The younger one who was always overlooked was the one with A grade talent instead.\nThe results of the Awakening Ceremony had left the clan shocked. The treatment of the two brothers suddenly reversed after that.\nThe younger brother was like a dragon that rose up to the heavens; the older brother was like a phoenix that fell down to the earth.\nAfter that came the many hardships and troubles from his own younger brother, the cold eyes of his aunt and uncle, and the contempt of the clan.\nDid he hate it?\nFang Yuan hated it in his previous life. He hated his own lack of talent, he hated how heartless the clan was, hated how fate was so unfair. But now, with his 500 years of life experiences, using this to retrospect, his heart was actually calm without a shred of hatred.\nWhat was there to be gained from resentment?\nThinking about if from another point of view, he could understand his younger brother, aunt and uncle, even those enemies from 500 years later who attacked him.",
+      "title": "Scene 4"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 1,
+      "chapterNum": 2,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 11,
+      "summary": "",
+      "text": "The strong ate the weak\u2014survival of the fittest; these had always been the rules of this world. Everyone had their ambitions, always struggling to grasp the opportunities presented before them. Among all the war and killing, what was there not to be understood?\n500 years of life experience had long allowed him to understand all of this, with a heart that wanted to gain immortality.\nIf someone tried to prevent this pursuit of his\u2014no matter who it was\u2014he would kill and live through it. The aspirations in his heart were too big. Taking this path ensured he made the world his enemy, and he was destined to be alone, and destined to kill.\nThis was the conclusion from having lived 500 years.\n\"Revenge is not my intention, the demonic path does not compromise.\" With that he couldn't help but laugh and gave his younger brother a faint glance. \"You may leave.\"\nFang Zheng's heart shook as he felt that his brother's eyes were incisive like an ice blade, seemingly penetrating the deepest parts of his heart.\nUnder such a gaze, he felt like he was naked in the snow, unable to hold any secrets.\n\"Then I'll see you tomorrow.\" Not daring to say anymore, Fang Zheng slowly closed the door and left.\ncomment\n352 comment\nVote\nSEND GIFT",
+      "title": "Scene 5"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 2,
+      "chapterNum": 3,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 12,
+      "summary": "",
+      "text": "\"Young Master Fang Yuan, you're awake. I will go upstairs and wait for you to wash up.\" At this moment, a maiden's voice floated up from downstairs.\nLooking down, Fang Yuan saw his own personal servant\u2014Shen Cui.\nHer looks were only slightly above average, but she dressed up well. Shen Cui wore a green robe with long sleeves and trousers, had embroidered shoes on her feet and her black hair had a pearl hairpin. Her body from head to toe radiated youthful vitality.\nShe looked happily at Fang Yuan while carrying a basin of water, and walked upstairs. The water was at the right warm temperature and was used to wash the face. After rinsing his mouth, he used a willow twig with snow salt to clean his teeth.\nShen Cui waited gently, her face wearing a smile and her eyes lively as spring. After he was done she helped Fang Yuan dress, her plump breasts rubbing against his elbow or his back a few times during the process.\nFang Yuan's face showed no expression; his heart was calm as water.\nThis servant girl was nothing but his aunt and uncle's watcheye and was a vain heartless girl. In his previous life she enraptured him, but after the Awakening Ceremony when his status plummeted she quickly turned away her head and gave him countless disdainful looks.\nWhen Fang Zheng came over he was in time to see Shen Cui smoothing the creases on the clothing of Fang Yuan's chest. His eyes had a flicker of jealousy.\nThese years living together with his older brother, under the care of Fang Yuan he also had a servant waiting on him. However his servant was not a youthful girl like Shen Cui but a fat and wide old woman.\n\"I wonder which day can Shen Cui wait on me like this, wonder what it feels like?\" Fang Zheng thought inside his heart, yet he did not dare to.\nHis aunt and uncle's biased love to Fang Yuan was no secret to everyone. Originally he did not even have a servant to wait on him. It was Fang Yuan who decided to take the initiative and ask for one for Fang Zheng.",
+      "title": "Scene 1"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 2,
+      "chapterNum": 3,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 13,
+      "summary": "",
+      "text": "Although there was the status difference between master and servant, but usually Fang Zheng did not dare underestimate Shen Cui. That was because her mother was the Matron Shen who stood beside his aunt and uncle. Matron Shen was the caretaker of the entire household\u2014having full trust of his aunt and uncle, she had considerable authority.\n\"Alright, no need to tidy up.\" Fang Yuan impatiently brushed away Shen Cui's soft small hands. His clothing had long been tidy; she was just trying to seduce him.\nTo Shen Cui and the brightness of her future, Fang Yuan's possibility of having an A grade talent was huge. If she could be his concubine she would be able to elevate from servant status into master\u2014it was quite a big step.\nIn his previous life Fang Yuan was deceived by her and had feelings for Shen Cui. After his rebirth he was clear as a blazing fire, his heart as cold as ice.\n\"You can leave.\" Fang Yuan did not even look at Shen Cui as he tidied up his own sleeve cuffs. Shen Cui pouted slightly, feeling that today Fang Yuan's puzzling behavior was rather odd and upsetting. She wanted to reply in a spoiled way but being scared by his cold and confusing nature, her mouth opened and closed a few times before she ended up saying 'yes' and retreating obediently.\n\"Are you ready?\" Fang Yuan asked Fang Zheng.\nHis younger brother stood at the doorway, his head bowed down to look at his toes. He muttered a light 'yes'. Fang Zheng had actually been awake since the fourth watch, too nervous to fall back asleep. He quietly got out of bed and got ready a long time ago, his eyes having black circles.\nFang Yuan nodded. In his previous life he was not clear about his younger brother's thoughts, but in this life, how could he not understand? But right now it was meaningless to him, and he lightly said, \"Then let's go.\"\nSo the two brothers left the house. On the way they bumped into many youths of similar age, all in groups of twos and threes, quite clearly heading to the same destination",
+      "title": "Scene 2"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 2,
+      "chapterNum": 3,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 14,
+      "summary": "",
+      "text": "\"Hmph, if you were like him then you can also act like that!\" Someone coldly replied against the person, hiding a sort of dissatisfaction.\nFang Zheng listened expressionlessly. He had long been accustomed to this kind of discussion. His head low, he followed quietly behind his older brother.\nBy now the light of dawn had peeked over the horizon, casting Fang Yuan's shadow over his face. The sun rose gradually, but Fang Yuan suddenly felt like he was walking into darkness.\nThis darkness was coming from his older brother. Maybe in this life, he would never be able to escape from the imprisoning huge shadow of his brother.\nHe felt a burst of pressure on his chest making his breathing difficult. This damned feeling was even making him think of the word 'suffocate'!\n\"Hmph, this talk is a good example of the saying: 'those who of outstanding talent easily bring about jealous from others',\" Fang Yuan thought with a sneer as he listened to the gossip around.\nNo wonder when it was announced that he had C grade talent, he would be surrounded by enemies and suffer harsh, disdainful coldness for a long time.\nBehind him, Fang Zheng's breathing got dreary and tried to stop listening.\nWhat Fang Yuan did not manage to realize in his previous life, he could perceive with the finest detail in this life. This was the ability of keen insight that he had gained from 500 years worth of life experiences.\nHe suddenly thought of his aunt and uncle and how scheming they were. Giving him Shen Cui to monitor him and passing his younger brother an old wet nurse, not including other things in life that were different among them. All these actions had intentions\u2014They wanted to cause unhappiness in his younger brother's heart and instigate a rift among the brothers.\nPeople are not worried about whether they receive less; people worry about whether whatever they received is undistributed well.",
+      "title": "Scene 3"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 2,
+      "chapterNum": 3,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 15,
+      "summary": "",
+      "text": "In his previous life his experiences were too little, while his younger brother was too foolish and too na\u00efve, thus his aunt and uncle successfully instigated a riff among them.\nAfter being reborn with the Awakening Ceremony before him, it seemed like the situation was difficult to change. But with Fang Yuan's evil way of means and wisdom, it's not like the situation cannot be changed.\nHis younger brother can be suppressed entirely, that young Shen Cui he could turn into a concubine early on. Not forgetting his aunt and uncle and the clan elders\u2014he had at least several hundred ways of beating them.\n\"But, I don't feel like doing that\u2026\" Fang Yuan sighed carefreely.\nSo what if it was his own younger brother? Without the blood relation his younger brother was just an outsider, he could easily give him up anytime.\nSo what if Shen Cui grew any prettier? Without love and loyalty she was just a heap of flesh of a body. Keep her as a concubine? She's not worthy.\nSo what if it was his aunt and uncle, or the clan elders? They're just passers-by in life, why waste effort and energy to beat these people?\nHehe.\nAs long as you don't get in my way, then you can go aside and scram, I don't need to care about you.\ncomment\n320 comment\nVote\nSEND GIFT",
+      "title": "Scene 4"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 3,
+      "chapterNum": 4,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 16,
+      "summary": "",
+      "text": "\"Good, all of you are punctual. Today is the Awakening Ceremony; it is your life's great turning point. I won't say much, just come with me.\" The one responsible at the moment was the elder of the academy. His beard and hair were white and he was in high spirits as he led the young teenagers into the pavilion. However they did not go up, but were led downstairs after going through the entrance of a great hall. Following down a constructed stone ladder, they went into an underground cave.\nThe group of youths made surprised and amazed noises. The underground cave was beautiful, stalactites sparkling with the colors of the rainbow. This light shone on the youth's faces, the neon hues gorgeous.\nFang Yuan was mixed into the crowd, quietly observing everything that was happening. In his heart, he thought: Hundreds of years ago, the Gu Yue clan came to Qing Mao Mountain and settled down after migrating from the central lands to the South Border. It was when they found a spirit spring in this underground cave. This spirit spring produces a large number of primeval stones\u2014It could be said that this was the foundation of the Gu Yue village.\nThey walked several hundred steps. It got darker and the sounds of water were faintly heard. After turning around a corner, a 30 feet wide underground river greeted them. By now the colorful lights of the stalactites had disappeared completely, yet in the darkness the river emitted a faint blue light. It was like a star river of the night sky.\nThe river flowed from the dark depths of the cave. Inside the crystal clear waters, one could see fish, aquatic plants and even the sand beneath the river. Opposite the river was a sea of flowers.\nThis was the Gu Yue Clan's closely cultivated moon orchids. The beautiful blue and pink colored petals were shaped like a crescent moon; the flower stems were like jade, the center of the flower shining like the sort of warm brilliance that radiates from pearls under the light. At first glance, in the dark ",
+      "title": "Scene 1"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 3,
+      "chapterNum": 4,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 17,
+      "summary": "",
+      "text": "\"Gu Yue Chen Bo.\" The elder held the name list and called out the first person.\nThe river was wide but not deep\u2014it covered up to a youth's kneecaps. Chen Bo's face was full of seriousness as he stepped into the flower sea ashore. As he did so, he could feel an invisible pressure as if there was a wall in front of him that he could not see, blocking him from walking forward. During this moment, the flowers at his feet suddenly gave off a weak white light. The light gathered around Chen Bo and entered his body. For a moment, Chen Bo felt the pressure drop; the invisible wall blocking him suddenly felt softer. With this, Chen Bo gritted his teeth and mustered his strength, walking forward. He tried to force his way in stiffly, yet after three steps the wall in front of him hardened again back to the state before. Thus he could not walk any further.\nAs he watched this the elder sighed. While recording what happened, he said, \"Gu Yue Chen Bo, 3 steps, no talent to become a Gu Master. Next, Gu Yue Zao Xie!\"\nChen Bo was deathly pale as he walked past the river and back to the youths, clenching his teeth. Without the endowed talent he could live as a normal human, holding the lowest position in the clan.\nHis stature was shaky; it was a huge blow to him, as if reality had killed all his hopes. Many people threw him pitiful gazes, while even more had fixated stares at the second person crossing the river.\nIt was a pity that this youth could only walk four steps forward\u2014he did not have talent either.\nNot everyone has the natural talent to be a Gu Master. Generally speaking, it is not bad if five out of ten people have talent. In the Gu Clan, this ratio is higher, reaching six people. This is because the Gu Yue clan's ancestor\u2014The first generation clan leader was a famous, legendary and powerful man. Due to cultivation reasons his bloodline carried powerful genes, thus the average quality of talent in the Gu Yue clan was generally higher as they carried his blood in their veins",
+      "title": "Scene 2"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 3,
+      "chapterNum": 4,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 18,
+      "summary": "",
+      "text": "And when it comes to A grade, even if it was just one, would bring great luck to the entire clan. Great care must be given; with this talent in about 10 years they can become a rank four Gu Master. At that moment they would be able to compete for the position of the head of the clan!\nIn other words, as long as this Gu Yue Mo Bei grew to his full potential, he would eventually become one of the elders of the Gu Yue clan. That was why the academy elder laughed happily; the elders watching in the darkness also sighed in relief, then they all turned to look at one of the elders amongst them with jealousy.\nThis elder was also horse-faced. He was Gu Yue Mo Bei's grandfather, Gu Yue Mo Chen. His face was already smiling. He gave his old nemesis a provocative look and said, \"What do you think? My grandson isn't bad huh, Gu Yue Chi Lian.\"\nGu Yue Chi Lian had a head full of red hair. He harrumphed in annoyance and didn't reply. It was apparent that he wore a livid expression.\nOne hour later, half of the youths had already walked through the flower sea. There were quite a number of C and D grade talents among them, while half of those youths had no talent at all.\n\"Sigh, the bloodline is getting thinner. These few years the clan hasn't had any rank four masters to strengthen the bloodline. The fourth generation clan head was the only rank five master, but in the end he perished together with the Flower Wine monk and did not leave behind any descendants. The Gu Yue clan's later generation talents are getting weaker and weaker,\" the clan head said with a deep sigh.\nAt this moment, the academy elder shouted, \"Gu Yue Chi Chen!\"\nOn hearing this name all the elders looked at Gu Yue Chi Lian; this was Gu Yue Chi Lian's grandson.\nGu Yue Chi Lian had a small and short build with a face full of pockmarks. He was clenching his fist, his entire face sweating. It was evident that he was incredibly nervous.\nAs he walked onto the opposite bank, the little lights entered his body; after walkin",
+      "title": "Scene 3"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 3,
+      "chapterNum": 4,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 19,
+      "summary": "",
+      "text": "\"Hahaha, 36 steps, 36 steps!\" Gu Yue Chi Lian shouted, proudly staring at Gu Yue Mo Bei. This time it was Gu Yue Mo Chen's turn to have a sour face.\n\"Gu Yue Chi Chen, huh\u2026\" In the midst of the crowd, Fang Yuan stroked his chin thoughtfully. In his memories, the clan heavily punished Gu Yue Chi Chen because he cheated during the Awakening Ceremony. In reality Chi Chen only had C grade talent, but because his grandfather Gu Yue Chi Lian helped him fake the results, he appeared to have B grade talent.\nTo be honest if he wanted to cheat, Fang Yuan had a countless number of ways to do so, some ways even more perfect than Gu Yue Chi Chen's method. If a B grade or A grade talent appeared, they would receive the clan's utmost care.\nBut firstly, Fang Yuan had only just been reborn. It was hard to prepare the cheating method with such conditions. Secondly, even if he had managed to cheat, he would not be able to fake his cultivation speed. He would be exposed by then. However Gu Yue Chi Chen was different; his grandfather was Gu Yue Chi Lian\u2014one of the two elders with the most authority within the clan. With this Chi Lian would be able to cover up for his grandson.\n\"Gu Yue Chi Lian was always hostile towards Gu Yue Mo Chen, these two elders are the clan's two biggest influential authorities. To suppress his opponent he would need his own grandson to have an outstanding talent. It is also because he was helping from behind, Gu Yue Chi Chen was able to conceal the truth for a time. In my memories, if it were not for that incident, the truth would never have been exposed.\"\nFang Yuan's eyes shone with light, his mind thinking up ways to use this knowledge to his advantage.\nIf he exposed the matter on the spot, he would receive a bit of reward from the clan, but then he would offend the highly powerful Gu Yue Chi Lian. This was not advisable.\nHe also could not blackmail them within such a short period of time. Due to his low status, it would just backfire on him.\nAs he pondered, h",
+      "title": "Scene 4"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 4,
+      "chapterNum": 5,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 20,
+      "summary": "",
+      "text": "\"Human, what else can you give us? You don't have anything else left to provide to us,\" the strength and wisdom Gu said as they realized this. They left him.\nWithout wisdom and strength, Ren Zu was once surrounded by Predicaments. He was old and could not run, his teeth had fallen out and could not even chew wild fruits and plants.\nAs he fell weakly onto the ground surrounded by Predicaments, his heart was filled with desperation. It was at this time the third Gu said to him, \"Human, take me up. I will help you escape Predicament.\"\nRen Zu tearfully replied, \"Gu, I don't have anything else left. See, the strength and wisdom Gu have abandoned me. I only have my old age left! While it is not as worth my youth and middle age, but if I give you my old age, my life would immediately end. Even though I am surrounded by Predicaments right now, but I will not die immediately. I wish to live a little longer, even if just a second more. So you should leave, I have nothing else to provide to you.\"\nBut the Gu said, \"Among the three I have the smallest needs. Human, if you just give me your heart, it will be enough.\"\n\"Then I will give you my heart,\" Ren Zu said. \"But Gu, what can you give me in return? In this situation, even if the strength and wisdom Gu returned to my side, it would change nothing.\"\nWhen compared to the strength Gu, this Gu looked frail and was just a tiny ball of light. When compared to the wisdom Gu, this one was only able to give out a dim white light, not beautiful in any way.\nBut when Ren Zu gave it his heart, this Gu suddenly gave out endless light. In this light, the Predicaments screamed in horror: \"This is the Hope Gu, withdraw! We Predicaments are most afraid of hope!\"\nThe Predicaments retreated suddenly. Ren Zu was speechless, and from that day onwards whenever he faced a predicament, he would give his heart to hope.\nAt this moment, the Hope Gu converged into a stream of light and had already entered Fang Yuan's body. Due to the outside pressure they",
+      "title": "Scene 1"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 5,
+      "chapterNum": 6,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 21,
+      "summary": "",
+      "text": "\"You can't go any further?\" The academy elder shouted across the river, holding onto a small thread of hope. Fang Yuan turned around and walked back, answering with his actions.\nAt this moment even the young teenagers started reacting. The crowd suddenly buzzed with chatter.\n\"What? Fang Yuan walked 27 steps?\"\n\"So he was just a C grade talent?!\"\n\"Unbelievable, only a C grade for such a genius like him?\"\nA great disturbance erupted from the crowd.\n\"Brother\u2026\" Among them, Gu Yue Fang Zheng looked up, watching with shock as Fang Yuan returned across the river. He could not dare to believe it, his own brother was only a C grade?\nHe had always thought that his older brother would be an A grade talent. No, not just him, even his aunt and uncle and so many people among the clan thought the same too.",
+      "title": "Scene 1"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 5,
+      "chapterNum": 6,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 22,
+      "summary": "",
+      "text": "But now, the result was unexpectedly the opposite!\n\"Damn, he was only a C grade!\" The Gu Yue clan head clenched both his fists, drawing a deep breath, disappointment in his voice.\nThe elders watching from the darkness had mixed reactions. Some were frowning, some lowering their head in discussion, some looking up with a sigh.\n\"Could the results be wrong?\"\n\"How can that be? This method is accurate beyond reasoning, not to add that we were watching the entire time, even cheating is hard.\"\n\"But all his actions and intelligence previously, how do you explain those?\"\n\"Youths with higher quality of Primeval Sea would indeed display characteristics that surpass the ordinary man. Such as intelligence, perception, memory, strength, agility and so on. On the other hand, these characteristics do not mean that the primeval talent is definitely high. Everything will still be determined by the results.\"\n\"Sigh, the bigger your hopes the bigger the disappointment. The Gu Yue clan's generation now is no longer like the first generation.\"",
+      "title": "Scene 2"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 5,
+      "chapterNum": 6,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 23,
+      "summary": "",
+      "text": "\u2014\nHis socks were soaked with the icy cold waters from the river, the coldness piercing into his bones.\nFang Yuan walked with the same emotionless face, his distance getting closer and closer towards the crowd. He could clearly see the academy elder's heavy expression, and was aware of the stares thrown at him from over a hundred youths.\nThese glares were mixed with amazement, shock, gloat, and some taking pleasure at this unfortunate event, some indifferent.\nIt was the same situation, making Fang Yuan unwillingly remember his previous life.\nDuring that time he felt as if the sky had fallen. When he crossed the cold river he lost his footing and fell, soaking his entire body in the water, feeling so lost. No one came forward to help him up.\nThose disappointed, cold expressions and gazes were like sharp knives, piercing into his very own heart. His mind was in chaos, his chest searing with pain. It was as if he had fallen from the clouds, down to the ground. The higher you stand, the harder you fall.\nBut in this life, as the same scene replayed itself, Fang Yuan's heart was calm. He thought of the legend: When Predicaments come, give your heart to Hope.",
+      "title": "Scene 3"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 5,
+      "chapterNum": 6,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 24,
+      "summary": "",
+      "text": "And today that hope is inside of him. Even though it was not big, but it was better than those people who had totally no primeval talent.\nIf others feel disappointed, then let them be disappointed. What else can they do?\nWhat does the disappointment others have have to do with me? The most important thing is to carry hope inside my heart!\n500 years of living had led him to understand that the interesting things that happen in a person's life, happens during the process when one chases after his own dreams. There is no need to ask others around you to not be disappointed or make them like it.\nWalk on your own path, let others be disappointed and unhappy however they please!\n\"Sigh\u2026\" The academy elder let out a deep breath and shouted, \"Next, Gu Yue Fang Zheng!\"\nBut no answer came.\n\"Gu Yue Fang Zheng!\" The elder yelled again, the sound of his voice reverberating inside the cave.",
+      "title": "Scene 4"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 5,
+      "chapterNum": 6,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 25,
+      "summary": "",
+      "text": "\"Ah? I'm here, I'm here!\" Fang Zheng snapped out of his shock and ran out hurriedly. Unfortunately he tripped over his own feet and fell, hitting his head with a groan and tumbling into the river.\nInstantly the entire cave was filled with huge laughter.\n\"The Fang brothers, nothing special.\" The Gu Yue clan head scoffed, feeling a sort of annoyed boredom towards Fang Zheng.\n\"This is such a huge embarrassment!\" Fang Zheng struggled and splashed in the water. The bottom of the river was just too slippery; he couldn't get up properly. Trying his best only made him look more stupid and clumsy. His heart increasingly flustered as the sounds of laughter filled his ears.\nBut right at this moment, he suddenly felt a strong pull lifting him up. His head finally left the water surface and his body found balance again.\nHe wiped his face in a panic and focused his sight. It was actually his older brother Fang Yuan who had grasped his collar and pulled him up.\n\"Brother\u2026\" He opened his mouth to say. But instead he started choking on water, ending up triggering a violent cough.\n\"Haha, the difficult older and younger brother of the Fang family!\" Someone laughed at the riverbank. The laughter grew louder, yet the academy elder did not come out and stop it. He was deeply frowning, disappointment filling his heart.",
+      "title": "Scene 5"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 5,
+      "chapterNum": 6,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 26,
+      "summary": "",
+      "text": "Fang Zheng was completely at a loss on what to do, and then he heard his brother say to him, \"Go on. The road to the future will be interesting.\"\nFang Zheng could not help but open his mouth in surprise. Fang Yuan's back was facing the crowd so they could not see properly, but Fang Zheng could clearly feel the calmness radiating from Fang Yuan. As his older brother spoke the corners of his mouth were slightly raised, revealing a deep and thoughtful smile.\nIt was obviously only a C grade talent, yet how can brother be so calm? Fang Zhen could not help but wonder, his heart full of doubt. Yet Fang Yuan did not say any more. He patted Fang Zheng on the back, and turned and walked away.\nFang Zheng wore a stupefied expression as he walked towards the flower sea. \"I never thought brother would actually be so calm. If it was me, I'd\u2026\"\nHe lowered his head, walking forward absent-mindedly. Yet he did not know that he was playing out a miraculous scene. When he finally snapped out of his reverie, he was already deep in the sea of flowers, standing in a distance that no one else had reached before him.\n43 steps!\n\"Oh my god, A grade talent!\" The academy elder screamed, seeming to have lost his mind.\n\"A grade, really an A grade!?\"",
+      "title": "Scene 6"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 5,
+      "chapterNum": 6,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 27,
+      "summary": "",
+      "text": "\"It's been 3 years, an A grade talented genius has finally appeared in the Gu Yue clan!\"\nThe clan elders that were watching in the darkness were also screaming out at the same time, losing their composure.\n\"Well, the Fang bloodline originated from us Chi bloodline. So we Chi family will adopt in this Gue Yue Fang Zheng,\" Gue Yue Chi Lian immediately announced.\n\"How is that possible? You old bag Chi Lian, your morals and abilities are out of order, but you're definitely good at misleading young boys. It's better to pass this kid to I, Gu Yue Mo Chen to raise!\" Gu Yue Mo Chen roared back instantly.\n\"Stop arguing. No one is more qualified to raise this child than the current clan leader. Whoever has any objections is to go against me, Gu Yue Bo!\" The Gu Yue clan head had gone crazy and swept his fiery red gaze over the disappointed and discouraged looks.\ncomment\n168 comment\nVote\nSEND GIFT",
+      "title": "Scene 7"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 6,
+      "chapterNum": 7,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 28,
+      "summary": "",
+      "text": "\"Humans are above all creatures, Gu are the essence of heaven and earth. In this world there are thousands of species, countless number of Gu. They live everywhere around us\u2014In the soil, in the bushes, even on the bodies of wild beasts.\"\n\"As humans continued to propagate and grow, the scholars of the past gradually uncovered the mysteries of the Gu. Those who have opened the aperture, using their own primeval essence to feed, refine and manipulate these Gu\u2014people who have achieved these various purposes are what we call Gu Masters.\"\n\"And all of you have successfully opened your aperture in the Awakening Ceremony 7 days ago. With the coagulation of the Primeval Sea, right now you are all Rank one Gu Masters.\"\nIn the village academy, the academy elder talked with confidence and composure. In front of him were 57 students, seated and listening attentively.\nThe mystery and strength of a Gu Master had been deeply rooted in the hearts of the youths a long time ago. Thus everything that the elder taught and said, the students were very interested in.\nAt this moment a young teen raised his hand. With the elder's permission he stood up and asked, \"Elder sir, I've known this since I was small. There are Rank one Gu Masters, Rank two and so on, can you explain in more detail to us?\"\nThe Gu Yue teacher nodded and waved his hand to ask the young man to sit down. \"Gu Masters have 9 ranks, from bottom to top\u2014Rank one, Rank two, Rank three all the way up to Rank nine. Every rank is considered a big realm, and it is divided into 4 small realms\u2014initial stage, middle stage, upper stage and peak stage. You have all just become Gu Masters, so all of you are Rank one initial stage.\"\n\"If you all work hard in your cultivation, your cultivation base will naturally advance to rank two, even rank three. Of course, the higher your talent the bigger your chance of promotion.\"",
+      "title": "Scene 1"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 6,
+      "chapterNum": 7,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 29,
+      "summary": "",
+      "text": "\"For D grade talent, the Primeval Sea takes up about 2-3 layers of the aperture, the highest promotion reachable is Rank one to Rank two. For C grade talent, the Primeval Sea is 4-5 layers of the aperture. Usually the progress stops at Rank two, but with luck a small percentage of people can advance to Rank 3 initial stage. B grade talents have a Primeval Sea that takes up 6-7 layers of the aperture, they are able to cultivate to Rank 3, even as far as Rank 4. As for A grade talent, the Primeval Sea is plenty; it takes up 8-9 layers of the aperture. This kind of talent in a person is naturally the most gifted and the most suitable for a Gu Master's cultivation, being able to reach Rank 5.\"\n\"As for Gu Masters who are Rank 6 and above, they are all legends. I am not clear about the specifics either. In the Gu Yue clan, there has never been the appearance of a Rank 6 Gu Master, but Rank 4 and Rank 5 Gu Masters we have had before.\"\nThe teenagers' ears all pricked up, their eyes shining brightly as they listened.\nMany of them couldn't help but look at Gu Yue Fang Zheng who was sitting rigidly in the first row. He was an A grade talent after all. Their eyes were filled with feelings of envy and jealousy. At the same time there were some who stared at the corner at the last row of the classroom.\nLeaning against the window at the corner was Gu Yue Fang Yuan, who was bent over the desk sleeping soundly.\n\"Look, he's still sleeping,\" someone whispered.\n\"He's been sleeping continuously for a week, yet he's still not awake?\" Someone cut in.\n\"There's more. I heard that he was up all night, wandering about at the edge of the village.\"",
+      "title": "Scene 2"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 6,
+      "chapterNum": 7,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 30,
+      "summary": "",
+      "text": "\"There's been people who've seen it more than once, apparently he holds a wine-jar at night, dead drunk outside. Luckily these few years the village surroundings have been cleared clean, so it's safer.\" The fellow schoolmates whisper here and there, letting all kinds of small gossip spreading around quickly.\n\"Ah well, the blow was just too big. Someone hailed as a genius for so many years unexpectedly ending up to be a C-grade talent in the end, hehe.\"\n\"If only it was just the case. Of all the people his own little brother was pronounced an A grade, right now being the center of attention, enjoying the best treatment. The younger brother soars up into the sky, while the older brother falls to the ground, tut tut\u2026\"\nAs the discussion amongst the students got louder and louder, the academy elder's brow deepened into a frown. In the whole classroom all the teenagers were sitting respectfully, showing liveliness. This made Fang Yuan, who was sleeping on his table, stand out so much that it hurt the eyes.\n\"It's already been a week, yet he's still so dispirited. Hmph, initially I must have been mistaken by him, how could someone like this be a genius!\" The elder thought disgruntledly. He had spoken many times to Fang Yuan regarding this matter, but to no effect\u2014Fang Yuan still did whatever he liked. He would sleep through every class, making the elder in charge of teaching have a very frustrated headache.\n\"Forget it, he's just a C grade. If he can't even withstand this sort of blow, fostering him with that kind of temperament will just end up wasting the clan's resources, nothing good will come out of it.\" The elder's heart was filled with disappointment towards Fang Yuan.\nFang Yuan was just a C grade, compared to his younger brother Fang Zheng, who was an A grade talent, now this was someone worth the clan spending an amount of effort on raising!\nWhile the academy elder thought about all this, he was also replying to the latest question. \"In the clan history, there have b",
+      "title": "Scene 3"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 6,
+      "chapterNum": 7,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 31,
+      "summary": "",
+      "text": "As he said this he heaved a deep sigh. Below the platform, the youths started shouting in a rage.\n\"It's all because of that Flower Wine Monk, he was too sinister and cunning!\"\n\"What a pity that our fourth clan leader was softhearted and benevolent, and died at a young age.\"\n\"If only I was born a few hundred years earlier! If I saw that demon I would have torn off his ugly face.\"\nThe fourth clan head and the Flower Wine Monk's story is something that the entire Gu Yue clan knows.\nThe Flower Wine Monk was also a Rank five Gu Master, famous among the Demon faction in his time for his many years as a big flower thief. A few hundred years ago he travelled to Qing Mao Mountain. He attempted to commit crimes in Gu Yue Village, but was found out by the fourth generation clan leader in the end. After an earthshaking huge battle, the Flower Wine monk was beaten to the point he had to beg for mercy on his knees. The fourth clan head was merciful and kind, intending to spare his life. Yet the Flower Wink Monk suddenly launched a sneak attack, successfully inflicting heavy wounds on the fourth clan head. The clan head flew into a rage, killing the Flower Wine Monk on the spot. However his heavy injuries were not curable and thus, he died.\nTherefore in the hearts of the Gu Yue clansmen, the fourth generation clan head was a great hero who sacrificed his life for the village.\n\"Flower Wine Monk huh\u2026\" Awoken by the classroom's noisy chatter, Fang Yuan opened his sleepy eyes.",
+      "title": "Scene 4"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 6,
+      "chapterNum": 7,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 32,
+      "summary": "",
+      "text": "He stretched his body and thought with resentment in his heart, this Flower Wine Monk, where did he die? Why is it that I still can't find his legacy after searching around the entire village?\nIn his memories, there was a Gu Master from the clan who was brokenhearted and started drinking a lot. About two months from now, the man was heavily drunk as he lay down outside the village, his heavy wine aroma unknowingly attracting a Liquor worm.\nThe Gu Master was ecstatic, fully intent on catching it. The Liquor worm hurriedly fled, and as the Gu Master was in hot pursuit after it, he followed the Liquor worm's trail and discovered an underground hole entrance and went in.\nThe Liquor worm was a very precious and expensive type of Gu. The half drunk Gu Master decided to risk it and enter the hole, finding himself in a secret underground cave. After that he discovered the bones of the Flower Wine Monk and the inheritance he left behind.\nWhen the Gu Master returned to the village, he reported his discoveries and immediately caused a big stir among the entire clan. Later on that Gu Master benefitted much from it, his cultivation base suddenly becoming outstanding. His lover who had once abandoned him before was attracted to him again, and he became the talk of the clan for a while.\n\"Sadly I only heard bits and pieces about this piece of news, so I don't know where the accurate location is. It wasn't like I knew I would be reborn again to this day. Flower Wine Monk, where in the world did you die off to?\"\nThese few days he had been buying a lot of wine, wandering around the village as soon as night arrived. He wanted to use the aroma of liquor to attract the Liquor worm. Unfortunately he never saw the Liquor worm appear, making him feel very disappointed.\n\"If I could find that Liquor worm and refine it into my vital Gu, that would be so much better than the clan's Moonlight Gu. In the blink of an eye it's already April, there's not much time left.\" Fang Yuan heaved a sigh and ",
+      "title": "Scene 5"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 6,
+      "chapterNum": 7,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 33,
+      "summary": "",
+      "text": "Under the blue sky and white clouds, verdant mountains stretched into the distance. In the vicinity was a bamboo grove. This was Qing Mao Mountain's unique spear bamboo, each bamboo stick as straight as a line, the ends of the bamboo exceptionally sharp like the tip of a spear.\nNot too far away, the woods were already turning green. The tender shoots sprouted in a sea of yellow green color. Every now and then, beautiful and colorful sparrows would perch on the branches. The wind of spring blew, wrapping up the freshness of the mountains and rivers, and dispersing it into the world.\nWithout knowing it, the class was almost over. The academy elder finally informed them, \"This week I have taught you all how to contemplate and check your own aperture's Primeval Sea, and how to meditate and shift around the primeval essence inside your body. Now is the time for you all to refine your vital Gu. After this class ends, you will all go to the academy's Gu room and pick a Guworm. After choosing your Gu, please go home and focus on refining it. When you have finally refined your Gu, then you can come back to the academy and continue attending class. At the same time, this is your first assessment. Whoever can finish this assessment first will be rewarded a generous sum of 20 primeval stones.\"\nOh!\nThe next moment, the entire classroom erupted in cheers.\n\"It's finally time to refine a Gu. Which one should I choose?\" A glint of determination flashed in Fang Yuan's eyes.\ncomment\n133 comment\nVote\nSEND GIFT",
+      "title": "Scene 6"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 7,
+      "chapterNum": 8,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 34,
+      "summary": "",
+      "text": "\"Form a line, enter one by one,\" some voices suddenly yelled; it was natural that there were guards outside the Gu room. The youths went in one at a time and came out. Finally it was Fang Yuan's turn to enter the Gu room.\nThis room was a mysterious room. The four walls all had holes; in each one of these embedded square holes were another square hole. Each of the holes differed in size, some big and some small. The bigger ones were no bigger than an earthenware cooking pot, the smaller holes no smaller than a fist.\nIn the many square holes were all kinds of containers\u2014there were grey stone basins, verdant jade dishes, exquisite grass cages, earthen stoves etc. These containers kept all kinds of Gu.\nSome Gu were silent, while some Gu made a lot of noises, creating chirping, clucking, rustling sounds and so on. All these noises combined together to create a sort of life symphony.\n\"Gu are also divided into 9 big levels, following the same concept of the 9 rank realms of Gu Masters. All the Gu in this room are Rank one Gu.\" Fang Yuan glanced around, immediately aware of this.\nGenerally speaking, Rank one Gu Masters can only use Rank one Gu. If they used higher level Gu, these masters would need to pay an extremely heavy price. In addition, Gu need to be fed. The high cost of feeding higher level Gu was often not something lower ranked Gu Masters could afford. Thus to Gu Masters who were newcomers, they would always pick a Rank one Gu worm as their first refined Gu unless under a special situation.\nThere is great significance to the first Gu that a Gu Master refines\u2014It will become their vital Gu, interconnecting their lives together. If it dies, the Gu master will suffer a huge blow.\n\"Alas, my original wish was to get my hands on the Flower Wine Monk's Liquor worm and refine it as my vital Gu. But right now there are still no leads on my search for the Flower Wine Monk's skeleton. I don't even know when I will be able to find it, or when someone else does. Just to be saf",
+      "title": "Scene 1"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 7,
+      "chapterNum": 8,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 35,
+      "summary": "",
+      "text": "\"Sir, you've come.\" While he greeted Fang Yuan, he stretched out a thick and short chubby hand and skillfully swiped away the primeval stone pieces. As he put them onto his palm he shifted his hand up and down and felt that the weight was correct. With this the shopkeeper's smile deepened.\nPrimeval stones were the currency used in this world, used to measure the value of all commodities. At the same time it was also a condensed matter of the world's essence, usable on oneself, and is important in helping a GuMaster in his cultivation.\nAs it has monetary attributes as well as usable properties, it was similar to the gold on Earth. Earth has a gold currency standard system, and in this world it was replaced with primeval stones. Compared to gold, the purchasing power of primeval stones is even more astonishing. However with Fang Yuan's continued spending like this, no matter how many primeval stones he had it would not be enough.\n\"Two jars of wine everyday, and it has been 7 full days already. The initial savings I had are already almost all spent,\" Fang Yuan frowned slightly as he walked out of the tavern with two jars of wine.\nOnce someone becomes a Gu Master, he would be able to extract primeval essence straight from a primeval stone to replenish the Primeval Sea in his aperture. Thus to Gu Masters, primeval stones were not just a form of currency, but also a supplement in their cultivation. With sufficient primeval stones, the rate of cultivation will increase greatly; this can make up for the disadvantages of those with lower talent grade.\n\"I won't have primeval stones to buy wine anymore tomorrow, yet the Liquor worm just doesn't want to appear. Do I really have to take the Moonlight Gu and refine it as my vital Gu?\" Fang Yuan felt rather unsatisfied.\nAs he walked with the two jars of wine in his hand, he started to wonder. \"Academy elder said, the first person who manages to refine his vital Gu will get a reward of 20 primeval stones. Right now I guess a lot of",
+      "title": "Scene 2"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 7,
+      "chapterNum": 8,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 36,
+      "summary": "",
+      "text": "He subconsciously started to imitate Fang Yuan, pretending to look expressionless all the time, but quickly found that he was not fit for this kind of style. Sometimes during class, a girl's shout could easily send him red-faced. On the roads, all the flirting from older women even caused him to flee in a hurry many times.\nHe was like a toddler learning how to walk, stumbling and falling as he tried to get used to his new life. During this entire process, he was unable to avoid hearing about his older brother\u2014falling into depression, becoming a drunkard, not going home at night, sleeping soundly in class.\nHe felt very shocked at this. His own older brother, once a strong entity and hailed as a being of great genius, suddenly becoming like this?!\nBut slowly he started to sort of understand. His brother was also a normal man after all. Encountering this kind of setback and huge blow would send anyone into depression. Along with this understanding, Fang Zheng secretly felt an indescribable happiness inside. This feeling was something he was terribly unwilling to admit, but yet it definitely existed.\nHis older brother who was hailed as a genius and always covering him in shadow, acting so depressed and dispirited right now. From a reverse angle, it was a testimony to his own growth, wasn't it?\nHe was the outstanding one, this was the real truth!\nHence when he saw Fang Yuan holding the wine jars, his hair messy and clothes untidy, Gu Yue Fang Zheng felt relieved, his breathing also becoming a lot easier. But yet he said, \"rother, you have to stop drinking, you cannot go on like this! You have no idea how worried the people who care about you are, you need to wake up!\"\nFang Yuan was emotionless; he did not say anything. The two brothers gazed at each other.\nYounger brother Gu Yue Fang Zheng's eyes were shining, giving off a sharp and keen feel. And the older brother Gu Yue Fang Yuan's two orbs were a deep black, faintly resembling a deep ancient pool. These eyes could not",
+      "title": "Scene 3"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 8,
+      "chapterNum": 9,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 37,
+      "summary": "",
+      "text": "\"Father, Mother.\" Fang Zheng in a state of realization changed his statement.\nAunt and Uncle laughed heartily. \"What a good son, not a waste of us husband and wife to raise you since you were five years old. And we have raised you for ten whole years,\" Aunt wiped her tears.\nUncle looked at the silent Fang Yuan and said gently, \"Fang Yuan, how about you?\"\nFang Yuan shook his head without saying a word.\n\"Brother.\" Gu Yue Fang Zheng was about to advise him, but Uncle, whose tone was unchanged, stopped him. \"If that's the case, Fang Yuan my nephew, we won't force you. Since you are already 15 years old, you need to start being independent, this way you will also easily carry on your Fang bloodline. Uncle here has prepared 200 primeval stones for you as financial support.\"",
+      "title": "Scene 1"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 8,
+      "chapterNum": 9,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 38,
+      "summary": "",
+      "text": "\"200 primeval stones!\" Fang Zheng's eyes opened wide; he had never seen so many primeval stones in his life. He couldn't help but reveal a jealous expression.\nBut Fang Yuan still shook his head.\nFang Zheng was puzzled, while Uncle's expression changed slightly. Aunt's face had also turned cloudy.\n\"Aunt and Uncle. If there is nothing else, then your nephew will take his leave,\" Fang Yuan did not give them any chance to speak again. After he finished his sentence he took his wine jars and left the hall immediately.\nFang Zheng rose from his seat and said, \"Father, Mother. Brother is not thinking straight, how about you let me advise him?\"",
+      "title": "Scene 2"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 8,
+      "chapterNum": 9,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 39,
+      "summary": "",
+      "text": "Uncle waved his hand and deliberately sighed, \"Alas this matter cannot be forced. Since you have the heart, as your father I am already very content. Servants, take care of Young Master Fang Zheng treat him well. \"\n\"Then your son will take his leave,\" Fang Zheng retreated, and the living room fell into silence.\nThe sun set below the mountain, and the living room became darker. In a while from the darkness Uncle's cold voice emerged. \"Looks like this brat Fang Yuan has seen through our plot.\"\nAmong the regulations of the Gu Yue clan it was clearly stipulated that the eldest son at 16 years of age would have the qualifications to inherit the family property. Fang Yuan's parents had passed away, leaving behind a fortune. It was being 'taken care' of by Aunt and Uncle. This inheritance was not something a measly sum of 200 essence stones could compare to. If Fang Yuan had also agreed to be adopted by Aunt and Uncle, then he would lose the right to inherit this fortune. If Fang Yuan at this year's age of 15 decided to be independent, he would also not conform to the clan's regulations.\n\"Luckily we managed to win over Fang Zheng, and Fang Yuan only has C grade talent,\" Uncle heaved a sigh, feeling joyful.",
+      "title": "Scene 3"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 8,
+      "chapterNum": 9,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 40,
+      "summary": "",
+      "text": "\"Then husband, if Fang Yuan decides to go independent at 16 years of age, what do we do?\" Aunt's tone was hysterical as she thought about the inheritance.\n\"Hmph, since he is acting undisciplined, then he can't blame us. As long as we catch him committing a huge mistake before he leaves us and expel him from our family, it will be counted as snatching away his right to inherit the legacy,\" Uncle explained coldly.\n\"But the brat is very clever, how would he make a mistake?\" Aunt asked, puzzled.\nUncle rolled his eyes immediately and whispered angrily, \"You are really stupid! If he won't make a mistake, can't we frame him instead? Just let Shen Cui seduce Fang Yuan and scream assault, we catch him on the spot, fabricate a story about him acting wild while he was drunk. Surely we can expel Fang Yuan?\"\n\"Husband you really have a way, what an ingenious plan!\" Aunt was overjoyed at that moment.",
+      "title": "Scene 4"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 8,
+      "chapterNum": 9,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 41,
+      "summary": "",
+      "text": "The thick colors of the night covered the sky, and the stars that blanketed the sky were mostly covered away by floating dark clouds. Each of the households in the village gradually lit up with lights.\nGu Yue Fang Zheng was ushered into a room.\n\"Young Master Fang Zheng, the old master personally had me tidy up this room specially for you,\" Matron Shen said with a hospitable tone. She bowed her waist, her face having a flattering smile.\nFang Zheng looked around with a glance, his eyes shining. This room was at least bigger by two times compared to his previous room. The middle of the room was a spacious bed; beside the window was a rosewood desk with a delicate set of ink and paper. The walls were decorated with exquisite ornaments, and beneath his feet was not an ordinary floor, but covered in a layer of soft handmade carpet.\nFrom his childhood until now, Fang Zheng had never stayed in such a room. He immediately nodded his head continuously and said, \"This is very good, it really isn't bad, thank you Matron Shen.\"",
+      "title": "Scene 5"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 8,
+      "chapterNum": 9,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 42,
+      "summary": "",
+      "text": "Matron Shen was Aunt and Uncle's most highly valued person; she was in charge of all the slaves in the house and was a housekeeper who lived up to her reputation. The girl Shen Cui who served Fang Yuan was her daughter.\nMatron Shen laughed. \"Young Master, I am not deserving of your gratitude. It is my duty, my duty! Young Master, do not hesitate to eat well and sleep well. Whatever you want, just shake the bell beside your bed, somebody will attend to you immediately. Old master has already instructed us, so in these few days please do put all your attention on cultivating, Young Master. Just leave all the other chores to us.\"\nFang Zheng felt a gush of gratitude in his heart. He did not say anything, but deep down inside he decided, this time I must get number one and not let Aunt and Uncle down!\nThe dark clouds in the sky were getting heavier, and the night was getting darker. In the night sky most of the stars were covered by the clouds, leaving a few shining with faint light, blinking away in the sky.\n\"Aunt and Uncle must be plotting on how to expel me from the house right now. In my previous life they secretly instigated the servants to provoke me, and then framed me. Then they expelled me from the family; I wonder if there will be any changes in this life.\" Fang Yuan sneered in his heart as he walked along the streets.",
+      "title": "Scene 6"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 8,
+      "chapterNum": 9,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 43,
+      "summary": "",
+      "text": "He had long seen clearly the true colors of his Aunt and Uncle. But he could also understand it.\nMen would throw away their lives in pursuit of wealth. No matter whether on Earth or in this world, there would always be many people who would be willing to trample over kinship, friendly and love for their own self-interests and benefits.\nIn fact kinship did not exist. In the beginning when Aunt and Uncle took in Fang Yuan and Fang Zheng, their only purpose was to seek the heritage. It was just so that the two brothers repeatedly surprised them.\n\"All things are difficult before they are easy. To me this is even more so. Firstly, I do not have outstanding talent; secondly, I do not have the care of a teacher. It is equivalent to raising a family from nothing, but with my parent's legacy it can be said to be a huge advantage for me. In my previous life Aunt and Uncle stole away the heritage, and because of that I had to waste two full years to be able to cultivate to Rank One peak stage. In this life I cannot afford to make the same mistake.\"\nFang Yuan pondered in his mind as he walked.",
+      "title": "Scene 7"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 8,
+      "chapterNum": 9,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 44,
+      "summary": "",
+      "text": "Instead of staying home, he held the two jars of wine and walked towards the outskirts of the village.\nThe night deepened and the dark clouds obscured the star light, the mountain breeze blew, growing stronger gradually.\nThe mountain rain was coming. But he still had to search; to get ahold of his parent's inheritance, he would need to wait until he was sixteen. And the Flower Wine Monk's treasure was the only thing that he could get his hands on in the short run.\nThere were not many people on the streets. The houses along the road showed a dim light. Some small rubbish and leaves were blown away by the wind, drifting about.\nFang Yuan's thin clothing could not stop the mountain wind, and he could not help but feel a cold chill. He simply opened the wine jar, drinking a small mouthful of wine. Although it was turbid wine, but after swallowing it he felt a warm feeling rising up.",
+      "title": "Scene 8"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 8,
+      "chapterNum": 9,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 45,
+      "summary": "",
+      "text": "This was the first time that he actually drank wine in these few days.\nThe further he walked out of the village, the lesser the houses beside the road, and the dimmer the lights became. In front of him it was even darker. The wind blew heavily against the mountain forest, the branches swaying in the night, making a whistling noise that sounded like a herd of beasts roaring.\nFang Yuan's pace did not slow down. He walked out of the huge entrance of the village and out into the darkness, going further as he walked. And behind him were the bright and brilliant lights of tens of thousands of houses. In these lights there was a warm corner.\nThe younger brother Fang Zheng was seated at his desk, reviewing the notes that he had taken down during class. The lights in the house were shining brightly, and the solid wall blocked away the cold winds. Beside his hand was a cup of warm ginseng tea, the steam rising up from the cup.\n\"Young Master Fang Zheng, the hot bathing water has been prepared for you.\"",
+      "title": "Scene 9"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 8,
+      "chapterNum": 9,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 46,
+      "summary": "",
+      "text": "Outside the door, Shen Cui's voice softly drifted through.\nFang Zheng's heart jolted. \"Then bring it in please.\"\nShen Cui walked into the room with her waist bowed, her expression pleased.\n\"Your servant greets Young Master.\" Her eyes sent amorous glances at Fang Zheng. Fang Yuan was only a C grade talent, but Fang Zheng was an A grade talent! To be able to get ahold of him, was truly the biggest fortune!\ncomment\n132 comment\nVote\nSEND GIFT",
+      "title": "Scene 10"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 9,
+      "chapterNum": 10,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 47,
+      "summary": "",
+      "text": "\"It has already been 3 days and 3 nights.\"\nOn the night 3 days ago he had walked out of the village with two jars of wine, searching around the surroundings. But when it was late into the night it started pouring rain. Put aside him being drenched to the bones, the main point was that in the situation he could not go about searching anymore.\nThe rainwater would quickly wash away the wine fragrance. At the same time if he forced himself to search under such conditions, it might arouse suspicions. Although previously he pretended to become a depressed drunk person to cover up his real motives, but he knew never to underestimate the intelligence of others around him. Only a fool would think others were stupid.\nThus under this helplessness, Fang Yuan could only stop his search.\nNot too mention that the moment it started raining, the rain had went on continuously. Sometimes it became heavier and sometimes lighter, but it never stopped.\n\"I guess in this way, I won't be able to find the Liquor worm for a short period of time. To be safe I can only choose to start refining the Moonlight Gu. While I refine it, if I can find the Liquor worm during the process it would be the best, but if I can't then this would have to do. But this matter is very common; a storm may arise from a clear sky, something unexpected may happen anytime. In this world who can do everything without obstacles in his way, having a perfect journey?\"\nFang Yuan's thoughts were very calm; his 500 years of experience had long washed away the impulsiveness that he rarely had in the first place.\nHe closed the door and window and sat cross-legged on his bed. He closed his eyes slowly and after breathing a few times, he calmed his state of mind.\nIn the next moment the vision of his primeval aperture appeared in his mind. The aperture may be positioned inside his body but it was mysteriously unusual, limitlessly big and yet infinitely small. The outer layer of the aperture was a layer of light. The white light ga",
+      "title": "Scene 1"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 9,
+      "chapterNum": 10,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 48,
+      "summary": "",
+      "text": "Every drop of primeval essence was precious, because it was the root of a Gu Master, and was the source of power. Gu Masters need to rely on primeval essence to refine and use Gu.\nAs he retreated his mind from the Primeval Sea, Fang Yuan opened his eyes retrieved the Moonlight Gu. The Moonlight Gu quietly sat in the middle of his palm, resembling a curved blue moon, small and crystalline.\nWith a simple thought, the Primeval Sea in his aperture tumbled and a jet of primeval essence broke from the sea surface and transferred out of the body, finally rushing into the Moonlight Gu. The Moonlight Gu suddenly radiated fiercely in blue light, slightly trembling in Fang Yuan's palm, resisting the influx of primeval essence.\nGu are the essence of heaven and earth, carrying the secrets of the world, the bearers of the law of nature. They are living creatures that live freely under the sky, each born with a will of its own. Right now with Fang Yuan trying to refine it, it would mean wiping out its will. Feeling the danger looming, the Moonlight Gu naturally resisted.\nThe process of refining is a very difficult one.\nThe Moonlight Gu was like a curved crescent moon. As the green copper primeval essence poured into the crescent, the two pointed ends of the crescent turned green. Slowly this green copper essence began to spread to the middle of the crescent moon.\nIn less than three minutes, Fang Yuan's face had become pale. A huge volume of primeval essence continuously poured into the Moonlight Gu, making him feel a weakness that rapidly attacked his heart.\n1%, 2%, 3%\u2026 8%, 9%, 10%.\nTen minutes later, Fang Yuan's Primeval Sea had used away 10% of primeval essence. Yet on the blue crystalline Moonlight Gu's surface, the points of green copper essence on the two tips of the crescent only expanded a tiny little area towards the center.\nThe resistance of the Moonlight Gu was immensely strong. Fortunately Fang Yuan had anticipated this earlier and did not feel surprised. He persisted a",
+      "title": "Scene 2"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 9,
+      "chapterNum": 10,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 49,
+      "summary": "",
+      "text": "After another twenty minutes, the Primeval Sea in Fang Yuan's body was only left with 14%. The green copper essence on the Moonlight Gu had expanded slightly, the two slivers of green essence adding up together covering the surface of the Moonlight Gu by about 1/12. The rest of the Moonlight Gu's surface was still the original color of light blue.\n\"Refining a Gu is so hard,\" Fang Yuan sighed as he looked at it. He broke the influx of primeval essence, stopping the refining process.\nUp until now, he had been refining for half an hour, the Primeval Sea in his aperture consumed over more than half, with only 14% of primeval essence left. And the Moonlight Gu was only refined by 1/12 of it.\nTo make matters worse the Moonlight Gu was still emitting its faint blue halo. Even though Fang Yuan had stopped refining, the Moonlight Gu did not stop resisting; it was still driving out Fang Yuan's green coppery primeval essence.\nFang Yuan could clearly feel that the primeval essence that he poured into the Moonlight Gu was being pushed out, bit by bit by the Moonlight Gu out of its body. On its surface, the green copper essence at the two tips of the moon crescent was slowly shrinking.\nBased on this speed of reduction, in about six hours later the Moonlight Gu would be able to completely expel all of Fang Yuan's primeval essence. At that time when he needed to refine this Gu it would make no difference from starting over again.\n\"Every time when refining Gu, it is just like a fight between two armies, a battle of positional warfare, or war of attrition. Even though I refined 1/12 of the Gu, I wasted three quarters of my primeval essence. When refining Gu, a Gu Master has to replenish his Primeval Sea while continuously engaging the refinement process, consolidating his victory. The refinement of a Guis a test of one's skill in shifting his primeval essence and the patience of an enduring battle.\"\nFang Yuan took out a piece of primeval stone from his money bag as he pondered.\nA Gu ",
+      "title": "Scene 3"
+    },
+    {
+      "aspect": "1216x832",
+      "chapter": 9,
+      "chapterNum": 10,
+      "negative": "blurry, low quality, deformed, bad anatomy",
+      "prompt": "",
+      "scene_id": 50,
+      "summary": "",
+      "text": "After about half an hour the Primeval Sea had been replenished back to its original volume of 44%. At this level the rising water level of the sea stopped abruptly. Even though there was still space inside the aperture, Fang Yuan could not store any more primeval essence. This was the limit of his C grade talent.\nThus from here one can see the significance of the grade of one's cultivation talent. The higher the talent, the more primeval essence the aperture can hold, and the faster the natural recovery of the primeval essence will be.\nIn Fang Yuan's case to refine a Gu and solidify his results, he would have to absorb primeval stones because his primeval essence natural recovery rate cannot defeat the rate of the Moonlight Gu expelling it out.\nHowever in the case of the A grade talent Fang Zheng, he could replenish 8% of primeval essence every hour. In six hours he would recover 48% of primeval essence, and in the same time frame the Moonlight Gu could only expel away 3% points of primeval essence. Fang Zheng did not require the external help of a primeval stone. He could go on refining with a few rests in the process and successfully refine the Moonlight Gu in a few days.\nThat was why Fang Yuan knew from the beginning that in this test, to refine the Moonlight Gu he never had the chance to obtain the first position. It had nothing to do with a person's actual strength, as the first factor was the grade of talent.\nThe second factor would be primeval stones. If there was an abundance of primeval stones, without hesitation to consume, a B grade talent could also surpass an A grade talent and obtain the first position.\n\"In my hands are six pieces of primeval stones. I cannot compare to Gu Yue Mo Bei or Gu Yue Chi Chen, these kinds of people who have their elder family members supporting them from behind. My talent is on C grade, and cannot be compared to Fang Zheng who has an A grade talent. I never had a chance of winning in this test. Why not divert my energy and go",
+      "title": "Scene 4"
+    }
+  ],
+  "story": "Reverend Insanity - Gu Zhen Ren - WebNovel"
+}

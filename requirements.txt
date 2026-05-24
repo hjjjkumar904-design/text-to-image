@@ -3,3 +3,6 @@ pyyaml>=6.0.1
 spacy>=3.7.0
 Pillow>=10.0.0
 tqdm>=4.66.0
+flask>=3.0.0
+cloudscraper>=1.2.71
+beautifulsoup4>=4.12.0
